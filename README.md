@@ -69,4 +69,17 @@ By combining computer vision, natural language processing, and geospatial visual
 - Improve disaster response timelines  
 - Reduce reliance on manual image inspection  
 - Support data-driven recovery decisions  
-- Demonstrate practical applications of academic AI research  
+- Demonstrate practical applications of academic AI research
+
+## 👥 Team Members
+
+**Senior Capstone Team — University of Texas at Dallas**
+
+- Kanchan Javalkar  
+- Shraddha Subash 
+- Nadeeba Atiqui 
+- Noel Emmanuel
+- Anjali Kadur
+- Adarsh Goura
+
+> Faculty Advisor: Dr. Semih Dinc
