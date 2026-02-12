@@ -1,7 +1,9 @@
 
 # 🌍 Automated Disaster Damage Assessment from Aerial Imagery
 
-Applying academic innovations to real-world engineering and computer science problems.
+This project was developed as part of our **Senior Capstone at The University of Texas at Dallas**, where we apply academic research and engineering principles to solve real-world problems.
+
+Under faculty guidance, our team designed and implemented an AI-powered system that translates recent advances in **Vision-Language Models (VLMs)** into practical disaster response tools.
 
 ---
 
