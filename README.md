@@ -1,4 +1,4 @@
-# disaster-detection-group6
+
 # 🌍 Automated Disaster Damage Assessment from Aerial Imagery
 
 Applying academic innovations to real-world engineering and computer science problems.
