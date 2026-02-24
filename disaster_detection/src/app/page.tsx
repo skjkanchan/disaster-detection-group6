@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -7,6 +8,11 @@ export default function Home() {
         <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
           Disaster Detection Landing Page
         </h1>
+        <Link href="/upload">
+          <button className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg">
+            upload image page
+          </button>
+        </Link>
       </main>
     </div>
   );
