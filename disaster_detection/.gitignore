@@ -42,6 +42,6 @@ next-env.d.ts
 
 
 # preprocessing
-preprocessed_data/
-vlm_preprocessed_data/
-*.npz
+../backend/preprocessing/preprocessed_data/
+../backend/preprocessing/vlm_preprocessed_data/
+../backend/preprocessing/*.npz
