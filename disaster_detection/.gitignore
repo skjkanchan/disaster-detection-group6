@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# preprocessing
+preprocessed_data/
+vlm_preprocessed_data/
+*.npz
