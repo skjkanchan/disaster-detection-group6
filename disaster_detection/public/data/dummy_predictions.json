@@ -1,0 +1,22 @@
+[
+  { "id": "florence_1", "lat": 34.2257, "lon": -77.9447, "damage_label": "major", "confidence": 0.88, "explanation": "Roof sections missing after storm surge." },
+  { "id": "florence_2", "lat": 34.2279, "lon": -77.9391, "damage_label": "minor", "confidence": 0.64 },
+  { "id": "florence_3", "lat": 34.2234, "lon": -77.9502, "damage_label": "destroyed", "confidence": 0.93, "explanation": "Structure collapse visible in post imagery." },
+  { "id": "florence_4", "lat": 34.2301, "lon": -77.9528, "damage_label": "no damage", "confidence": 0.91 },
+  { "id": "florence_5", "lat": 34.2208, "lon": -77.9367, "damage_label": "major", "confidence": 0.82 },
+  { "id": "florence_6", "lat": 35.1085, "lon": -77.0441, "damage_label": "minor", "confidence": 0.58 },
+  { "id": "florence_7", "lat": 35.1057, "lon": -77.0499, "damage_label": "major", "confidence": 0.86 },
+  { "id": "florence_8", "lat": 35.1109, "lon": -77.0384, "damage_label": "destroyed", "confidence": 0.94, "explanation": "Floodwater submersion detected." },
+  { "id": "florence_9", "lat": 35.1071, "lon": -77.0332, "damage_label": "minor", "confidence": 0.62 },
+  { "id": "florence_10", "lat": 35.1123, "lon": -77.0514, "damage_label": "no damage", "confidence": 0.90 },
+  { "id": "florence_11", "lat": 34.2268, "lon": -77.9483, "damage_label": "major", "confidence": 0.84 },
+  { "id": "florence_12", "lat": 34.2294, "lon": -77.9410, "damage_label": "minor", "confidence": 0.60 },
+  { "id": "florence_13", "lat": 34.2222, "lon": -77.9455, "damage_label": "destroyed", "confidence": 0.95 },
+  { "id": "florence_14", "lat": 34.2249, "lon": -77.9380, "damage_label": "major", "confidence": 0.81 },
+  { "id": "florence_15", "lat": 34.2283, "lon": -77.9512, "damage_label": "no damage", "confidence": 0.92 },
+  { "id": "florence_16", "lat": 35.1063, "lon": -77.0428, "damage_label": "minor", "confidence": 0.55 },
+  { "id": "florence_17", "lat": 35.1097, "lon": -77.0475, "damage_label": "major", "confidence": 0.87 },
+  { "id": "florence_18", "lat": 35.1049, "lon": -77.0361, "damage_label": "destroyed", "confidence": 0.96 },
+  { "id": "florence_19", "lat": 35.1115, "lon": -77.0419, "damage_label": "minor", "confidence": 0.63 },
+  { "id": "florence_20", "lat": 35.1089, "lon": -77.0526, "damage_label": "no damage", "confidence": 0.89 }
+]
