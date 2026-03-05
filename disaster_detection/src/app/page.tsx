@@ -1,20 +1,16 @@
+import DashboardHeader from "@/components/DashboardHeader";
 import GeospatialDashboard from "@/components/GeospatialDashboard";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-zinc-50 p-4 md:p-6">
-      <header>
-        <h1 className="text-xl font-semibold text-zinc-900">
-          Disaster Damage Dashboard
-        </h1>
-        <p className="text-sm text-zinc-600">
-          Geospatial view of damage assessments
-        </p>
-      </header>
+    <div className="min-h-screen bg-zinc-50 p-4 md:p-8">
+      <main className="mx-auto max-w-6xl space-y-6">
+        <DashboardHeader />
 
-      <section className="bg-white rounded-lg border border-zinc-200 p-4 shadow-sm">
-        <GeospatialDashboard />
-      </section>
+        <section className="bg-white rounded-xl border border-zinc-200 p-4 md:p-5 shadow-sm">
+          <GeospatialDashboard />
+        </section>
+      </main>
     </div>
   );
 }
