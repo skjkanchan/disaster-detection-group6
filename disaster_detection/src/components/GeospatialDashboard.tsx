@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import DamagePercentageIndicators from "./DamagePercentageIndicators";
+import DamageMap from "./DamageMap";
 
 const DAMAGE_COLORS: Record<string, string> = {
   no_damage: "#22c55e",
@@ -40,12 +41,11 @@ const HOT_SPOTS: Array<{
 const SEVERITY_OPTIONS = ["All", "No damage", "Minor", "Major", "Destroyed"];
 
 export default function GeospatialDashboard() {
-  const [imageryView, setImageryView] = useState<"pre" | "post" | "side" | "slider">("post");
   const [hoverSpot, setHoverSpot] = useState<string | null>(null);
   const [selectedSpot, setSelectedSpot] = useState<typeof HOT_SPOTS[0] | null>(null);
-  const [sliderPos, setSliderPos] = useState(50);
   const [search, setSearch] = useState("");
   const [severityFilter, setSeverityFilter] = useState("All");
+  const [imageryType, setImageryType] = useState<"pre" | "post" | "none">("post");
 
   const severityToKey: Record<string, string> = {
     "No damage": "no_damage",
@@ -107,128 +107,36 @@ export default function GeospatialDashboard() {
         {/* Left Column: Map & Legend */}
         <div className="lg:col-span-2 flex flex-col gap-3">
           <div className="flex flex-wrap items-center justify-between gap-2 px-1">
-            <span className="text-sm font-bold text-zinc-800 flex items-center gap-2">
+            <div className="text-sm font-bold text-zinc-800 flex items-center gap-2">
               <svg className="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              Hurricane Matthew — Pre / Post Imagery
-            </span>
-            <div className="flex bg-zinc-100 p-1 rounded-lg border border-zinc-200">
-              {(["post", "pre", "side", "slider"] as const).map((view) => (
-                <button
-                  key={view}
-                  type="button"
-                  onClick={() => setImageryView(view)}
-                  className={`rounded-md px-3 py-1 text-xs font-semibold transition-all ${imageryView === view
-                    ? "bg-white text-sky-700 shadow-sm ring-1 ring-black/5"
-                    : "text-zinc-500 hover:text-zinc-700 hover:bg-zinc-200/50"
-                    }`}
+              Hurricane Matthew — Geospatial Assessment
+            </div>
+            
+            <div className="flex rounded-lg overflow-hidden border border-zinc-200 bg-white">
+                <button 
+                  className={`px-3 py-1.5 text-xs font-semibold ${imageryType === "pre" ? "bg-indigo-600 text-white" : "text-zinc-600 hover:bg-zinc-50"}`}
+                  onClick={() => setImageryType("pre")}
                 >
-                  {view === "pre" ? "Pre" : view === "post" ? "Post" : view === "side" ? "Side by Side" : "Slider"}
+                  Pre-Disaster
                 </button>
-              ))}
+                <div className="w-px bg-zinc-200"></div>
+                <button 
+                  className={`px-3 py-1.5 text-xs font-semibold ${imageryType === "post" ? "bg-indigo-600 text-white" : "text-zinc-600 hover:bg-zinc-50"}`}
+                  onClick={() => setImageryType("post")}
+                >
+                  Post-Disaster
+                </button>
+                <div className="w-px bg-zinc-200"></div>
+                <button 
+                  className={`px-3 py-1.5 text-xs font-semibold ${imageryType === "none" ? "bg-indigo-600 text-white" : "text-zinc-600 hover:bg-zinc-50"}`}
+                  onClick={() => setImageryType("none")}
+                >
+                  Base Map
+                </button>
             </div>
           </div>
 
-          <div className="relative rounded-xl overflow-hidden border border-zinc-200 bg-zinc-50 shadow-inner">
-            {imageryView === "slider" && (
-              <div className="relative aspect-[4/3] w-full">
-                <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}>
-                  <Image src="/hurricane-matthew-pre.png" alt="Pre-disaster" fill className="object-cover object-left-top" sizes="800px" />
-                </div>
-                <div className="absolute inset-0" style={{ clipPath: `inset(0 0 0 ${sliderPos}%)` }}>
-                  <Image src="/hurricane-matthew-post.png" alt="Post-disaster" fill className="object-cover object-left-top" sizes="800px" />
-                </div>
-                <div
-                  className="absolute top-0 bottom-0 w-1.5 bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)] flex items-center justify-center pointer-events-none z-10"
-                  style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }}
-                >
-                  <span className="absolute rounded-full bg-zinc-900 text-white text-[10px] px-2 py-1 font-bold whitespace-nowrap shadow-md">
-                    Pre | Post
-                  </span>
-                </div>
-                <input
-                  type="range"
-                  min={0}
-                  max={100}
-                  value={sliderPos}
-                  onChange={(e) => setSliderPos(Number(e.target.value))}
-                  className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20"
-                />
-              </div>
-            )}
-            {imageryView === "side" && (
-              <div className="grid grid-cols-2 gap-0.5 bg-zinc-300">
-                <div className="relative aspect-[4/3] bg-white">
-                  <Image src="/hurricane-matthew-pre.png" alt="Hurricane Matthew pre-disaster" fill className="object-contain" sizes="(max-width: 768px) 100vw, 50vw" />
-                  <span className="absolute bottom-3 left-3 rounded-lg bg-black/70 backdrop-blur-sm px-3 py-1 text-xs font-semibold text-white shadow-sm border border-white/10">Pre-disaster</span>
-                </div>
-                <div className="relative aspect-[4/3] bg-white">
-                  <Image src="/hurricane-matthew-post.png" alt="Hurricane Matthew post-disaster" fill className="object-contain" sizes="(max-width: 768px) 100vw, 50vw" />
-                  <span className="absolute bottom-3 left-3 rounded-lg bg-black/70 backdrop-blur-sm px-3 py-1 text-xs font-semibold text-white shadow-sm border border-white/10">Post-disaster</span>
-                  {filteredSpots.map((spot) => (
-                    <button
-                      key={spot.id}
-                      type="button"
-                      className="absolute w-5 h-5 rounded-full border-[2.5px] border-white shadow-[0_2px_8px_rgba(0,0,0,0.4)] transition-all hover:scale-150 focus:outline-none z-10"
-                      style={{ left: `${spot.left}%`, top: `${spot.top}%`, transform: "translate(-50%, -50%)", backgroundColor: DAMAGE_COLORS[spot.damageClass] }}
-                      title={`${spot.label} — ${spot.damageClass.replace("_", " ")}${spot.pct != null ? ` (${spot.pct}%)` : ""}`}
-                      onMouseEnter={() => setHoverSpot(spot.id)}
-                      onMouseLeave={() => setHoverSpot(null)}
-                      onClick={() => setSelectedSpot(spot)}
-                    />
-                  ))}
-                </div>
-              </div>
-            )}
-            {(imageryView === "pre" || imageryView === "post") && (
-              <div className="relative aspect-[4/3] w-full">
-                <Image
-                  src={imageryView === "pre" ? "/hurricane-matthew-pre.png" : "/hurricane-matthew-post.png"}
-                  alt={imageryView === "pre" ? "Hurricane Matthew pre-disaster" : "Hurricane Matthew post-disaster with damage hot spots"}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 100vw, 800px"
-                />
-                {imageryView === "post" &&
-                  filteredSpots.map((spot) => (
-                    <button
-                      key={spot.id}
-                      type="button"
-                      className="absolute w-6 h-6 rounded-full border-[3px] border-white shadow-[0_2px_10px_rgba(0,0,0,0.5)] transition-all hover:scale-150 focus:outline-none z-10"
-                      style={{ left: `${spot.left}%`, top: `${spot.top}%`, transform: "translate(-50%, -50%)", backgroundColor: DAMAGE_COLORS[spot.damageClass], zIndex: hoverSpot === spot.id || selectedSpot?.id === spot.id ? 20 : 10 }}
-                      onMouseEnter={() => setHoverSpot(spot.id)}
-                      onMouseLeave={() => setHoverSpot(null)}
-                      onClick={() => setSelectedSpot(spot)}
-                    />
-                  ))}
-                {imageryView === "pre" && (
-                  <span className="absolute bottom-3 left-3 rounded-lg bg-black/70 backdrop-blur-sm px-3 py-1 text-xs font-semibold text-white shadow-sm border border-white/10">
-                    Pre-disaster Imagery
-                  </span>
-                )}
-                {imageryView === "post" && (
-                  <span className="absolute bottom-3 left-3 rounded-lg bg-black/70 backdrop-blur-sm px-3 py-1 text-xs font-semibold text-white shadow-sm border border-white/10">
-                    Post-disaster — Select hotspots for details
-                  </span>
-                )}
-              </div>
-            )}
-            {hoverSpot && !selectedSpot && (
-              <div className="absolute bottom-3 right-3 max-w-[240px] rounded-xl border border-zinc-200/50 bg-white/95 backdrop-blur px-4 py-3 shadow-xl text-left z-30 animate-in fade-in slide-in-from-bottom-2 duration-200">
-                {HOT_SPOTS.filter((s) => s.id === hoverSpot).map((s) => (
-                  <div key={s.id}>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: DAMAGE_COLORS[s.damageClass] }} />
-                      <p className="font-bold text-zinc-900 text-sm">{s.label}</p>
-                    </div>
-                    <p className="text-xs text-zinc-600 font-medium pl-4">
-                      {s.damageClass.replace("_", " ").toUpperCase()}
-                      {s.pct != null && <span className="text-zinc-400 font-normal"> • {s.pct}% conf</span>}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          <DamageMap imagery={imageryType} />
 
           {/* Legend */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-1 p-3.5 bg-white rounded-xl border border-zinc-200 shadow-sm">
