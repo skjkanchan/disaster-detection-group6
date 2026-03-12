@@ -13,10 +13,12 @@ const INITIAL_AI_MESSAGE: Message = {
 };
 
 const SUGGESTIONS = [
-  "Assess damage in downtown area",
-  "Show critical zones",
-  "Building stability analysis",
-  "Infrastructure status",
+  "What's the damage at 501 River Rd?",
+  "Damage on Main St",
+  "Region North summary",
+  "Severity summary",
+  "Overall dataset summary",
+  "Top affected areas",
 ];
 
 function formatTime(date: Date): string {
@@ -168,7 +170,7 @@ export default function Page() {
                   sendMessage(input);
                 }
               }}
-              placeholder="Ask about damage assessment, locations, or infrastructure…"
+              placeholder="Address lookup, street, region summary, severity, dataset summary, or top affected areas…"
               className="flex-1 rounded-xl border border-gray-600 bg-gray-800 px-4 py-4 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               disabled={loading}
             />
