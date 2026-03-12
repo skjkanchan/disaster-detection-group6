@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import DashboardHeader from "@/components/DashboardHeader";
 import GeospatialDashboard from "@/components/GeospatialDashboard";
 import MetricsDashboard from "@/components/MetricsDashboard";
@@ -12,6 +13,25 @@ export default function Home() {
     <div className="min-h-screen bg-zinc-50 p-4 md:p-8">
       <main className="mx-auto w-full max-w-[1600px] space-y-6">
         <DashboardHeader />
+
+        {/* Navigation Links */}
+        <div className="flex gap-3 flex-wrap">
+          <Link href="/upload">
+            <button className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors">
+              Upload Image
+            </button>
+          </Link>
+          <Link href="/chatbot">
+            <button className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors">
+              Chatbot
+            </button>
+          </Link>
+          <Link href="/map">
+            <button className="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors">
+              Map
+            </button>
+          </Link>
+        </div>
 
         {/* Tab Navigation */}
         <div className="flex border-b border-zinc-200 mb-6">
