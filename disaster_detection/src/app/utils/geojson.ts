@@ -10,6 +10,12 @@ export type Prediction = {
   confidence: number;
   explanation?: string;
   timestamp?: string;
+  /** Address for chatbot address lookup (e.g. "501 River Rd") */
+  address?: string;
+  /** Street name for chatbot street lookup (e.g. "River Rd") */
+  street?: string;
+  /** Region name for chatbot region summary (e.g. "North", "South") */
+  region?: string;
 };
 
 type BBox = { minLon: number; minLat: number; maxLon: number; maxLat: number };
