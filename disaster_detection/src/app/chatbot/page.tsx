@@ -12,7 +12,7 @@ export default function Page() {
 
           <div>
             <h1 className="text-2xl font-semibold text-white">
-              Disaster Response AI
+              Disaster Response Chatbot
             </h1>
             <p className="text-gray-400">Geospatial Damage Assessment</p>
           </div>
@@ -51,7 +51,7 @@ export default function Page() {
             ))}
           </div>
 
-          {/* Input row */}
+          {/* Text Field */}
           <div className="flex items-center gap-3">
             <input
               placeholder="Ask about damage assessment, locations, or infrastructure…"
