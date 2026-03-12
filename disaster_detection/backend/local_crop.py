@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
 TILE_SIZE = 512
-OVERLAP   = 50
+OVERLAP   = 0
 
 PRE_DISASTER_DIR  = "pre-disaster-images"
 POST_DISASTER_DIR = "post-disaster-images"
