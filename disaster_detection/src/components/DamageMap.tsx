@@ -7,9 +7,11 @@ import "mapbox-gl/dist/mapbox-gl.css";
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN!;
 
 export default function DamageMap({
-    imagery
+    imagery,
+    showHeatmap = true,
 }: {
     imagery: "pre" | "post" | "none"
+    showHeatmap?: boolean
 }) {
     const [tileCount, setTileCount] = useState(0);
     const mapContainerRef = useRef<HTMLDivElement | null>(null);
@@ -23,7 +25,10 @@ export default function DamageMap({
             style: "mapbox://styles/mapbox/satellite-v9",
             center: [-73.7646, 18.1912],
             zoom: 16.5,
+            maxZoom: 18,
         });
+
+
 
         map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
@@ -209,10 +214,10 @@ export default function DamageMap({
                 map.setLayoutProperty("matthew-bounds-layer", "visibility", imagery !== "none" ? "visible" : "none");
             }
             if (map.getLayer("matthew-buildings-fill")) {
-                map.setLayoutProperty("matthew-buildings-fill", "visibility", imagery !== "none" ? "visible" : "none");
+                map.setLayoutProperty("matthew-buildings-fill", "visibility", showHeatmap ? "visible" : "none");
             }
             if (map.getLayer("matthew-buildings-outline")) {
-                map.setLayoutProperty("matthew-buildings-outline", "visibility", imagery !== "none" ? "visible" : "none");
+                map.setLayoutProperty("matthew-buildings-outline", "visibility", showHeatmap ? "visible" : "none");
             }
         };
 
@@ -221,10 +226,10 @@ export default function DamageMap({
         } else {
             map.once("idle", updateLayers);
         }
-    }, [imagery]);
+    }, [imagery, showHeatmap]);
 
     return (
-        <div className="relative w-full h-[600px] rounded-xl overflow-hidden border border-zinc-200 shadow-inner">
+        <div className="relative w-full h-[75vh] min-h-[600px] rounded-xl overflow-hidden border border-zinc-200 shadow-inner">
             <div ref={mapContainerRef} className="w-full h-full" />
             {tileCount > 0 && imagery !== "none" && (
                 <div className="absolute bottom-4 left-4 z-10 bg-white/95 backdrop-blur px-3 py-2 rounded-lg border border-zinc-200 shadow-md text-xs font-bold text-zinc-700 flex items-center gap-2">
