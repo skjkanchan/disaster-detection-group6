@@ -3,11 +3,18 @@ import { getOpenAIClient } from "@/lib/openai";
 import { loadPredictions } from "@/lib/chatbot/data";
 import { parseIntent, isSupported } from "@/lib/chatbot/intent-parser";
 import { retrieve } from "@/lib/chatbot/retrievers";
-import { generateResponse, buildFallbackResponse, buildMockResponse } from "@/lib/chatbot/response-generator";
+import {
+  generateResponse,
+  buildFallbackResponse,
+  buildMockResponse,
+} from "@/lib/chatbot/response-generator";
+import { logQuery } from "@/lib/chatbot/logger";
 
 export const maxDuration = 30;
 
-const USE_MOCK = process.env.OPENAI_USE_MOCK === "true" || process.env.OPENAI_USE_MOCK === "1";
+const USE_MOCK =
+  process.env.OPENAI_USE_MOCK === "true" ||
+  process.env.OPENAI_USE_MOCK === "1";
 
 type Message = { role: "user" | "assistant" | "system"; content: string };
 
@@ -57,6 +64,15 @@ export async function POST(req: Request) {
 
   if (!isSupported(intent)) {
     const message = buildFallbackResponse("unsupported", intent.params, 0);
+    await logQuery({
+      timestamp: new Date().toISOString(),
+      userQuestion,
+      intent: "unsupported",
+      params: intent.params,
+      recordCount: 0,
+      usedMock: USE_MOCK,
+      messagePreview: message.slice(0, 200),
+    });
     return NextResponse.json({ message });
   }
 
@@ -69,11 +85,29 @@ export async function POST(req: Request) {
 
   if (useFallback) {
     const message = buildFallbackResponse(result.intent, result.params, result.records.length);
+    await logQuery({
+      timestamp: new Date().toISOString(),
+      userQuestion,
+      intent: result.intent,
+      params: result.params,
+      recordCount: result.records.length,
+      usedMock: USE_MOCK,
+      messagePreview: message.slice(0, 200),
+    });
     return NextResponse.json({ message });
   }
 
   if (USE_MOCK) {
     const message = buildMockResponse(result);
+    await logQuery({
+      timestamp: new Date().toISOString(),
+      userQuestion,
+      intent: result.intent,
+      params: result.params,
+      recordCount: result.records.length,
+      usedMock: true,
+      messagePreview: message.slice(0, 200),
+    });
     return NextResponse.json({ message });
   }
 
@@ -90,6 +124,15 @@ export async function POST(req: Request) {
 
   try {
     const message = await generateResponse(openai, userQuestion, result);
+    await logQuery({
+      timestamp: new Date().toISOString(),
+      userQuestion,
+      intent: result.intent,
+      params: result.params,
+      recordCount: result.records.length,
+      usedMock: false,
+      messagePreview: message.slice(0, 200),
+    });
     return NextResponse.json({ message });
   } catch (err) {
     const errorMessage = err instanceof Error ? err.message : String(err);
@@ -97,6 +140,16 @@ export async function POST(req: Request) {
     const friendly = is429
       ? "OpenAI quota exceeded. Add billing at https://platform.openai.com/account/billing or set OPENAI_USE_MOCK=true to test without the API."
       : `OpenAI request failed: ${errorMessage}`;
+    await logQuery({
+      timestamp: new Date().toISOString(),
+      userQuestion,
+      intent: result.intent,
+      params: result.params,
+      recordCount: result.records.length,
+      usedMock: USE_MOCK,
+      messagePreview: friendly.slice(0, 200),
+      error: errorMessage,
+    });
     return NextResponse.json(
       { error: friendly, message: friendly },
       { status: 500 }
