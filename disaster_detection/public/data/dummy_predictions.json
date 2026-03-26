@@ -20,3 +20,148 @@
   { "id": "florence_19", "lat": 35.1115, "lon": -77.0419, "damage_label": "minor", "confidence": 0.63, "address": "503 Coastal Hwy", "street": "Coastal Hwy", "region": "North" },
   { "id": "florence_20", "lat": 35.1089, "lon": -77.0526, "damage_label": "no damage", "confidence": 0.89, "address": "505 Coastal Hwy", "street": "Coastal Hwy", "region": "North" }
 ]
+  {
+    "id": "matthew_1",
+    "damage_label": "destroyed",
+    "confidence": 0.97,
+    "explanation": "Core flood impact zone with severe structural loss across multiple adjacent properties.",
+    "polygon": [
+      [-79.00690, 34.62010],
+      [-79.00610, 34.61990],
+      [-79.00520, 34.62000],
+      [-79.00460, 34.62050],
+      [-79.00450, 34.62120],
+      [-79.00500, 34.62180],
+      [-79.00590, 34.62200],
+      [-79.00670, 34.62170],
+      [-79.00710, 34.62100],
+      [-79.00690, 34.62010]
+    ]
+  },
+  {
+    "id": "matthew_2",
+    "damage_label": "major",
+    "confidence": 0.91,
+    "explanation": "Severe roof and water damage extending west of the central inundation zone.",
+    "polygon": [
+      [-79.00760, 34.62020],
+      [-79.00690, 34.62010],
+      [-79.00710, 34.62100],
+      [-79.00670, 34.62170],
+      [-79.00720, 34.62190],
+      [-79.00800, 34.62160],
+      [-79.00820, 34.62080],
+      [-79.00760, 34.62020]
+    ]
+  },
+  {
+    "id": "matthew_3",
+    "damage_label": "major",
+    "confidence": 0.89,
+    "explanation": "Major flood-related damage spreading east into connected residential parcels.",
+    "polygon": [
+      [-79.00520, 34.62000],
+      [-79.00460, 34.62050],
+      [-79.00450, 34.62120],
+      [-79.00500, 34.62180],
+      [-79.00420, 34.62190],
+      [-79.00350, 34.62140],
+      [-79.00340, 34.62060],
+      [-79.00410, 34.62000],
+      [-79.00520, 34.62000]
+    ]
+  },
+  {
+    "id": "matthew_4",
+    "damage_label": "major",
+    "confidence": 0.87,
+    "explanation": "Major structural and exterior damage south of the main flood center.",
+    "polygon": [
+      [-79.00610, 34.61990],
+      [-79.00520, 34.62000],
+      [-79.00410, 34.62000],
+      [-79.00380, 34.61930],
+      [-79.00450, 34.61880],
+      [-79.00550, 34.61870],
+      [-79.00630, 34.61910],
+      [-79.00610, 34.61990]
+    ]
+  },
+  {
+    "id": "matthew_5",
+    "damage_label": "minor",
+    "confidence": 0.74,
+    "explanation": "Peripheral damage with likely water intrusion and debris impact.",
+    "polygon": [
+      [-79.00800, 34.62160],
+      [-79.00720, 34.62190],
+      [-79.00680, 34.62250],
+      [-79.00730, 34.62300],
+      [-79.00810, 34.62280],
+      [-79.00850, 34.62220],
+      [-79.00800, 34.62160]
+    ]
+  },
+  {
+    "id": "matthew_6",
+    "damage_label": "minor",
+    "confidence": 0.71,
+    "explanation": "Moderate standing-water effects fading north of the central cluster.",
+    "polygon": [
+      [-79.00590, 34.62200],
+      [-79.00500, 34.62180],
+      [-79.00420, 34.62190],
+      [-79.00430, 34.62270],
+      [-79.00510, 34.62310],
+      [-79.00600, 34.62290],
+      [-79.00640, 34.62240],
+      [-79.00590, 34.62200]
+    ]
+  },
+  {
+    "id": "matthew_7",
+    "damage_label": "minor",
+    "confidence": 0.69,
+    "explanation": "Lighter damage extending east with less concentrated flooding.",
+    "polygon": [
+      [-79.00420, 34.62190],
+      [-79.00350, 34.62140],
+      [-79.00290, 34.62170],
+      [-79.00280, 34.62240],
+      [-79.00330, 34.62290],
+      [-79.00430, 34.62270],
+      [-79.00420, 34.62190]
+    ]
+  },
+  {
+    "id": "matthew_8",
+    "damage_label": "minor",
+    "confidence": 0.67,
+    "explanation": "Outer southern fringe with visible but reduced damage intensity.",
+    "polygon": [
+      [-79.00550, 34.61870],
+      [-79.00450, 34.61880],
+      [-79.00380, 34.61930],
+      [-79.00340, 34.61870],
+      [-79.00400, 34.61810],
+      [-79.00500, 34.61790],
+      [-79.00580, 34.61820],
+      [-79.00550, 34.61870]
+    ]
+  },
+  {
+    "id": "matthew_9",
+    "damage_label": "no_damage",
+    "confidence": 0.90,
+    "explanation": "Adjacent area with limited visible storm impact.",
+    "polygon": [
+      [-79.00290, 34.62170],
+      [-79.00220, 34.62160],
+      [-79.00190, 34.62210],
+      [-79.00220, 34.62270],
+      [-79.00330, 34.62290],
+      [-79.00280, 34.62240],
+      [-79.00290, 34.62170]
+    ]
+  }
+]
