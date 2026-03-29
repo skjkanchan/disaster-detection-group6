@@ -2,11 +2,15 @@ import type { Intent, QuestionType } from "./types";
 
 const SUPPORTED_TYPES: QuestionType[] = [
   "address_lookup",
+  "id_lookup",
   "street_lookup",
   "region_summary",
   "severity_summary",
   "dataset_summary",
   "top_affected_areas",
+  "damage_filter",
+  "confidence_filter",
+  "nearby_lookup",
 ];
 
 /**
@@ -76,6 +80,39 @@ export function parseIntent(userInput: string): Intent {
     /top\s+affected|worst\s+areas?|most\s+damaged|critical\s+areas?|highest\s+damage|priority\s+areas/i.test(lower)
   ) {
     return { type: "top_affected_areas", params: {} };
+  }
+
+  // ID lookup: "florence_1", "property florence_3", "id florence_8", "look up florence_5"
+  const idMatch = lower.match(/(?:id|property|look\s*up)\s+(florence_\d+)/) || lower.match(/^(florence_\d+)$/);
+  if (idMatch) {
+    return { type: "id_lookup", params: { id: idMatch[1] } };
+  }
+
+  // Damage filter: "show all destroyed", "list major properties", "destroyed properties", "filter by minor"
+  const damageFilterMatch = lower.match(
+    /(?:show|list|filter|all|find|get)\s+(?:all\s+)?(destroyed|major|minor|no damage)\s*(?:properties|records|buildings)?/
+  ) || lower.match(/(destroyed|major|minor|no damage)\s+(?:properties|records|buildings)/);
+  if (damageFilterMatch) {
+    return { type: "damage_filter", params: { damage_level: damageFilterMatch[1] } };
+  }
+
+  // Confidence filter: "properties above 90%", "confidence above 80", "high confidence", "records over 85%"
+  const confMatch = lower.match(
+    /(?:confidence|properties|records)\s+(?:above|over|>=?|greater\s+than)\s+(\d+)\s*%?/
+  ) || lower.match(/(?:above|over)\s+(\d+)\s*%?\s*confidence/);
+  if (confMatch) {
+    return { type: "confidence_filter", params: { min_confidence: confMatch[1] } };
+  }
+  if (/high\s+confidence/i.test(lower)) {
+    return { type: "confidence_filter", params: { min_confidence: "80" } };
+  }
+
+  // Nearby lookup: "properties near 501 River Rd", "nearby 100 Main St", "close to 410 Beach St"
+  const nearbyMatch = lower.match(
+    /(?:near|nearby|close\s+to|around|within)\s+(.+?)(?:\?|$)/
+  );
+  if (nearbyMatch && nearbyMatch[1].trim()) {
+    return { type: "nearby_lookup", params: { address: nearbyMatch[1].trim() } };
   }
 
   return { type: "unsupported", params: {} };

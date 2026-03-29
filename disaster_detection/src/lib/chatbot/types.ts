@@ -4,11 +4,15 @@
  */
 export type QuestionType =
   | "address_lookup"
+  | "id_lookup"
   | "street_lookup"
   | "region_summary"
   | "severity_summary"
   | "dataset_summary"
   | "top_affected_areas"
+  | "damage_filter"
+  | "confidence_filter"
+  | "nearby_lookup"
   | "unsupported";
 
 export type Intent = {

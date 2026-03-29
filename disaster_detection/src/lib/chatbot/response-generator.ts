@@ -63,9 +63,13 @@ export function buildFallbackResponse(
   recordCount: number
 ): string {
   if (intent === "unsupported") {
-    return "This question type is not supported. I can only answer: address lookup (e.g. 'damage at 501 River Rd'), street lookup (e.g. 'damage on Main St'), region summary (e.g. 'summary for North'), severity summary, dataset summary, and top affected areas.";
+    return "This question type is not supported. I can answer: address lookup, property ID lookup (e.g. 'florence_1'), street lookup, region summary, severity summary, dataset summary, top affected areas, damage level filter (e.g. 'show all destroyed'), confidence filter (e.g. 'properties above 90%'), and nearby properties (e.g. 'near 501 River Rd').";
   }
   if (recordCount === 0) {
+    if (intent === "id_lookup" && params.id) return `No property found with ID "${params.id}".`;
+    if (intent === "nearby_lookup" && params.address) return `No properties found near "${params.address}". The anchor address may not exist in the dataset.`;
+    if (intent === "damage_filter" && params.damage_level) return `No properties found with damage level "${params.damage_level}".`;
+    if (intent === "confidence_filter") return `No properties found above ${params.min_confidence}% confidence.`;
     if (params.address) return `No damage record found for address "${params.address}".`;
     if (params.street) return `No damage records found for street "${params.street}".`;
     if (params.region) return `No damage records found for region "${params.region}".`;
@@ -112,6 +116,20 @@ export function buildMockResponse(result: RetrievalResult): string {
       const top = summary?.topAreas ?? [];
       const parts = top.slice(0, 5).map((a) => `${a.name} (${a.count}${a.label ? `, worst: ${a.label}` : ""})`);
       return `Top affected: ${parts.join("; ")}.`;
+    }
+    case "id_lookup": {
+      const r = records[0];
+      if (!r) return `No property found with ID "${params.id}".`;
+      return `Property ${r.id}: ${r.damage_label} (${(r.confidence * 100).toFixed(0)}% confidence)${r.address ? ` at ${r.address}` : ""}${r.explanation ? `. ${r.explanation}` : ""}.`;
+    }
+    case "damage_filter": {
+      return `Found ${records.length} ${params.damage_level} propert${records.length === 1 ? "y" : "ies"}.`;
+    }
+    case "confidence_filter": {
+      return `Found ${records.length} propert${records.length === 1 ? "y" : "ies"} above ${params.min_confidence}% confidence.`;
+    }
+    case "nearby_lookup": {
+      return `Found ${records.length} propert${records.length === 1 ? "y" : "ies"} near "${params.address}" (within ~1 km).`;
     }
     default:
       return "No response generated.";

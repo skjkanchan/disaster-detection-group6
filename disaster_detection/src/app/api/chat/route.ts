@@ -49,8 +49,7 @@ export async function POST(req: Request) {
   let records;
   try {
     records = await loadPredictions();
-  } catch (err) {
-    const error = err instanceof Error ? err.message : String(err);
+  } catch {
     return NextResponse.json(
       {
         error: "Failed to load disaster dataset.",
@@ -78,10 +77,18 @@ export async function POST(req: Request) {
 
   const result = await retrieve(intent, records);
 
+  const PROPERTY_INTENTS = new Set([
+    "address_lookup", "id_lookup", "street_lookup",
+    "damage_filter", "confidence_filter", "nearby_lookup",
+  ]);
+
   const noResults = result.records.length === 0;
   const useFallback =
     result.intent === "unsupported" ||
-    (noResults && (result.intent === "address_lookup" || result.intent === "street_lookup" || result.intent === "region_summary"));
+    (noResults && PROPERTY_INTENTS.has(result.intent));
+
+  const includeRecords = PROPERTY_INTENTS.has(result.intent);
+  const cappedRecords = includeRecords ? result.records.slice(0, 20) : undefined;
 
   if (useFallback) {
     const message = buildFallbackResponse(result.intent, result.params, result.records.length);
@@ -108,7 +115,7 @@ export async function POST(req: Request) {
       usedMock: true,
       messagePreview: message.slice(0, 200),
     });
-    return NextResponse.json({ message });
+    return NextResponse.json({ message, ...(cappedRecords && { records: cappedRecords }) });
   }
 
   const openai = getOpenAIClient();
@@ -133,7 +140,7 @@ export async function POST(req: Request) {
       usedMock: false,
       messagePreview: message.slice(0, 200),
     });
-    return NextResponse.json({ message });
+    return NextResponse.json({ message, ...(cappedRecords && { records: cappedRecords }) });
   } catch (err) {
     const errorMessage = err instanceof Error ? err.message : String(err);
     const is429 = errorMessage.includes("429") || errorMessage.toLowerCase().includes("quota");

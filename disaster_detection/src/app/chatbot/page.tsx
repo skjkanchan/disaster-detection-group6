@@ -1,9 +1,32 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import MessageBubble from "./components/MessageBubble";
+import dynamic from "next/dynamic";
+import MessageBubble from "@/components/MessageBubble";
 
-type Message = { role: "ai" | "user"; content: string; time?: string };
+const PropertyResults = dynamic(
+  () => import("./components/PropertyResults"),
+  { ssr: false }
+);
+
+type PropertyRecord = {
+  id: string;
+  lat: number;
+  lon: number;
+  damage_label: string;
+  confidence: number;
+  explanation?: string;
+  address?: string;
+  street?: string;
+  region?: string;
+};
+
+type Message = {
+  role: "ai" | "user";
+  content: string;
+  time?: string;
+  records?: PropertyRecord[];
+};
 
 const INITIAL_AI_MESSAGE: Message = {
   role: "ai",
@@ -15,10 +38,12 @@ const INITIAL_AI_MESSAGE: Message = {
 const SUGGESTIONS = [
   "What's the damage at 501 River Rd?",
   "Damage on Main St",
-  "Region North summary",
-  "Severity summary",
-  "Overall dataset summary",
+  "Property florence_1",
+  "Show all destroyed properties",
+  "Properties above 90% confidence",
+  "Properties near 501 River Rd",
   "Top affected areas",
+  "Severity summary",
 ];
 
 function formatTime(date: Date): string {
@@ -84,6 +109,7 @@ export default function Page() {
             role: "ai",
             content: data.message ?? "No response.",
             time: formatTime(new Date()),
+            records: data.records,
           },
         ]);
       } catch (err) {
@@ -123,12 +149,18 @@ export default function Page() {
       <div className="flex-1 overflow-y-auto">
         <div className="max-w-3xl mx-auto px-4 py-8 space-y-6">
           {messages.map((msg, i) => (
-            <MessageBubble
-              key={i}
-              role={msg.role}
-              message={msg.content}
-              time={msg.time}
-            />
+            <div key={i}>
+              <MessageBubble
+                role={msg.role}
+                message={msg.content}
+                time={msg.time}
+              />
+              {msg.records && msg.records.length > 0 && (
+                <div className="ml-13 pl-0.5">
+                  <PropertyResults records={msg.records} />
+                </div>
+              )}
+            </div>
           ))}
           {loading && (
             <div className="flex items-start gap-4">
@@ -170,7 +202,7 @@ export default function Page() {
                   sendMessage(input);
                 }
               }}
-              placeholder="Address lookup, street, region summary, severity, dataset summary, or top affected areas…"
+              placeholder="Try: address lookup, property ID, damage filter, confidence filter, nearby, severity…"
               className="flex-1 rounded-xl border border-gray-600 bg-gray-800 px-4 py-4 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               disabled={loading}
             />
