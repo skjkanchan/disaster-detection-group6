@@ -3,6 +3,11 @@
 export type DamageClass = "no_damage" | "minor" | "major" | "destroyed" | "unknown";
 
 export type Prediction = {
+  lon: number;
+  address: string | undefined;
+  street: string | undefined;
+  region: string | undefined;
+  lat: number;
   id: string;
   damage_label: string;
   confidence: number;
