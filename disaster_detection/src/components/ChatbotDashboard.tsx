@@ -7,10 +7,13 @@ type Message = { role: "ai" | "user"; content: string; time?: string };
 
 const INITIAL_AI_MESSAGE: Message = {
   role: "ai",
-  content:
-    "I'm your disaster response AI assistant. I can help you assess damage, analyze geospatial data, and prioritize emergency response. What area would you like me to analyze?",
-  time: formatTime(new Date()),
+  content:  "I'm your disaster response AI assistant. I can help you assess damage, analyze geospatial data, and prioritize emergency response. What area would you like me to analyze?",
+  time: undefined,
 };
+
+
+//    "I'm your disaster response AI assistant. I can help you assess damage, analyze geospatial data, and prioritize emergency response. What area would you like me to analyze?",
+
 
 const SUGGESTIONS = [
   "What's the damage at 501 River Rd?",
