@@ -108,6 +108,37 @@ export async function POST(req: Request) {
 
   const result = await retrieve(intent, records);
 
+  if (result.intent === "stat_count") {
+  const count = result.summary?.total ?? result.records.length;
+
+  const damageLabel =
+    typeof result.params.damageLabel === "string" && result.params.damageLabel
+      ? result.params.damageLabel
+      : "matching";
+
+  const entity =
+    typeof result.params.entity === "string" && result.params.entity
+      ? result.params.entity
+      : "records";
+
+  const safeEntity =
+    entity === "houses" || entity === "buildings" ? "records" : entity || "records";
+
+  const message = `${count} ${safeEntity} were classified as ${damageLabel}.`;
+
+  await logQuery({
+    timestamp: new Date().toISOString(),
+    userQuestion,
+    intent: result.intent,
+    params: result.params,
+    recordCount: result.records.length,
+    usedMock: USE_MOCK,
+    messagePreview: message.slice(0, 200),
+  });
+
+  return NextResponse.json({ message });
+}
+
   const noResults = result.records.length === 0;
   const useFallback =
     (result.intent === "unsupported" ||

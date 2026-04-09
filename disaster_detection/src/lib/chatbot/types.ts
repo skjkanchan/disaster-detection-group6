@@ -10,6 +10,7 @@ export type QuestionType =
   | "dataset_summary"
   | "top_affected_areas"
   | "tile_lookup"
+  | "stat_count"
   | "unsupported";
 
 export type Intent = {

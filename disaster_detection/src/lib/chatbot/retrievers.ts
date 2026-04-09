@@ -24,6 +24,8 @@ export async function retrieve(
       return topAffectedAreas(records);
     case "tile_lookup":
       return tileLookup(intent.params, records);
+    case "stat_count":
+      return statCount(intent.params, records);
     default:
       return { intent: "unsupported", params: intent.params, records: [] };
   }
@@ -72,6 +74,52 @@ function tileLookup(params: Record<string, string>, records: DamageRecord[]): Re
     intent: "tile_lookup",
     params: { tileId },
     records: matched,
+  };
+}
+
+function statCount(params: Record<string, string>, records: DamageRecord[]): RetrievalResult {
+  const damageLabel = (params.damageLabel || "").toLowerCase();
+  const entity = (params.entity || "").toLowerCase();
+
+  const filtered = records.filter((r) => {
+    const label = (r.damage_label || "").toLowerCase();
+
+    // Match damage label
+    const matchesDamage =
+      !damageLabel || label === damageLabel;
+
+    // Match entity (your dataset currently doesn't clearly support this,
+    // so we keep it simple and safe)
+    let matchesEntity = true;
+
+    if (entity === "structures" || !entity) {
+      matchesEntity = true;
+    } else {
+      // If you later add structure_type, update this
+      matchesEntity = true;
+    }
+
+    return matchesDamage && matchesEntity;
+  });
+
+  // Optional breakdown (useful later)
+  const byLabel: Record<string, number> = {};
+  filtered.forEach((r) => {
+    const L = (r.damage_label || "unknown").toLowerCase();
+    byLabel[L] = (byLabel[L] ?? 0) + 1;
+  });
+
+  return {
+    intent: "stat_count",
+    params: {
+      damageLabel: params.damageLabel || "",
+      entity: params.entity || "",
+    },
+    records: filtered,
+    summary: {
+      total: filtered.length,
+      byLabel,
+    },
   };
 }
 
@@ -183,3 +231,4 @@ function topAffectedAreas(records: DamageRecord[]): RetrievalResult {
     summary: { total: records.length, topAreas },
   };
 }
+
