@@ -3,7 +3,7 @@
 import { useState, useCallback } from "react";
 import MessageBubble from "./MessageBubble";
 
-type Message = { role: "ai" | "user"; content: string; time?: string };
+type Message = { role: "ai" | "user"; content: string; time?: string; image?: string };
 
 const INITIAL_AI_MESSAGE: Message = {
   role: "ai",
@@ -12,17 +12,6 @@ const INITIAL_AI_MESSAGE: Message = {
 };
 
 
-//    "I'm your disaster response AI assistant. I can help you assess damage, analyze geospatial data, and prioritize emergency response. What area would you like me to analyze?",
-
-
-const SUGGESTIONS = [
-  "What's the damage at 501 River Rd?",
-  "Damage on Main St",
-  "Region North summary",
-  "Severity summary",
-  "Overall dataset summary",
-  "Top affected areas",
-];
 
 function formatTime(date: Date): string {
   return date.toLocaleTimeString("en-US", {
@@ -32,23 +21,33 @@ function formatTime(date: Date): string {
   });
 }
 
-export default function Page() {
+export default function Page({ getMapImage, selectedTileId }: { getMapImage?: () => string | null; selectedTileId?: string | null; }) {
   const [messages, setMessages] = useState<Message[]>([INITIAL_AI_MESSAGE]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [attachedImage, setAttachedImage] = useState<string | null>(null);
+
+  const handleAttachMap = () => {
+    if (getMapImage) {
+      const img = getMapImage();
+      if (img) setAttachedImage(img);
+    }
+  };
 
   const sendMessage = useCallback(
     async (content: string) => {
       const trimmed = content.trim();
-      if (!trimmed || loading) return;
+      if ((!trimmed && !attachedImage) || loading) return;
 
       const userMessage: Message = {
         role: "user",
         content: trimmed,
         time: formatTime(new Date()),
+        image: attachedImage || undefined,
       };
       setMessages((prev) => [...prev, userMessage]);
       setInput("");
+      setAttachedImage(null);
       setLoading(true);
 
       try {
@@ -63,7 +62,7 @@ export default function Page() {
         const res = await fetch("/api/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ messages: history }),
+          body: JSON.stringify({ messages: history, image: attachedImage, selectedTileId }),
         });
 
         const data = await res.json();
@@ -106,7 +105,7 @@ export default function Page() {
         setLoading(false);
       }
     },
-    [messages, loading]
+    [messages, loading, attachedImage, selectedTileId]
   );
 
   return (
@@ -137,6 +136,7 @@ export default function Page() {
               role={msg.role}
               message={msg.content}
               time={msg.time}
+              image={msg.image}
             />
           ))}
           {loading && (
@@ -154,22 +154,27 @@ export default function Page() {
 
       {/* Suggestions + Input */}
       <div className="border-t border-zinc-200 bg-zinc-50 p-5">
-        <div className="mb-4 flex flex-wrap gap-2">
-          {SUGGESTIONS.map((label) => (
-            <button
-              key={label}
-              onClick={() => sendMessage(label)}
-              disabled={loading}
-              className="rounded-lg border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-700 hover:bg-indigo-100 hover:border-indigo-300 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              type="button"
-            >
-              {label}
-            </button>
-          ))}
-        </div>
 
-        <div className="flex items-center gap-3">
-          <input
+        {selectedTileId && (
+          <div className="mb-3 px-3 py-1.5 bg-purple-50 text-purple-700 border border-purple-200 rounded-lg text-xs font-semibold inline-flex items-center shadow-sm">
+            Selected Tile: {selectedTileId}
+          </div>
+        )}
+
+        <div className="flex items-center gap-3 relative">
+          <div className="relative flex-1">
+            {attachedImage && (
+              <div className="absolute -top-14 left-0 h-12 w-16 bg-white border border-zinc-200 rounded shadow-sm overflow-hidden flex items-center justify-center">
+                <img src={attachedImage} alt="Map attached" className="max-h-full max-w-full object-cover" />
+                <button
+                  onClick={() => setAttachedImage(null)}
+                  className="absolute top-0 right-0 bg-black/50 text-white flex items-center justify-center w-4 h-4 rounded-bl hover:bg-black/70 text-[10px]"
+                >
+                  ✕
+                </button>
+              </div>
+            )}
+            <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => {
@@ -179,12 +184,25 @@ export default function Page() {
               }
             }}
             placeholder="Ask about damage assessment, locations, or infrastructure…"
-            className="flex-1 rounded-xl border border-zinc-300 bg-white px-4 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
+            className="w-full rounded-xl border border-zinc-300 bg-white pl-4 pr-10 py-3 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
             disabled={loading}
           />
+          {getMapImage && (
+            <button
+              onClick={handleAttachMap}
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-indigo-600 transition-colors"
+              title="Attach Map Screenshot"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </button>
+          )}
+          </div>
           <button
             onClick={() => sendMessage(input)}
-            disabled={loading || !input.trim()}
+            disabled={loading || (!input.trim() && !attachedImage)}
             className="h-[46px] w-[46px] flex-shrink-0 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white flex items-center justify-center shadow-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             aria-label="Send"
             type="button"

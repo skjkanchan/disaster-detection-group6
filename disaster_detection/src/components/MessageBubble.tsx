@@ -2,9 +2,10 @@ type MessageBubbleProps = {
   message: string
   role: "ai" | "user"
   time?: string
+  image?: string
 }
 
-export default function MessageBubble({ message, role, time }: MessageBubbleProps) {
+export default function MessageBubble({ message, role, time, image }: MessageBubbleProps) {
   const isAI = role === "ai"
 
   return (
@@ -22,6 +23,9 @@ export default function MessageBubble({ message, role, time }: MessageBubbleProp
           ${isAI ? "bg-zinc-100 text-zinc-800 rounded-tl-sm" : "bg-indigo-600 text-white rounded-tr-sm"}`}
         >
           {message}
+          {image && (
+            <img src={image} alt="Attached Map Snapshot" className="mt-2 rounded-lg max-w-full h-auto max-h-[200px] object-cover border border-white/20 shadow-sm" />
+          )}
         </div>
 
         {time && (

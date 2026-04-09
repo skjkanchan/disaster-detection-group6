@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import DamagePercentageIndicators from "./DamagePercentageIndicators";
 import DamageMap from "./DamageMap";
 import ChatbotDashboard from "./ChatbotDashboard";
@@ -22,6 +22,8 @@ const LEGEND_ENTRIES = [
 export default function GeospatialDashboard() {
   const [imageryType, setImageryType] = useState<"pre" | "post" | "none">("post");
   const [showHeatmap, setShowHeatmap] = useState(true);
+  const mapCaptureRef = useRef<() => string | null>(null);
+  const [selectedTileId, setSelectedTileId] = useState<string | null>(null);
 
   return (
     <div className="flex flex-col gap-4">
@@ -71,7 +73,7 @@ export default function GeospatialDashboard() {
           </div>
 
           {/* Map */}
-          <DamageMap imagery={imageryType} showHeatmap={showHeatmap} />
+          <DamageMap imagery={imageryType} showHeatmap={showHeatmap} captureRef={mapCaptureRef} onTileSelect={setSelectedTileId} />
 
           {/* Legend */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-1 p-3.5 bg-white rounded-xl border border-zinc-200 shadow-sm">
@@ -100,7 +102,7 @@ export default function GeospatialDashboard() {
 
         {/* Right: Chatbot */}
         <div className="w-[460px] shrink-0">
-          <ChatbotDashboard />
+          <ChatbotDashboard getMapImage={() => mapCaptureRef.current?.() || null} selectedTileId={selectedTileId} />
         </div>
 
       </div>

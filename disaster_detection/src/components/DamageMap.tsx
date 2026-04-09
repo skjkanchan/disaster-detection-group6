@@ -9,13 +9,22 @@ mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN!;
 export default function DamageMap({
     imagery,
     showHeatmap = true,
+    captureRef,
+    onTileSelect
 }: {
     imagery: "pre" | "post" | "none"
     showHeatmap?: boolean
+    captureRef?: React.MutableRefObject<(() => string | null) | null>
+    onTileSelect?: (id: string | null) => void
 }) {
     const [tileCount, setTileCount] = useState(0);
     const mapContainerRef = useRef<HTMLDivElement | null>(null);
     const mapRef = useRef<mapboxgl.Map | null>(null);
+    const onTileSelectRef = useRef(onTileSelect);
+
+    useEffect(() => {
+        onTileSelectRef.current = onTileSelect;
+    }, [onTileSelect]);
 
     useEffect(() => {
         if (!mapContainerRef.current || mapRef.current) return;
@@ -26,7 +35,15 @@ export default function DamageMap({
             center: [-73.7646, 18.1912],
             zoom: 16.5,
             maxZoom: 18,
+            preserveDrawingBuffer: true,
         });
+
+        if (captureRef) {
+            captureRef.current = () => {
+                if (!mapRef.current) return null;
+                return mapRef.current.getCanvas().toDataURL("image/jpeg", 0.6);
+            };
+        }
 
 
 
@@ -96,6 +113,7 @@ export default function DamageMap({
                     const ring = [...coordinates, coordinates[0]];
                     return {
                         type: "Feature",
+                        id,
                         geometry: {
                             type: "Polygon",
                             coordinates: [ring]
@@ -123,6 +141,51 @@ export default function DamageMap({
                         "line-opacity": 0.8
                     },
                     layout: { visibility: "none" }
+                });
+
+                map.addLayer({
+                    id: "matthew-bounds-fill-interactive",
+                    type: "fill",
+                    source: "matthew-bounds-source",
+                    paint: {
+                        "fill-color": "#a855f7",
+                        "fill-opacity": [
+                            "case",
+                            ["boolean", ["feature-state", "selected"], false],
+                            0.2,
+                            0.0
+                        ]
+                    },
+                    layout: { visibility: "none" }
+                });
+
+                let activeTileId: string | null = null;
+                map.on('click', 'matthew-bounds-fill-interactive', (e) => {
+                    if (e.features && e.features.length > 0) {
+                        const feature = e.features[0];
+                        const newId = feature.id as string;
+                        
+                        // Toggle logic
+                        if (activeTileId === newId) {
+                            map.setFeatureState({ source: 'matthew-bounds-source', id: activeTileId }, { selected: false });
+                            activeTileId = null;
+                            if (onTileSelectRef.current) onTileSelectRef.current(null);
+                        } else {
+                            if (activeTileId) {
+                                map.setFeatureState({ source: 'matthew-bounds-source', id: activeTileId }, { selected: false });
+                            }
+                            activeTileId = newId;
+                            map.setFeatureState({ source: 'matthew-bounds-source', id: activeTileId }, { selected: true });
+                            if (onTileSelectRef.current) onTileSelectRef.current(newId);
+                        }
+                    }
+                });
+
+                map.on('mouseenter', 'matthew-bounds-fill-interactive', () => {
+                    map.getCanvas().style.cursor = 'pointer';
+                });
+                map.on('mouseleave', 'matthew-bounds-fill-interactive', () => {
+                    map.getCanvas().style.cursor = '';
                 });
 
                 if (buildingsGeojson && buildingsGeojson.features) {
@@ -212,6 +275,9 @@ export default function DamageMap({
 
             if (map.getLayer("matthew-bounds-layer")) {
                 map.setLayoutProperty("matthew-bounds-layer", "visibility", imagery !== "none" ? "visible" : "none");
+            }
+            if (map.getLayer("matthew-bounds-fill-interactive")) {
+                map.setLayoutProperty("matthew-bounds-fill-interactive", "visibility", imagery !== "none" ? "visible" : "none");
             }
             if (map.getLayer("matthew-buildings-fill")) {
                 map.setLayoutProperty("matthew-buildings-fill", "visibility", showHeatmap ? "visible" : "none");

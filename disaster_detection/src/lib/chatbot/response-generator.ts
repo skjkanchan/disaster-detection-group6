@@ -33,12 +33,17 @@ export async function generateResponse(
   client: OpenAI,
   userQuestion: string,
   result: RetrievalResult,
-  options: { model?: string } = {}
+  options: { model?: string, image?: string } = {}
 ): Promise<string> {
   const model = options.model || process.env.OPENAI_CHAT_MODEL || "gpt-4o-mini";
   const context = buildContextBlock(result);
 
-  const content = `Retrieved data:\n${context}\n\nUser question: ${userQuestion}\n\nAnswer using ONLY the retrieved data above. If there are no records or the question cannot be answered from the data, say so briefly.`;
+  const textContent = `Retrieved data:\n${context}\n\nUser question: ${userQuestion}\n\nAnswer using ONLY the retrieved data above. If there are no records or the question cannot be answered from the data, say so briefly. If an image of the map is provided, you can use it to help answer the user's question.`;
+
+  const content: OpenAI.Chat.ChatCompletionContentPart[] = [{ type: "text", text: textContent }];
+  if (options.image) {
+    content.push({ type: "image_url", image_url: { url: options.image } });
+  }
 
   const completion = await client.chat.completions.create({
     model,
@@ -56,16 +61,22 @@ export async function generateResponse(
 
 export async function generateUnsupportedResponse(
   client: OpenAI,
-  userQuestion: string
+  userQuestion: string,
+  image?: string
 ): Promise<string> {
+  const content: OpenAI.Chat.ChatCompletionContentPart[] = [{ type: "text", text: userQuestion }];
+  if (image) {
+    content.push({ type: "image_url", image_url: { url: image } });
+  }
+
   const completion = await client.chat.completions.create({
     model: process.env.OPENAI_CHAT_MODEL || "gpt-4o-mini",
     messages: [
       {
         role: "system",
-        content: `You are a friendly disaster response AI assistant. The user has asked something outside your scope. Respond naturally to what they said (e.g. greet them back if they say hi, acknowledge their question), then briefly let them know you specialize in damage assessment. You can help with: address lookups (e.g. 'damage at 501 River Rd'), street-level damage (e.g. 'damage on Main St'), regional summaries (e.g. 'summary for North'), severity breakdowns, dataset overviews, and top affected areas. Naturally weave in those examples, keep it to 2-3 sentences, and be warm, not robotic.`,
+        content: `You are a friendly disaster response AI assistant. The user has asked something outside your scope or has provided an image. If the user provides an image, you are looking at a screenshot of their current heatmap/damage map. Answer their questions about the map explicitly taking the map screenshot into context. Otherwise, briefly let them know you specialize in damage assessment and summarize what you can do. Keep it concise.`,
       },
-      { role: "user", content: userQuestion },
+      { role: "user", content },
     ],
     max_tokens: 150,
     temperature: 0.7,
@@ -85,9 +96,10 @@ export function buildFallbackResponse(
   recordCount: number
 ): string {
   if (intent === "unsupported") {
-    return "This question type is not supported. I can only answer: address lookup (e.g. 'damage at 501 River Rd'), street lookup (e.g. 'damage on Main St'), region summary (e.g. 'summary for North'), severity summary, dataset summary, and top affected areas.";
+    return "This question type is not supported. I can only answer: address lookup (e.g. 'damage at 501 River Rd'), street lookup (e.g. 'damage on Main St'), region summary (e.g. 'summary for North'), severity summary, map tile context, dataset summary, and top affected areas.";
   }
   if (recordCount === 0) {
+    if (params.tileId) return `No damage record found for the selected tile "${params.tileId}".`;
     if (params.address) return `No damage record found for address "${params.address}".`;
     if (params.street) return `No damage records found for street "${params.street}".`;
     if (params.region) return `No damage records found for region "${params.region}".`;
@@ -104,9 +116,10 @@ export function buildMockResponse(result: RetrievalResult): string {
   if (records.length === 0 && !summary?.total) return buildFallbackResponse(intent, params, 0);
 
   switch (intent) {
-    case "address_lookup": {
+    case "address_lookup":
+    case "tile_lookup": {
       const r = records[0];
-      if (!r) return `No record for "${params.address}".`;
+      if (!r) return `No record requested.`;
       return `${r.address || r.id}: ${r.damage_label} (${(r.confidence * 100).toFixed(0)}% confidence)${r.explanation ? `. ${r.explanation}` : ""}`;
     }
     case "street_lookup": {

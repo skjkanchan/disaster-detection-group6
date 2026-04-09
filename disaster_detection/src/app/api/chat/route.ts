@@ -19,7 +19,7 @@ const USE_MOCK =
 type Message = { role: "user" | "assistant" | "system"; content: string };
 
 export async function POST(req: Request) {
-  let body: { messages?: Message[] };
+  let body: { messages?: Message[], image?: string, selectedTileId?: string };
   try {
     body = await req.json();
   } catch {
@@ -39,7 +39,9 @@ export async function POST(req: Request) {
 
   const lastUser = [...messages].reverse().find((m) => m.role === "user");
   const userQuestion = (lastUser?.content ?? "").trim();
-  if (!userQuestion) {
+  const image = body.image;
+  const selectedTileId = body.selectedTileId;
+  if (!userQuestion && !image && !selectedTileId) {
     return NextResponse.json(
       { error: "Last message must be from the user and non-empty." },
       { status: 400 }
@@ -60,7 +62,11 @@ export async function POST(req: Request) {
     );
   }
 
-  const intent = parseIntent(userQuestion);
+  let intent = parseIntent(userQuestion);
+
+  if (selectedTileId && (intent.type === "unsupported" || /this|tile|here|it/i.test(userQuestion))) {
+      intent = { type: "tile_lookup", params: { tileId: selectedTileId } };
+  }
 
 //   if (!isSupported(intent)) {
 //     const message = buildFallbackResponse("unsupported", intent.params, 0);
@@ -76,12 +82,12 @@ export async function POST(req: Request) {
 //     return NextResponse.json({ message });
 //   }
 
-  if (!isSupported(intent)) {
+  if (!isSupported(intent) && intent.type !== "tile_lookup") {
     const openai = getOpenAIClient();
     let message: string;
     if (openai) {
         try {
-        message = await generateUnsupportedResponse(openai, userQuestion);
+        message = await generateUnsupportedResponse(openai, userQuestion || "Analyze this map", image);
         } catch {
         message = buildFallbackResponse("unsupported", intent.params, 0);
         }
@@ -104,8 +110,8 @@ export async function POST(req: Request) {
 
   const noResults = result.records.length === 0;
   const useFallback =
-    result.intent === "unsupported" ||
-    (noResults && (result.intent === "address_lookup" || result.intent === "street_lookup" || result.intent === "region_summary"));
+    (result.intent === "unsupported" ||
+    (noResults && (result.intent === "address_lookup" || result.intent === "street_lookup" || result.intent === "region_summary"))) && !image;
 
   if (useFallback) {
     const message = buildFallbackResponse(result.intent, result.params, result.records.length);
@@ -146,8 +152,13 @@ export async function POST(req: Request) {
     );
   }
 
+  let promptQuestion = userQuestion || "Analyze this map";
+  if (selectedTileId && result.intent === "tile_lookup") {
+      promptQuestion = `(Context: User selected Mapbox Tile ID ${selectedTileId} which corresponds to record ${result.records[0]?.id || selectedTileId}) ${promptQuestion}`;
+  }
+
   try {
-    const message = await generateResponse(openai, userQuestion, result);
+    const message = await generateResponse(openai, promptQuestion, result, { model: process.env.OPENAI_CHAT_MODEL, image });
     await logQuery({
       timestamp: new Date().toISOString(),
       userQuestion,

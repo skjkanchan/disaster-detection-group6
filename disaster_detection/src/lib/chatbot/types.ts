@@ -9,6 +9,7 @@ export type QuestionType =
   | "severity_summary"
   | "dataset_summary"
   | "top_affected_areas"
+  | "tile_lookup"
   | "unsupported";
 
 export type Intent = {
@@ -20,6 +21,7 @@ export type Intent = {
 /** One record from the disaster damage dataset (matches Prediction with optional address fields). */
 export type DamageRecord = {
   id: string;
+  tileId?: string;
   lat: number;
   lon: number;
   damage_label: string;
