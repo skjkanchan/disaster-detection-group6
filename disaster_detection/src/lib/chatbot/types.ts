@@ -13,6 +13,7 @@ export type QuestionType =
   | "damage_filter"
   | "confidence_filter"
   | "nearby_lookup"
+  | "general_knowledge"
   | "unsupported";
 
 export type Intent = {
@@ -47,4 +48,6 @@ export type RetrievalResult = {
     byStreet?: Record<string, number>;
     topAreas?: { name: string; count: number; label?: string }[];
   };
+  /** Curated knowledge base text for general_knowledge intent */
+  knowledge?: string;
 };

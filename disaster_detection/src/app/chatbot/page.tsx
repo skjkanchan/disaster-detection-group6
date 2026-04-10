@@ -31,19 +31,16 @@ type Message = {
 const INITIAL_AI_MESSAGE: Message = {
   role: "ai",
   content:
-    "I'm your disaster response AI assistant. I can help you assess damage, analyze geospatial data, and prioritize emergency response. What area would you like me to analyze?",
+    "I'm your disaster damage assessment assistant. I can look up property damage, filter by severity or confidence, find nearby properties, and summarize affected areas. I can also answer general questions about the VLM pipeline, dataset, and methodology. I only answer disaster-related questions — try a suggestion below!",
   time: formatTime(new Date()),
 };
 
 const SUGGESTIONS = [
   "What's the damage at 501 River Rd?",
-  "Damage on Main St",
-  "Property florence_1",
   "Show all destroyed properties",
   "Properties above 90% confidence",
   "Properties near 501 River Rd",
   "Top affected areas",
-  "Severity summary",
 ];
 
 function formatTime(date: Date): string {
@@ -202,7 +199,7 @@ export default function Page() {
                   sendMessage(input);
                 }
               }}
-              placeholder="Try: address lookup, property ID, damage filter, confidence filter, nearby, severity…"
+              placeholder="Try: property damage, VLM pipeline, dataset info, severity summary, nearby properties…"
               className="flex-1 rounded-xl border border-gray-600 bg-gray-800 px-4 py-4 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               disabled={loading}
             />

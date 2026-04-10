@@ -11,6 +11,7 @@ const SUPPORTED_TYPES: QuestionType[] = [
   "damage_filter",
   "confidence_filter",
   "nearby_lookup",
+  "general_knowledge",
 ];
 
 /**
@@ -113,6 +114,13 @@ export function parseIntent(userInput: string): Intent {
   );
   if (nearbyMatch && nearbyMatch[1].trim()) {
     return { type: "nearby_lookup", params: { address: nearbyMatch[1].trim() } };
+  }
+
+  // General knowledge: domain questions about the project, VLM, dataset, methodology
+  if (
+    /\bvlm\b|vision.?language|pipeline|xbd|dataset|classificat|methodolog|how\s+(does|do)\s+(the|this|your|damage)|what\s+(is|are)\s+(the|this|your|a)\s+(vlm|pipeline|dataset|model|system|dashboard|project|xbd|damage\s+class)|accuracy|precision|recall|fema|evaluation|how\s+accurate|how\s+many\s+buildings|satellite\s+imager|aerial\s+imager|ground.?truth|training\s+data|model\s+performance|damage\s+(types|levels|categories)|what\s+can\s+you\s+do|capabilities|how\s+does\s+this\s+work/i.test(lower)
+  ) {
+    return { type: "general_knowledge", params: {} };
   }
 
   return { type: "unsupported", params: {} };

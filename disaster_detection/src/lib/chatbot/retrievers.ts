@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import type { DamageRecord, Intent, RetrievalResult } from "./types";
 import { normalizeForMatch } from "./data";
 
@@ -30,6 +32,8 @@ export async function retrieve(
       return confidenceFilter(intent.params, records);
     case "nearby_lookup":
       return nearbyLookup(intent.params, records);
+    case "general_knowledge":
+      return generalKnowledge();
     default:
       return { intent: "unsupported", params: intent.params, records: [] };
   }
@@ -197,6 +201,25 @@ function confidenceFilter(params: Record<string, string>, records: DamageRecord[
     params: { min_confidence: params.min_confidence || "0" },
     records: matched,
     summary: { total: matched.length, byLabel },
+  };
+}
+
+let _knowledgeBaseCache: string | null = null;
+
+function loadKnowledgeBase(): string {
+  if (_knowledgeBaseCache) return _knowledgeBaseCache;
+  const kbPath = path.join(process.cwd(), "src", "lib", "chatbot", "knowledge-base.md");
+  _knowledgeBaseCache = fs.readFileSync(kbPath, "utf-8");
+  return _knowledgeBaseCache;
+}
+
+function generalKnowledge(): RetrievalResult {
+  const knowledge = loadKnowledgeBase();
+  return {
+    intent: "general_knowledge",
+    params: {},
+    records: [],
+    knowledge,
   };
 }
 

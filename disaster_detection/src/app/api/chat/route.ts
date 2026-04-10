@@ -83,9 +83,10 @@ export async function POST(req: Request) {
   ]);
 
   const noResults = result.records.length === 0;
+  const isGeneralKnowledge = result.intent === "general_knowledge";
   const useFallback =
     result.intent === "unsupported" ||
-    (noResults && PROPERTY_INTENTS.has(result.intent));
+    (!isGeneralKnowledge && noResults && PROPERTY_INTENTS.has(result.intent));
 
   const includeRecords = PROPERTY_INTENTS.has(result.intent);
   const cappedRecords = includeRecords ? result.records.slice(0, 20) : undefined;
