@@ -69,11 +69,25 @@ export function parseIntent(userInput: string): Intent {
     return { type: "severity_summary", params: {} };
   }
 
-  // Dataset summary: "overall summary", "dataset summary", "total records", "how many records"
+  // Dataset summary: "overall summary", "dataset summary", "total records", "how many records/houses/buildings"
   if (
-    /overall|dataset\s+summary|total\s+records|how\s+many\s+records|number\s+of\s+(predictions|assessments)|full\s+summary/i.test(lower)
+    /overall|dataset\s+summary|total\s+(records|properties|buildings|houses|damage)|how\s+many\s+(records|properties|buildings|houses|were\s+damaged|in\s+total)|number\s+of\s+(predictions|assessments|properties|buildings|houses)|full\s+summary|damaged\s+in\s+total|total\s+damage/i.test(lower)
   ) {
     return { type: "dataset_summary", params: {} };
+  }
+
+  // Least damaged: "which houses have the least damage", "least damaged", "safest properties"
+  if (
+    /least\s+damage|least\s+damaged|safest|least\s+affected|no\s+damage\s+(house|propert|building)|which\s+(house|propert|building)\S*\s+(had|has|have|with)\s+(the\s+)?(least|lowest|minimal)/i.test(lower)
+  ) {
+    return { type: "damage_filter", params: { damage_level: "no damage" } };
+  }
+
+  // Most damaged: "which house had the most damage", "most damaged property", "worst property"
+  if (
+    /which\s+(house|propert|building)\S*\s+(had|has|have|with)\s+(the\s+)?(most|worst|highest)|most\s+damage[d]?\s+(house|propert|building)|worst\s+(damaged?\s+)?(house|propert|building)|highest\s+damage\s+(house|propert|building)/i.test(lower)
+  ) {
+    return { type: "damage_filter", params: { damage_level: "destroyed" } };
   }
 
   // Top affected areas: "top affected", "worst areas", "most damaged", "critical areas"
@@ -116,10 +130,11 @@ export function parseIntent(userInput: string): Intent {
     return { type: "nearby_lookup", params: { address: nearbyMatch[1].trim() } };
   }
 
-  // General knowledge: domain questions about the project, VLM, dataset, methodology
-  if (
-    /\bvlm\b|vision.?language|pipeline|xbd|dataset|classificat|methodolog|how\s+(does|do)\s+(the|this|your|damage)|what\s+(is|are)\s+(the|this|your|a)\s+(vlm|pipeline|dataset|model|system|dashboard|project|xbd|damage\s+class)|accuracy|precision|recall|fema|evaluation|how\s+accurate|how\s+many\s+buildings|satellite\s+imager|aerial\s+imager|ground.?truth|training\s+data|model\s+performance|damage\s+(types|levels|categories)|what\s+can\s+you\s+do|capabilities|how\s+does\s+this\s+work/i.test(lower)
-  ) {
+  // General knowledge: any question that's disaster/damage/dataset related
+  // but didn't match a specific intent above
+  const DISASTER_KEYWORDS =
+    /damag|destroy|hurricane|disaster|flood|storm|building|house|propert|structur|roof|collapse|assess|predict|classif|severity|confidence|geospatial|satellite|aerial|imager|vlm|vision.?language|pipeline|xbd|dataset|methodolog|accuracy|precision|recall|fema|evaluation|ground.?truth|model|heatmap|dashboard|region|street|address|affected|impact|casualt|emergency|response|recovery|inspect/i;
+  if (DISASTER_KEYWORDS.test(lower)) {
     return { type: "general_knowledge", params: {} };
   }
 

@@ -33,7 +33,7 @@ export async function retrieve(
     case "nearby_lookup":
       return nearbyLookup(intent.params, records);
     case "general_knowledge":
-      return generalKnowledge();
+      return generalKnowledge(records);
     default:
       return { intent: "unsupported", params: intent.params, records: [] };
   }
@@ -213,13 +213,34 @@ function loadKnowledgeBase(): string {
   return _knowledgeBaseCache;
 }
 
-function generalKnowledge(): RetrievalResult {
+function generalKnowledge(records: DamageRecord[]): RetrievalResult {
   const knowledge = loadKnowledgeBase();
+
+  const byLabel: Record<string, number> = {};
+  const byRegion: Record<string, number> = {};
+  records.forEach((r) => {
+    const L = (r.damage_label || "unknown").toLowerCase();
+    byLabel[L] = (byLabel[L] ?? 0) + 1;
+    if (r.region) {
+      byRegion[r.region.trim()] = (byRegion[r.region.trim()] ?? 0) + 1;
+    }
+  });
+
+  const datasetContext = [
+    `\n## Current Dataset (chatbot demo data)`,
+    `Total properties assessed: ${records.length}`,
+    `Damage breakdown: ${Object.entries(byLabel).map(([k, v]) => `${k}: ${v}`).join(", ")}`,
+    `Regions: ${Object.entries(byRegion).map(([k, v]) => `${k}: ${v}`).join(", ")}`,
+    `Properties:`,
+    ...records.map((r) => `- ${r.id}: ${r.address || "unknown address"}, ${r.damage_label} (${(r.confidence * 100).toFixed(0)}% confidence)${r.street ? `, ${r.street}` : ""}${r.region ? `, ${r.region}` : ""}${r.explanation ? ` — ${r.explanation}` : ""}`),
+  ].join("\n");
+
   return {
     intent: "general_knowledge",
     params: {},
     records: [],
-    knowledge,
+    knowledge: knowledge + datasetContext,
+    summary: { total: records.length, byLabel, byRegion },
   };
 }
 

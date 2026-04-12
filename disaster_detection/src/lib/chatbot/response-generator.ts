@@ -99,13 +99,18 @@ function buildMockKnowledgeResponse(knowledge: string, _params: Record<string, s
     const body = lines.slice(1).join("\n").trim();
     return { title: title.toLowerCase(), body };
   });
-  const summaryParts: string[] = [];
-  for (const { body } of parsed) {
-    const sentences = body.split(/(?<=\.)\s+/).filter(Boolean);
-    const firstTwo = sentences.slice(0, 2).join(" ");
-    if (firstTwo) summaryParts.push(firstTwo);
+
+  const parts: string[] = [];
+  for (const { title, body } of parsed) {
+    if (!body) continue;
+    if (title.includes("current dataset")) {
+      parts.push(body);
+    } else {
+      const sentences = body.split(/(?<=\.)\s+/).filter(Boolean);
+      parts.push(sentences.slice(0, 2).join(" "));
+    }
   }
-  return summaryParts.join("\n\n") || "This system uses a VLM pipeline to classify building damage from pre/post-disaster satellite imagery. Ask me about the dataset, damage levels, model performance, or dashboard capabilities.";
+  return parts.join("\n\n") || "This system uses a VLM pipeline to classify building damage from pre/post-disaster satellite imagery. Ask me about the dataset, damage levels, model performance, or dashboard capabilities.";
 }
 
 /**
