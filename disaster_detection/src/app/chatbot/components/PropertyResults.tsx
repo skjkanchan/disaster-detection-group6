@@ -113,7 +113,7 @@ export default function PropertyResults({ records }: { records: PropertyRecord[]
                   {r.damage_label}
                 </span>
               </div>
-              <div className="text-xs text-gray-400 mt-1 space-x-3">
+              <div className="text-xs text-white mt-1 space-x-3">
                 <span>Confidence: {(r.confidence * 100).toFixed(0)}%</span>
                 <span>Lat: {r.lat.toFixed(4)}</span>
                 <span>Lon: {r.lon.toFixed(4)}</span>
@@ -121,7 +121,7 @@ export default function PropertyResults({ records }: { records: PropertyRecord[]
                 {r.region && <span>Region: {r.region}</span>}
               </div>
               {r.explanation && (
-                <p className="text-xs text-gray-500 mt-1 italic">{r.explanation}</p>
+                <p className="text-xs text-white mt-1 italic">{r.explanation}</p>
               )}
             </div>
           </div>
