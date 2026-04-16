@@ -2,11 +2,16 @@ import type { Intent, QuestionType } from "./types";
 
 const SUPPORTED_TYPES: QuestionType[] = [
   "address_lookup",
+  "id_lookup",
   "street_lookup",
   "region_summary",
   "severity_summary",
   "dataset_summary",
   "top_affected_areas",
+  "damage_filter",
+  "confidence_filter",
+  "nearby_lookup",
+  "general_knowledge",
 ];
 
 /**
@@ -64,11 +69,25 @@ export function parseIntent(userInput: string): Intent {
     return { type: "severity_summary", params: {} };
   }
 
-  // Dataset summary: "overall summary", "dataset summary", "total records", "how many records"
+  // Dataset summary: "overall summary", "dataset summary", "total records", "how many records/houses/buildings"
   if (
-    /overall|dataset\s+summary|total\s+records|how\s+many\s+records|number\s+of\s+(predictions|assessments)|full\s+summary/i.test(lower)
+    /overall|dataset\s+summary|total\s+(records|properties|buildings|houses|damage)|how\s+many\s+(records|properties|buildings|houses|were\s+damaged|in\s+total)|number\s+of\s+(predictions|assessments|properties|buildings|houses)|full\s+summary|damaged\s+in\s+total|total\s+damage/i.test(lower)
   ) {
     return { type: "dataset_summary", params: {} };
+  }
+
+  // Least damaged: "which houses have the least damage", "least damaged", "safest properties"
+  if (
+    /least\s+damage|least\s+damaged|safest|least\s+affected|no\s+damage\s+(house|propert|building)|which\s+(house|propert|building)\S*\s+(had|has|have|with)\s+(the\s+)?(least|lowest|minimal)/i.test(lower)
+  ) {
+    return { type: "damage_filter", params: { damage_level: "no damage" } };
+  }
+
+  // Most damaged: "which house had the most damage", "most damaged property", "worst property"
+  if (
+    /which\s+(house|propert|building)\S*\s+(had|has|have|with)\s+(the\s+)?(most|worst|highest)|most\s+damage[d]?\s+(house|propert|building)|worst\s+(damaged?\s+)?(house|propert|building)|highest\s+damage\s+(house|propert|building)/i.test(lower)
+  ) {
+    return { type: "damage_filter", params: { damage_level: "destroyed" } };
   }
 
   // Top affected areas: "top affected", "worst areas", "most damaged", "critical areas"
@@ -78,13 +97,50 @@ export function parseIntent(userInput: string): Intent {
     return { type: "top_affected_areas", params: {} };
   }
 
+  // ID lookup: "florence_1", "property florence_3", "id florence_8", "look up florence_5"
+  const idMatch = lower.match(/(?:id|property|look\s*up)\s+(florence_\d+)/) || lower.match(/^(florence_\d+)$/);
+  if (idMatch) {
+    return { type: "id_lookup", params: { id: idMatch[1] } };
+  }
+
+  // Damage filter: "show all destroyed", "list major properties", "destroyed properties", "filter by minor"
+  const damageFilterMatch = lower.match(
+    /(?:show|list|filter|all|find|get)\s+(?:all\s+)?(destroyed|major|minor|no damage)\s*(?:properties|records|buildings)?/
+  ) || lower.match(/(destroyed|major|minor|no damage)\s+(?:properties|records|buildings)/);
+  if (damageFilterMatch) {
+    return { type: "damage_filter", params: { damage_level: damageFilterMatch[1] } };
+  }
+
+  // Confidence filter: "properties above 90%", "confidence above 80", "high confidence", "records over 85%"
+  const confMatch = lower.match(
+    /(?:confidence|properties|records)\s+(?:above|over|>=?|greater\s+than)\s+(\d+)\s*%?/
+  ) || lower.match(/(?:above|over)\s+(\d+)\s*%?\s*confidence/);
+  if (confMatch) {
+    return { type: "confidence_filter", params: { min_confidence: confMatch[1] } };
+  }
+  if (/high\s+confidence/i.test(lower)) {
+    return { type: "confidence_filter", params: { min_confidence: "80" } };
+  }
+
+  // Nearby lookup: "properties near 501 River Rd", "nearby 100 Main St", "close to 410 Beach St"
+  const nearbyMatch = lower.match(
+    /(?:near|nearby|close\s+to|around|within)\s+(.+?)(?:\?|$)/
+  );
+  if (nearbyMatch && nearbyMatch[1].trim()) {
+    return { type: "nearby_lookup", params: { address: nearbyMatch[1].trim() } };
+  }
+
+  // General knowledge: any question that's disaster/damage/dataset related
+  // but didn't match a specific intent above
+  const DISASTER_KEYWORDS =
+    /damag|destroy|hurricane|disaster|flood|storm|building|house|propert|structur|roof|collapse|assess|predict|classif|severity|confidence|geospatial|satellite|aerial|imager|vlm|vision.?language|pipeline|xbd|dataset|methodolog|accuracy|precision|recall|fema|evaluation|ground.?truth|model|heatmap|dashboard|region|street|address|affected|impact|casualt|emergency|response|recovery|inspect/i;
+  if (DISASTER_KEYWORDS.test(lower)) {
+    return { type: "general_knowledge", params: {} };
+  }
+
   return { type: "unsupported", params: {} };
 }
 
 export function isSupported(intent: Intent): boolean {
   return intent.type !== "unsupported" && SUPPORTED_TYPES.includes(intent.type);
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 3668e68178c76ba660fb92926b2d0f539f5880f3

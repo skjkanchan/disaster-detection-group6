@@ -7,15 +7,9 @@ import {
   generateResponse,
   buildFallbackResponse,
   buildMockResponse,
-<<<<<<< HEAD
 } from "@/lib/chatbot/response-generator";
 import { logQuery } from "@/lib/chatbot/logger";
 
-=======
-  generateUnsupportedResponse,
-} from "@/lib/chatbot/response-generator";
-import { logQuery } from "@/lib/chatbot/logger";
->>>>>>> 3668e68178c76ba660fb92926b2d0f539f5880f3
 export const maxDuration = 30;
 
 const USE_MOCK =
@@ -55,8 +49,7 @@ export async function POST(req: Request) {
   let records;
   try {
     records = await loadPredictions();
-  } catch (err) {
-    const error = err instanceof Error ? err.message : String(err);
+  } catch {
     return NextResponse.json(
       {
         error: "Failed to load disaster dataset.",
@@ -68,7 +61,6 @@ export async function POST(req: Request) {
 
   const intent = parseIntent(userQuestion);
 
-<<<<<<< HEAD
   if (!isSupported(intent)) {
     const message = buildFallbackResponse("unsupported", intent.params, 0);
     await logQuery({
@@ -79,52 +71,25 @@ export async function POST(req: Request) {
       recordCount: 0,
       usedMock: USE_MOCK,
       messagePreview: message.slice(0, 200),
-=======
-//   if (!isSupported(intent)) {
-//     const message = buildFallbackResponse("unsupported", intent.params, 0);
-//     await logQuery({
-//       timestamp: new Date().toISOString(),
-//       userQuestion,
-//       intent: "unsupported",
-//       params: intent.params,
-//       recordCount: 0,
-//       usedMock: USE_MOCK,
-//       messagePreview: message.slice(0, 200),
-//     });
-//     return NextResponse.json({ message });
-//   }
-
-  if (!isSupported(intent)) {
-    const openai = getOpenAIClient();
-    let message: string;
-    if (openai) {
-        try {
-        message = await generateUnsupportedResponse(openai, userQuestion);
-        } catch {
-        message = buildFallbackResponse("unsupported", intent.params, 0);
-        }
-    } else {
-        message = buildFallbackResponse("unsupported", intent.params, 0);
-    }
-    await logQuery({
-        timestamp: new Date().toISOString(),
-        userQuestion,
-        intent: "unsupported",
-        params: intent.params,
-        recordCount: 0,
-        usedMock: USE_MOCK,
-        messagePreview: message.slice(0, 200),
->>>>>>> 3668e68178c76ba660fb92926b2d0f539f5880f3
     });
     return NextResponse.json({ message });
   }
 
   const result = await retrieve(intent, records);
 
+  const PROPERTY_INTENTS = new Set([
+    "address_lookup", "id_lookup", "street_lookup",
+    "damage_filter", "confidence_filter", "nearby_lookup",
+  ]);
+
   const noResults = result.records.length === 0;
+  const isGeneralKnowledge = result.intent === "general_knowledge";
   const useFallback =
     result.intent === "unsupported" ||
-    (noResults && (result.intent === "address_lookup" || result.intent === "street_lookup" || result.intent === "region_summary"));
+    (!isGeneralKnowledge && noResults && PROPERTY_INTENTS.has(result.intent));
+
+  const includeRecords = PROPERTY_INTENTS.has(result.intent);
+  const cappedRecords = includeRecords ? result.records.slice(0, 20) : undefined;
 
   if (useFallback) {
     const message = buildFallbackResponse(result.intent, result.params, result.records.length);
@@ -151,7 +116,7 @@ export async function POST(req: Request) {
       usedMock: true,
       messagePreview: message.slice(0, 200),
     });
-    return NextResponse.json({ message });
+    return NextResponse.json({ message, ...(cappedRecords && { records: cappedRecords }) });
   }
 
   const openai = getOpenAIClient();
@@ -176,7 +141,7 @@ export async function POST(req: Request) {
       usedMock: false,
       messagePreview: message.slice(0, 200),
     });
-    return NextResponse.json({ message });
+    return NextResponse.json({ message, ...(cappedRecords && { records: cappedRecords }) });
   } catch (err) {
     const errorMessage = err instanceof Error ? err.message : String(err);
     const is429 = errorMessage.includes("429") || errorMessage.toLowerCase().includes("quota");
@@ -198,8 +163,4 @@ export async function POST(req: Request) {
       { status: 500 }
     );
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 3668e68178c76ba660fb92926b2d0f539f5880f3

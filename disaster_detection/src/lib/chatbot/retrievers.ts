@@ -1,3 +1,5 @@
+import fs from "fs";
+import path from "path";
 import type { DamageRecord, Intent, RetrievalResult } from "./types";
 import { normalizeForMatch } from "./data";
 
@@ -12,6 +14,8 @@ export async function retrieve(
   switch (intent.type) {
     case "address_lookup":
       return addressLookup(intent.params, records);
+    case "id_lookup":
+      return idLookup(intent.params, records);
     case "street_lookup":
       return streetLookup(intent.params, records);
     case "region_summary":
@@ -22,6 +26,14 @@ export async function retrieve(
       return datasetSummary(records);
     case "top_affected_areas":
       return topAffectedAreas(records);
+    case "damage_filter":
+      return damageFilter(intent.params, records);
+    case "confidence_filter":
+      return confidenceFilter(intent.params, records);
+    case "nearby_lookup":
+      return nearbyLookup(intent.params, records);
+    case "general_knowledge":
+      return generalKnowledge(records);
     default:
       return { intent: "unsupported", params: intent.params, records: [] };
   }
@@ -146,8 +158,114 @@ function topAffectedAreas(records: DamageRecord[]): RetrievalResult {
     records,
     summary: { total: records.length, topAreas },
   };
-<<<<<<< HEAD
 }
-=======
+
+function idLookup(params: Record<string, string>, records: DamageRecord[]): RetrievalResult {
+  const id = normalizeForMatch(params.id || "");
+  const matched = records.filter((r) => normalizeForMatch(r.id) === id);
+  return {
+    intent: "id_lookup",
+    params: { id: params.id || "" },
+    records: matched,
+  };
 }
->>>>>>> 3668e68178c76ba660fb92926b2d0f539f5880f3
+
+function damageFilter(params: Record<string, string>, records: DamageRecord[]): RetrievalResult {
+  const level = normalizeForMatch(params.damage_level || "");
+  const matched = records.filter(
+    (r) => normalizeForMatch(r.damage_label) === level
+  );
+  const byLabel: Record<string, number> = {};
+  matched.forEach((r) => {
+    const L = (r.damage_label || "unknown").toLowerCase();
+    byLabel[L] = (byLabel[L] ?? 0) + 1;
+  });
+  return {
+    intent: "damage_filter",
+    params: { damage_level: params.damage_level || "" },
+    records: matched,
+    summary: { total: matched.length, byLabel },
+  };
+}
+
+function confidenceFilter(params: Record<string, string>, records: DamageRecord[]): RetrievalResult {
+  const threshold = parseFloat(params.min_confidence || "0") / 100;
+  const matched = records.filter((r) => r.confidence >= threshold);
+  const byLabel: Record<string, number> = {};
+  matched.forEach((r) => {
+    const L = (r.damage_label || "unknown").toLowerCase();
+    byLabel[L] = (byLabel[L] ?? 0) + 1;
+  });
+  return {
+    intent: "confidence_filter",
+    params: { min_confidence: params.min_confidence || "0" },
+    records: matched,
+    summary: { total: matched.length, byLabel },
+  };
+}
+
+let _knowledgeBaseCache: string | null = null;
+
+function loadKnowledgeBase(): string {
+  if (_knowledgeBaseCache) return _knowledgeBaseCache;
+  const kbPath = path.join(process.cwd(), "src", "lib", "chatbot", "knowledge-base.md");
+  _knowledgeBaseCache = fs.readFileSync(kbPath, "utf-8");
+  return _knowledgeBaseCache;
+}
+
+function generalKnowledge(records: DamageRecord[]): RetrievalResult {
+  const knowledge = loadKnowledgeBase();
+
+  const byLabel: Record<string, number> = {};
+  const byRegion: Record<string, number> = {};
+  records.forEach((r) => {
+    const L = (r.damage_label || "unknown").toLowerCase();
+    byLabel[L] = (byLabel[L] ?? 0) + 1;
+    if (r.region) {
+      byRegion[r.region.trim()] = (byRegion[r.region.trim()] ?? 0) + 1;
+    }
+  });
+
+  const datasetContext = [
+    `\n## Current Dataset (chatbot demo data)`,
+    `Total properties assessed: ${records.length}`,
+    `Damage breakdown: ${Object.entries(byLabel).map(([k, v]) => `${k}: ${v}`).join(", ")}`,
+    `Regions: ${Object.entries(byRegion).map(([k, v]) => `${k}: ${v}`).join(", ")}`,
+    `Properties:`,
+    ...records.map((r) => `- ${r.id}: ${r.address || "unknown address"}, ${r.damage_label} (${(r.confidence * 100).toFixed(0)}% confidence)${r.street ? `, ${r.street}` : ""}${r.region ? `, ${r.region}` : ""}${r.explanation ? ` — ${r.explanation}` : ""}`),
+  ].join("\n");
+
+  return {
+    intent: "general_knowledge",
+    params: {},
+    records: [],
+    knowledge: knowledge + datasetContext,
+    summary: { total: records.length, byLabel, byRegion },
+  };
+}
+
+function nearbyLookup(params: Record<string, string>, records: DamageRecord[]): RetrievalResult {
+  const address = normalizeForMatch(params.address || "");
+  const anchor = records.find(
+    (r) => r.address && normalizeForMatch(r.address) === address
+  );
+  if (!anchor) {
+    return {
+      intent: "nearby_lookup",
+      params: { address: params.address || "" },
+      records: [],
+    };
+  }
+  const RADIUS_DEG = 0.01; // ~1 km
+  const matched = records.filter((r) => {
+    const dLat = Math.abs(r.lat - anchor.lat);
+    const dLon = Math.abs(r.lon - anchor.lon);
+    return dLat <= RADIUS_DEG && dLon <= RADIUS_DEG;
+  });
+  return {
+    intent: "nearby_lookup",
+    params: { address: params.address || "" },
+    records: matched,
+    summary: { total: matched.length },
+  };
+}

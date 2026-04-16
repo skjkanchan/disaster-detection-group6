@@ -28,8 +28,4 @@ function toDamageRecord(p: Prediction): DamageRecord {
 /** Normalize string for matching (lowercase, collapse spaces). */
 export function normalizeForMatch(s: string): string {
   return (s || "").toLowerCase().trim().replace(/\s+/g, " ");
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 3668e68178c76ba660fb92926b2d0f539f5880f3
