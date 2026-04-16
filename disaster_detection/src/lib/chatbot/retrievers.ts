@@ -146,4 +146,8 @@ function topAffectedAreas(records: DamageRecord[]): RetrievalResult {
     records,
     summary: { total: records.length, topAreas },
   };
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3668e68178c76ba660fb92926b2d0f539f5880f3

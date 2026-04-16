@@ -7,9 +7,15 @@ import {
   generateResponse,
   buildFallbackResponse,
   buildMockResponse,
+<<<<<<< HEAD
 } from "@/lib/chatbot/response-generator";
 import { logQuery } from "@/lib/chatbot/logger";
 
+=======
+  generateUnsupportedResponse,
+} from "@/lib/chatbot/response-generator";
+import { logQuery } from "@/lib/chatbot/logger";
+>>>>>>> 3668e68178c76ba660fb92926b2d0f539f5880f3
 export const maxDuration = 30;
 
 const USE_MOCK =
@@ -62,6 +68,7 @@ export async function POST(req: Request) {
 
   const intent = parseIntent(userQuestion);
 
+<<<<<<< HEAD
   if (!isSupported(intent)) {
     const message = buildFallbackResponse("unsupported", intent.params, 0);
     await logQuery({
@@ -72,6 +79,42 @@ export async function POST(req: Request) {
       recordCount: 0,
       usedMock: USE_MOCK,
       messagePreview: message.slice(0, 200),
+=======
+//   if (!isSupported(intent)) {
+//     const message = buildFallbackResponse("unsupported", intent.params, 0);
+//     await logQuery({
+//       timestamp: new Date().toISOString(),
+//       userQuestion,
+//       intent: "unsupported",
+//       params: intent.params,
+//       recordCount: 0,
+//       usedMock: USE_MOCK,
+//       messagePreview: message.slice(0, 200),
+//     });
+//     return NextResponse.json({ message });
+//   }
+
+  if (!isSupported(intent)) {
+    const openai = getOpenAIClient();
+    let message: string;
+    if (openai) {
+        try {
+        message = await generateUnsupportedResponse(openai, userQuestion);
+        } catch {
+        message = buildFallbackResponse("unsupported", intent.params, 0);
+        }
+    } else {
+        message = buildFallbackResponse("unsupported", intent.params, 0);
+    }
+    await logQuery({
+        timestamp: new Date().toISOString(),
+        userQuestion,
+        intent: "unsupported",
+        params: intent.params,
+        recordCount: 0,
+        usedMock: USE_MOCK,
+        messagePreview: message.slice(0, 200),
+>>>>>>> 3668e68178c76ba660fb92926b2d0f539f5880f3
     });
     return NextResponse.json({ message });
   }
@@ -155,4 +198,8 @@ export async function POST(req: Request) {
       { status: 500 }
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3668e68178c76ba660fb92926b2d0f539f5880f3

@@ -83,4 +83,8 @@ export function parseIntent(userInput: string): Intent {
 
 export function isSupported(intent: Intent): boolean {
   return intent.type !== "unsupported" && SUPPORTED_TYPES.includes(intent.type);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3668e68178c76ba660fb92926b2d0f539f5880f3

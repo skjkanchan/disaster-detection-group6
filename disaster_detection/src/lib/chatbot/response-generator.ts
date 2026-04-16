@@ -54,6 +54,31 @@ export async function generateResponse(
   return answer || "I couldn't generate a response. Please try again.";
 }
 
+<<<<<<< HEAD
+=======
+export async function generateUnsupportedResponse(
+  client: OpenAI,
+  userQuestion: string
+): Promise<string> {
+  const completion = await client.chat.completions.create({
+    model: process.env.OPENAI_CHAT_MODEL || "gpt-4o-mini",
+    messages: [
+      {
+        role: "system",
+        content: `You are a friendly disaster response AI assistant. The user has asked something outside your scope. Respond naturally to what they said (e.g. greet them back if they say hi, acknowledge their question), then briefly let them know you specialize in damage assessment. You can help with: address lookups (e.g. 'damage at 501 River Rd'), street-level damage (e.g. 'damage on Main St'), regional summaries (e.g. 'summary for North'), severity breakdowns, dataset overviews, and top affected areas. Naturally weave in those examples, keep it to 2-3 sentences, and be warm, not robotic.`,
+      },
+      { role: "user", content: userQuestion },
+    ],
+    max_tokens: 150,
+    temperature: 0.7,
+  });
+  return (
+    completion.choices[0]?.message?.content?.trim() ||
+    buildFallbackResponse("unsupported", {}, 0)
+  );
+}
+
+>>>>>>> 3668e68178c76ba660fb92926b2d0f539f5880f3
 /**
  * Build a factual reply without calling the LLM (for no-results or unsupported).
  */
@@ -116,4 +141,8 @@ export function buildMockResponse(result: RetrievalResult): string {
     default:
       return "No response generated.";
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3668e68178c76ba660fb92926b2d0f539f5880f3

@@ -9,4 +9,8 @@ export function getOpenAIClient(): OpenAI | null {
 
 export function isOpenAIConfigured(): boolean {
   return Boolean(apiKey?.trim());
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3668e68178c76ba660fb92926b2d0f539f5880f3

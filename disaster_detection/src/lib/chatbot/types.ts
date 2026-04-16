@@ -43,4 +43,8 @@ export type RetrievalResult = {
     byStreet?: Record<string, number>;
     topAreas?: { name: string; count: number; label?: string }[];
   };
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 3668e68178c76ba660fb92926b2d0f539f5880f3
