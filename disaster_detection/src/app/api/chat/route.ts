@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getOpenAIClient } from "@/lib/openai";
-import { loadPredictions } from "@/lib/chatbot/data";
+import { loadPredictions, loadBuildings } from "@/lib/chatbot/data";
 import { parseIntent, isSupported } from "@/lib/chatbot/intent-parser";
 import { retrieve } from "@/lib/chatbot/retrievers";
 import {
@@ -9,6 +9,7 @@ import {
   buildMockResponse,
 } from "@/lib/chatbot/response-generator";
 import { logQuery } from "@/lib/chatbot/logger";
+import { buildMapAction } from "@/lib/chatbot/map-action";
 
 export const maxDuration = 30;
 
@@ -46,9 +47,9 @@ export async function POST(req: Request) {
     );
   }
 
-  let records;
+  let dummy;
   try {
-    records = await loadPredictions();
+    dummy = await loadPredictions();
   } catch {
     return NextResponse.json(
       {
@@ -59,23 +60,35 @@ export async function POST(req: Request) {
     );
   }
 
+  // Real xBD building dataset (polygons + damage subtype). Best-effort: if the
+  // AWS endpoint is unreachable, `loadBuildings` returns [] and retrievers
+  // fall back to the dummy predictions so the chatbot stays functional.
+  let buildings: Awaited<ReturnType<typeof loadBuildings>> = [];
+  try {
+    buildings = await loadBuildings();
+  } catch {
+    buildings = [];
+  }
+
   const intent = parseIntent(userQuestion);
 
-  if (!isSupported(intent)) {
-    const message = buildFallbackResponse("unsupported", intent.params, 0);
+  // Always run retrieve() — even for unsupported intents it may be rescued by
+  // the BM25 corpus retriever and upgraded to general_knowledge.
+  const result = await retrieve(intent, { buildings, dummy }, userQuestion);
+
+  if (!isSupported({ type: result.intent, params: result.params })) {
+    const message = buildFallbackResponse("unsupported", result.params, 0);
     await logQuery({
       timestamp: new Date().toISOString(),
       userQuestion,
       intent: "unsupported",
-      params: intent.params,
+      params: result.params,
       recordCount: 0,
       usedMock: USE_MOCK,
       messagePreview: message.slice(0, 200),
     });
     return NextResponse.json({ message });
   }
-
-  const result = await retrieve(intent, records);
 
   const PROPERTY_INTENTS = new Set([
     "address_lookup", "id_lookup", "street_lookup",
@@ -91,6 +104,10 @@ export async function POST(req: Request) {
   const includeRecords = PROPERTY_INTENTS.has(result.intent);
   const cappedRecords = includeRecords ? result.records.slice(0, 20) : undefined;
 
+  // Derive an optional map focus action so the main Mapbox map can pan/zoom
+  // and color-filter buildings to match the chatbot's answer.
+  const mapAction = buildMapAction(result);
+
   if (useFallback) {
     const message = buildFallbackResponse(result.intent, result.params, result.records.length);
     await logQuery({
@@ -102,7 +119,7 @@ export async function POST(req: Request) {
       usedMock: USE_MOCK,
       messagePreview: message.slice(0, 200),
     });
-    return NextResponse.json({ message });
+    return NextResponse.json({ message, ...(mapAction && { map_action: mapAction }) });
   }
 
   if (USE_MOCK) {
@@ -116,7 +133,11 @@ export async function POST(req: Request) {
       usedMock: true,
       messagePreview: message.slice(0, 200),
     });
-    return NextResponse.json({ message, ...(cappedRecords && { records: cappedRecords }) });
+    return NextResponse.json({
+      message,
+      ...(cappedRecords && { records: cappedRecords }),
+      ...(mapAction && { map_action: mapAction }),
+    });
   }
 
   const openai = getOpenAIClient();
@@ -131,7 +152,9 @@ export async function POST(req: Request) {
   }
 
   try {
-    const message = await generateResponse(openai, userQuestion, result);
+    const message = await generateResponse(openai, userQuestion, result, {
+      history: messages,
+    });
     await logQuery({
       timestamp: new Date().toISOString(),
       userQuestion,
@@ -141,7 +164,11 @@ export async function POST(req: Request) {
       usedMock: false,
       messagePreview: message.slice(0, 200),
     });
-    return NextResponse.json({ message, ...(cappedRecords && { records: cappedRecords }) });
+    return NextResponse.json({
+      message,
+      ...(cappedRecords && { records: cappedRecords }),
+      ...(mapAction && { map_action: mapAction }),
+    });
   } catch (err) {
     const errorMessage = err instanceof Error ? err.message : String(err);
     const is429 = errorMessage.includes("429") || errorMessage.toLowerCase().includes("quota");

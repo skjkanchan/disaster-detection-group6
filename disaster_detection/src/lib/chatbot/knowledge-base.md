@@ -55,3 +55,20 @@ The geospatial dashboard provides:
 ## Evaluation Approach
 
 The evaluation module compares VLM-generated damage predictions against FEMA ground-truth labels from the xBD dataset to measure classification accuracy, precision, recall, and overall model reliability.
+
+## Hurricane Matthew — Key Facts (for quick reference)
+
+These short facts are mirrored from the curated external corpus (FEMA, UN OCHA, NOAA NHC, AP News) and can be cited directly when the external sources do not cover a very specific sub-question.
+
+- **Formation**: Tropical wave off the African coast on September 22, 2016; named Tropical Storm Matthew on September 28.
+- **Peak intensity**: Category 5 on October 1, 2016 with 165 mph (270 km/h) sustained winds and 934 mb central pressure — the southernmost Atlantic Category 5 on record (13.4°N).
+- **Haiti landfall**: October 4, 2016 at about 11:00 UTC near Les Anglais, Tiburon Peninsula, as a Category 4 (145 mph / 230 km/h). Most powerful storm to strike Haiti since Cleo (1964).
+- **Cuba landfall**: October 4, 2016 at about 24:00 UTC near Juaco, Guantánamo Province (Category 4).
+- **Bahamas**: Passed directly over Nassau on October 6, 2016 as a Category 3.
+- **U.S. landfall**: October 8, 2016 at about 15:00 UTC near McClellanville, South Carolina (Category 1, 75 mph).
+- **Haiti casualties**: 546 confirmed deaths (Haitian government); humanitarian estimates around 1,000+. About 175,500 displaced, 2.1 million affected, 1.4 million (including 592,000 children) needing immediate assistance; 200,000+ homes damaged or destroyed.
+- **U.S. casualties**: At least 49 deaths across Florida, Georgia, South Carolina, and North Carolina. North Carolina alone: 28 deaths, 100,000+ homes/businesses damaged.
+- **U.S. evacuations**: 2.2+ million residents placed under mandatory evacuation; peak power outages exceeded 2.2 million customers.
+- **Economic damage**: ~$10 billion USD in the United States; ~$16.47 billion worldwide (2016 USD).
+- **FEMA declarations**: DR-4283 (FL), DR-4285 (GA), DR-4286 (SC), DR-4287 (NC) — all in October 2016.
+- **Follow-on health**: Cholera outbreak in southern Haiti, 3,400+ suspected new cases in the month after landfall; $120 million international appeal.

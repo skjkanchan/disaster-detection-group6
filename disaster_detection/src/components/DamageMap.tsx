@@ -3,15 +3,20 @@
 import { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import type { MapAction } from "@/lib/chatbot/types";
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN!;
 
 export default function DamageMap({
     imagery,
     showHeatmap = true,
+    focus = null,
+    onClearFocus,
 }: {
     imagery: "pre" | "post" | "none"
     showHeatmap?: boolean
+    focus?: MapAction | null
+    onClearFocus?: () => void
 }) {
     const [tileCount, setTileCount] = useState(0);
     const mapContainerRef = useRef<HTMLDivElement | null>(null);
@@ -228,6 +233,57 @@ export default function DamageMap({
         }
     }, [imagery, showHeatmap]);
 
+    // React to chatbot-driven focus: pan/zoom to bbox and filter the buildings
+    // layers to the requested UIDs and/or damage subtypes.
+    useEffect(() => {
+        const map = mapRef.current;
+        if (!map) return;
+
+        const applyFocus = () => {
+            const hasFill = !!map.getLayer("matthew-buildings-fill");
+            const hasOutline = !!map.getLayer("matthew-buildings-outline");
+
+            if (!focus) {
+                if (hasFill) map.setFilter("matthew-buildings-fill", null);
+                if (hasOutline) map.setFilter("matthew-buildings-outline", null);
+                return;
+            }
+
+            const clauses: any[] = ["all"];
+            if (focus.buildingUids && focus.buildingUids.length > 0) {
+                clauses.push(["in", ["get", "uid"], ["literal", focus.buildingUids]]);
+            }
+            if (focus.damageFilter && focus.damageFilter.length > 0) {
+                clauses.push(["in", ["get", "subtype"], ["literal", focus.damageFilter]]);
+            }
+            const filterExpr = clauses.length > 1 ? clauses : null;
+
+            if (hasFill) map.setFilter("matthew-buildings-fill", filterExpr as any);
+            if (hasOutline) map.setFilter("matthew-buildings-outline", filterExpr as any);
+
+            if (focus.bbox) {
+                const [w, s, e, n] = focus.bbox;
+                try {
+                    map.fitBounds(
+                        [
+                            [w, s],
+                            [e, n],
+                        ],
+                        { padding: 60, duration: 800, maxZoom: 18 }
+                    );
+                } catch {
+                    // ignore invalid bbox
+                }
+            }
+        };
+
+        if (map.isStyleLoaded() && (map as any)._matthewLayerIds) {
+            applyFocus();
+        } else {
+            map.once("idle", applyFocus);
+        }
+    }, [focus]);
+
     return (
         <div className="relative w-full h-[75vh] min-h-[600px] rounded-xl overflow-hidden border border-zinc-200 shadow-inner">
             <div ref={mapContainerRef} className="w-full h-full" />
@@ -238,6 +294,20 @@ export default function DamageMap({
                       <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                     </span>
                     Rendering {tileCount * 2} Satellite Images ({tileCount} Locations)
+                </div>
+            )}
+            {focus && (
+                <div className="absolute top-4 left-4 z-10 bg-indigo-600/95 text-white px-3 py-2 rounded-lg shadow-md text-xs font-bold flex items-center gap-2">
+                    <span>Chatbot focus active</span>
+                    {onClearFocus && (
+                        <button
+                            type="button"
+                            onClick={onClearFocus}
+                            className="rounded bg-white/20 hover:bg-white/30 px-2 py-0.5 text-[11px] font-semibold"
+                        >
+                            Clear
+                        </button>
+                    )}
                 </div>
             )}
         </div>

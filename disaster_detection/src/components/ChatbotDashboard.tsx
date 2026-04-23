@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import dynamic from "next/dynamic";
 import MessageBubble from "./MessageBubble";
+import type { MapAction } from "@/lib/chatbot/types";
 
 const PropertyResults = dynamic(
   () => import("@/app/chatbot/components/PropertyResults"),
@@ -51,7 +52,13 @@ function formatTime(date: Date): string {
   });
 }
 
-export default function ChatbotDashboard() {
+type ChatbotDashboardProps = {
+  /** Optional callback so the parent can focus its main map when the chatbot
+   * returns a map_action (bbox, building uids, damage filter). */
+  onMapAction?: (action: MapAction | null) => void;
+};
+
+export default function ChatbotDashboard({ onMapAction }: ChatbotDashboardProps = {}) {
   const [messages, setMessages] = useState<Message[]>([INITIAL_AI_MESSAGE]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -111,6 +118,10 @@ export default function ChatbotDashboard() {
             records: data.records,
           },
         ]);
+
+        if (onMapAction) {
+          onMapAction(data.map_action ?? null);
+        }
       } catch (err) {
         setMessages((prev) => [
           ...prev,
@@ -126,7 +137,7 @@ export default function ChatbotDashboard() {
         setLoading(false);
       }
     },
-    [messages, loading]
+    [messages, loading, onMapAction]
   );
 
   return (

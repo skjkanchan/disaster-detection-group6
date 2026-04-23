@@ -4,6 +4,7 @@ import { useState } from "react";
 import DamagePercentageIndicators from "./DamagePercentageIndicators";
 import DamageMap from "./DamageMap";
 import ChatbotDashboard from "./ChatbotDashboard";
+import type { MapAction } from "@/lib/chatbot/types";
 
 const DAMAGE_COLORS: Record<string, string> = {
   no_damage: "#22c55e",
@@ -22,6 +23,7 @@ const LEGEND_ENTRIES = [
 export default function GeospatialDashboard() {
   const [imageryType, setImageryType] = useState<"pre" | "post" | "none">("post");
   const [showHeatmap, setShowHeatmap] = useState(true);
+  const [mapFocus, setMapFocus] = useState<MapAction | null>(null);
 
   return (
     <div className="flex flex-col gap-4">
@@ -71,7 +73,12 @@ export default function GeospatialDashboard() {
           </div>
 
           {/* Map */}
-          <DamageMap imagery={imageryType} showHeatmap={showHeatmap} />
+          <DamageMap
+            imagery={imageryType}
+            showHeatmap={showHeatmap}
+            focus={mapFocus}
+            onClearFocus={() => setMapFocus(null)}
+          />
 
           {/* Legend */}
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-1 p-3.5 bg-white rounded-xl border border-zinc-200 shadow-sm">
@@ -100,7 +107,7 @@ export default function GeospatialDashboard() {
 
         {/* Right: Chatbot */}
         <div className="w-[460px] shrink-0">
-          <ChatbotDashboard />
+          <ChatbotDashboard onMapAction={setMapFocus} />
         </div>
 
       </div>

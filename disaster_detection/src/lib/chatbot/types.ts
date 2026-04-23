@@ -35,6 +35,27 @@ export type DamageRecord = {
   region?: string;
 };
 
+/** A single retrieved corpus chunk attached to a RetrievalResult. */
+export type CorpusSource = {
+  id: string;
+  title: string;
+  source: string;
+  date?: string;
+  url?: string;
+  text: string;
+  score: number;
+};
+
+/** Instructions for the main Mapbox map when answering a chat query. */
+export type MapAction = {
+  /** West, south, east, north in degrees. */
+  bbox?: [number, number, number, number];
+  /** Subset of xBD building UIDs to highlight; all others dimmed/hidden. */
+  buildingUids?: string[];
+  /** Damage subtypes (matching the xBD `subtype` property) to keep visible. */
+  damageFilter?: ("no-damage" | "minor-damage" | "major-damage" | "destroyed" | "un-classified")[];
+};
+
 /** Result of a retriever: records plus optional summary stats for the response generator. */
 export type RetrievalResult = {
   intent: QuestionType;
@@ -50,4 +71,8 @@ export type RetrievalResult = {
   };
   /** Curated knowledge base text for general_knowledge intent */
   knowledge?: string;
+  /** External RAG sources retrieved via BM25 over the curated corpus. */
+  corpus?: CorpusSource[];
+  /** Optional instructions for the main map (pan/zoom/filter). */
+  mapAction?: MapAction;
 };
