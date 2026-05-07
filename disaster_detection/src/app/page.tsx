@@ -6,9 +6,10 @@ import GeospatialDashboard from "@/components/GeospatialDashboard";
 import MetricsDashboard from "@/components/MetricsDashboard";
 import UploadDashboard from "@/components/UploadDashboard";
 import ChatbotDashboard from "@/components/ChatbotDashboard";
+import VLMEvaluationDashboard from "@/components/VLMEvaluationDashboard";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<'map' | 'evaluation' | 'upload' | 'chatbot'>('map');
+  const [activeTab, setActiveTab] = useState<'map' | 'evaluation' | 'upload' | 'chatbot' | 'vlm'>('map');
 
   return (
     <div className="min-h-screen bg-zinc-50 p-4 md:p-8">
@@ -54,6 +55,15 @@ export default function Home() {
           >
             Image Upload
           </button>
+          <button
+            onClick={() => setActiveTab('vlm')}
+            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${activeTab === 'vlm'
+              ? 'border-indigo-600 text-indigo-600'
+              : 'border-transparent text-zinc-500 hover:text-zinc-700 hover:border-zinc-300'
+              }`}
+          >
+            VLM Evaluation
+          </button>
         </div>
 
         <section className="bg-white rounded-xl border border-zinc-200 p-4 md:p-6 shadow-sm w-full min-h-[80vh]">
@@ -61,6 +71,7 @@ export default function Home() {
           {activeTab === 'evaluation' && <MetricsDashboard />}
           {activeTab === 'chatbot' && <ChatbotDashboard />}
           {activeTab === 'upload' && <UploadDashboard />}
+          {activeTab === 'vlm' && <VLMEvaluationDashboard />}
 
         </section>
       </main>

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import {
-    BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
+    BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend
 } from 'recharts';
 import {
     Map,
@@ -29,31 +29,44 @@ const pointInBBox = (pt: number[], bbox: any) => {
     return pt[0] >= bbox.minLng && pt[0] <= bbox.maxLng && pt[1] >= bbox.minLat && pt[1] <= bbox.maxLat;
 };
 
+const VLM_LABEL_MAP: Record<string, string> = {
+    'major':     'Major Damage',
+    'minor':     'Minor Damage',
+    'destroyed': 'Destroyed',
+    'no damage': 'No Damage',
+};
+
 export default function MetricsDashboard() {
     const [allBuildings, setAllBuildings] = useState<any[]>([]);
     const [tiles, setTiles] = useState<any[]>([]);
     const [selectedTileId, setSelectedTileId] = useState<string>('All');
     const [loading, setLoading] = useState(true);
+    const [vlmCounts, setVlmCounts] = useState<Record<string, number>>({});
 
     useEffect(() => {
         async function loadData() {
             try {
-                // Fetch real data from AWS through our Next.js API routes
-                const [metadataRes, buildingsRes] = await Promise.all([
+                const [metadataRes, buildingsRes, vlmRes] = await Promise.all([
                     fetch('/api/matthew-metadata'),
-                    fetch('/api/matthew-buildings')
+                    fetch('/api/matthew-buildings'),
+                    fetch('/data/dummy_predictions.json'),
                 ]);
 
                 const metadata = await metadataRes.json();
                 const buildingsData = await buildingsRes.json();
+                const vlmPredictions: { damage_label: string }[] = await vlmRes.json();
 
-                if (Array.isArray(metadata)) {
-                    setTiles(metadata);
-                }
+                if (Array.isArray(metadata)) setTiles(metadata);
+                if (buildingsData.features) setAllBuildings(buildingsData.features);
 
-                if (buildingsData.features) {
-                    setAllBuildings(buildingsData.features);
-                }
+                const counts: Record<string, number> = {
+                    'No Damage': 0, 'Minor Damage': 0, 'Major Damage': 0, 'Destroyed': 0,
+                };
+                vlmPredictions.forEach(p => {
+                    const label = VLM_LABEL_MAP[p.damage_label.toLowerCase()];
+                    if (label) counts[label]++;
+                });
+                setVlmCounts(counts);
             } catch (err) {
                 console.error("Error loading metrics data", err);
             } finally {
@@ -256,6 +269,49 @@ export default function MetricsDashboard() {
                     </div>
                 ))}
             </div>
+
+            {/* VLM vs Ground-Truth Comparison Chart */}
+            {Object.keys(vlmCounts).length > 0 && (() => {
+                const CATEGORIES = ['No Damage', 'Minor Damage', 'Major Damage', 'Destroyed'];
+                const gtTotal = activeBuildings.length || 1;
+                const vlmTotal = Object.values(vlmCounts).reduce((s, v) => s + v, 0) || 1;
+
+                const compData = CATEGORIES.map(name => {
+                    const gtCount = chartData.find(d => d.name === name)?.count ?? 0;
+                    const vlmCount = vlmCounts[name] ?? 0;
+                    return {
+                        name,
+                        'Ground Truth (%)': parseFloat(((gtCount / gtTotal) * 100).toFixed(1)),
+                        'VLM Predicted (%)': parseFloat(((vlmCount / vlmTotal) * 100).toFixed(1)),
+                    };
+                });
+
+                return (
+                    <div className="bg-white p-5 rounded-xl border border-zinc-200 shadow-sm">
+                        <h3 className="text-sm font-bold text-zinc-900 mb-1">VLM Predictions vs Ground Truth</h3>
+                        <p className="text-xs text-zinc-500 mb-4">
+                            Damage-category distribution — ground truth (xBD) compared to VLM model predictions (% of total)
+                        </p>
+                        <div className="h-64">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <BarChart data={compData} margin={{ top: 4, right: 8, left: -16, bottom: 0 }} barCategoryGap="30%">
+                                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e4e4e7" />
+                                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#71717a' }} />
+                                    <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#71717a' }} tickFormatter={v => `${v}%`} />
+                                    <Tooltip
+                                        contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0/0.1)' }}
+                                        cursor={{ fill: '#f4f4f5' }}
+                                        formatter={(v: number | undefined) => [`${v ?? 0}%`]}
+                                    />
+                                    <Legend iconType="circle" iconSize={8} wrapperStyle={{ fontSize: '12px' }} />
+                                    <Bar dataKey="Ground Truth (%)"   fill="#6366f1" radius={[4, 4, 0, 0]} />
+                                    <Bar dataKey="VLM Predicted (%)"  fill="#10b981" radius={[4, 4, 0, 0]} />
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </div>
+                    </div>
+                );
+            })()}
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Large Satellite Image Preview */}
