@@ -1,0 +1,19 @@
+[
+  {
+    "id": "hurricane-matthew_00000337_de57441a-41cf-4fd5-a07e-ef52e89c18bd",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings are not clearly visible due to the blurriness of the image, but there may be additional damage or debris in the area.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Visible cracks and missing sections on the roof.\n- Visible cracks and possible bulging or deformation on the walls.\n- The immediate surroundings are not clearly visible due to the blurriness of the image, but the presence of debris or additional damage is suggested. ",
+    "polygon": null,
+    "lat": 18.634843392513776,
+    "lon": -74.13061141086254,
+    "address": "5e Fonds Rouge Dah\u00e8re, Commune de J\u00e9r\u00e9mie, Arrondissement de J\u00e9r\u00e9mie, D\u00e9partement de la Grande-Anse, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement de la Grande-Anse",
+    "source_full_image_name": "hurricane-matthew_00000337.png",
+    "building_uid": "de57441a-41cf-4fd5-a07e-ef52e89c18bd",
+    "gt_full_image_pixel_polygon": null,
+    "gt_full_image_pixel_bbox": null,
+    "gt_label_from_json": null
+  }
+]

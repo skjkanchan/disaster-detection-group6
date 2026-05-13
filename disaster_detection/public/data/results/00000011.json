@@ -1,0 +1,5474 @@
+[
+  {
+    "id": "hurricane-matthew_00000011_73afe5e0-1a6d-43ee-a900-60ebb384b6bb",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be severely damaged or missing in some areas.\n   - The walls show significant signs of damage, including cracks, bulging, and possible structural instability.\n   - The immediate surroundings are not clearly visible, but there may be debris or damage to adjacent structures.\n\n2) Overall Damage Classification:\n   - The building has sustained major damage.\n\n3) Evidence:\n   - The roof is visibly damaged or missing in multiple areas.\n   - The walls exhibit extensive cracks and bulging, indicating significant structural damage.\n   - The overall appearance of the building is drastically different from the pre-disaster image, with clear signs of severe damage. ",
+    "polygon": [
+      [
+        967.9707756969639,
+        1022.977482848097
+      ],
+      [
+        960.144888222663,
+        1022.408119057526
+      ],
+      [
+        962.4042780974189,
+        996.4711181154602
+      ],
+      [
+        1002.121973787847,
+        999.9196605564314
+      ],
+      [
+        1000.072423447111,
+        1022.977102767761
+      ],
+      [
+        967.9707756969639,
+        1022.977482848097
+      ]
+    ],
+    "lat": 18.231936475375008,
+    "lon": -73.75341374600717,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "73afe5e0-1a6d-43ee-a900-60ebb384b6bb",
+    "gt_full_image_pixel_polygon": [
+      [
+        967.9707756969639,
+        1022.977482848097
+      ],
+      [
+        960.144888222663,
+        1022.408119057526
+      ],
+      [
+        962.4042780974189,
+        996.4711181154602
+      ],
+      [
+        1002.121973787847,
+        999.9196605564314
+      ],
+      [
+        1000.072423447111,
+        1022.977102767761
+      ],
+      [
+        967.9707756969639,
+        1022.977482848097
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      960.144888222663,
+      996.4711181154602,
+      1002.121973787847,
+      1022.977482848097
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_87db9e35-eedc-4df1-be05-5068a063b09f",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be partially or completely collapsed, with visible debris scattered around the building.\n   - There are significant cracks and structural damage visible in the walls, indicating that the building has sustained a considerable amount of force or impact.\n   - The surrounding area shows signs of destruction, with debris and rubble scattered across the landscape.\n\n2) Overall Damage Classification:\n   - The building has sustained major damage, as evidenced by the collapsed roof, extensive wall damage, and the destruction in the immediate surroundings.\n\n3) Evidence:\n   - The roof is no longer intact, with visible debris and a lack of structural integrity.\n   - The walls show significant cracks and structural damage, indicating that the building has been subjected to a significant amount of force or impact.\n   - The surrounding area is filled with debris and rubble, which is indicative of a large-scale disaster affecting the building and its immediate surroundings. ",
+    "polygon": [
+      [
+        922.1354257964772,
+        991.16777840302
+      ],
+      [
+        924.9310938572507,
+        966.6097558262062
+      ],
+      [
+        1004.19649771357,
+        974.0223241388571
+      ],
+      [
+        1002.121973787847,
+        999.9196605564314
+      ],
+      [
+        922.1354257964772,
+        991.16777840302
+      ]
+    ],
+    "lat": 18.232068990994993,
+    "lon": -73.75351237170625,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "87db9e35-eedc-4df1-be05-5068a063b09f",
+    "gt_full_image_pixel_polygon": [
+      [
+        922.1354257964772,
+        991.16777840302
+      ],
+      [
+        924.9310938572507,
+        966.6097558262062
+      ],
+      [
+        1004.19649771357,
+        974.0223241388571
+      ],
+      [
+        1002.121973787847,
+        999.9196605564314
+      ],
+      [
+        922.1354257964772,
+        991.16777840302
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      922.1354257964772,
+      966.6097558262062,
+      1004.19649771357,
+      999.9196605564314
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_bc2bfc00-ce2b-47c3-b415-838ef2e21105",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be partially or completely missing, exposing the interior structure.\n- The walls show signs of structural damage, with visible cracks and deformations.\n- The immediate surroundings are not clearly visible due to the low resolution and blurriness of the image.\n\nOverall Damage Classification: `destroyed`\n\nEvidence:\n- The roof is missing, which is a clear indication of severe damage.\n- The walls show significant structural damage, with visible cracks and deformations.\n- The surrounding area is not clearly visible due to the low resolution and blurriness of the image, but the damage to the building itself is extensive enough to classify it as destroyed. ",
+    "polygon": [
+      [
+        939.2602562776605,
+        1003.310976003404
+      ],
+      [
+        938.7270198370752,
+        1018.781033669919
+      ],
+      [
+        922.0687835033086,
+        1017.231430289075
+      ],
+      [
+        923.0372856165758,
+        1001.541696071216
+      ],
+      [
+        939.2602562776605,
+        1003.310976003404
+      ]
+    ],
+    "lat": 18.231963197368906,
+    "lon": -73.75361708913512,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "bc2bfc00-ce2b-47c3-b415-838ef2e21105",
+    "gt_full_image_pixel_polygon": [
+      [
+        939.2602562776605,
+        1003.310976003404
+      ],
+      [
+        938.7270198370752,
+        1018.781033669919
+      ],
+      [
+        922.0687835033086,
+        1017.231430289075
+      ],
+      [
+        923.0372856165758,
+        1001.541696071216
+      ],
+      [
+        939.2602562776605,
+        1003.310976003404
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      922.0687835033086,
+      1001.541696071216,
+      939.2602562776605,
+      1018.781033669919
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_588f4831-fc6f-4056-bffc-7d3ac07249c2",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof has sustained significant damage, with large sections missing or severely damaged.\n   - The walls show extensive structural damage, with visible cracks and possible bulging or bowing.\n   - The immediate surroundings appear to be in a state of disarray, with debris scattered around the building.\n\n2) Overall Damage Classification:\n   - The building has suffered major damage.\n\n3) Evidence:\n   - The roof is severely damaged, with large sections missing or visibly damaged.\n   - The walls exhibit extensive structural damage, with visible cracks and possible bulging or bowing.\n   - The debris scattered around the building indicates significant destruction and disarray in the immediate surroundings. ",
+    "polygon": [
+      [
+        973.049754053839,
+        944.7681087040405
+      ],
+      [
+        969.8390421282194,
+        970.6916346348894
+      ],
+      [
+        947.1262281241825,
+        968.3133295019785
+      ],
+      [
+        948.1964654346398,
+        959.6325157731093
+      ],
+      [
+        953.4287367213407,
+        959.7514310317441
+      ],
+      [
+        955.4502960829013,
+        942.8654645984788
+      ],
+      [
+        973.049754053839,
+        944.7681087040405
+      ]
+    ],
+    "lat": 18.232195032058687,
+    "lon": -73.75348889284325,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "588f4831-fc6f-4056-bffc-7d3ac07249c2",
+    "gt_full_image_pixel_polygon": [
+      [
+        973.049754053839,
+        944.7681087040405
+      ],
+      [
+        969.8390421282194,
+        970.6916346348894
+      ],
+      [
+        947.1262281241825,
+        968.3133295019785
+      ],
+      [
+        948.1964654346398,
+        959.6325157731093
+      ],
+      [
+        953.4287367213407,
+        959.7514310317441
+      ],
+      [
+        955.4502960829013,
+        942.8654645984788
+      ],
+      [
+        973.049754053839,
+        944.7681087040405
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      947.1262281241825,
+      942.8654645984788,
+      973.049754053839,
+      970.6916346348894
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_dd8e1234-372e-42dc-bebf-23d88f4b64f6",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings are not clearly visible due to the blurriness of the image, but there may be debris or damage to nearby structures.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Visible cracks and missing sections on the roof.\n- Visible cracks and possible bulging or deformation on the walls.\n- Debris or damage to nearby structures, although not clearly visible due to the blurriness of the image. ",
+    "polygon": [
+      [
+        999.9405753180764,
+        946.393381803128
+      ],
+      [
+        1011.587227206543,
+        946.7660746638503
+      ],
+      [
+        1011.121361132797,
+        961.3942694347373
+      ],
+      [
+        999.3815360274722,
+        960.5557104990709
+      ],
+      [
+        999.9405753180764,
+        946.393381803128
+      ]
+    ],
+    "lat": 18.232209184958503,
+    "lon": -73.75328496387172,
+    "address": "Bergeaud, 1re Bourdet, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "dd8e1234-372e-42dc-bebf-23d88f4b64f6",
+    "gt_full_image_pixel_polygon": [
+      [
+        999.9405753180764,
+        946.393381803128
+      ],
+      [
+        1011.587227206543,
+        946.7660746638503
+      ],
+      [
+        1011.121361132797,
+        961.3942694347373
+      ],
+      [
+        999.3815360274722,
+        960.5557104990709
+      ],
+      [
+        999.9405753180764,
+        946.393381803128
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      999.3815360274722,
+      946.393381803128,
+      1011.587227206543,
+      961.3942694347373
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_eb9e7808-bd10-4676-bf98-bc23cdcd7697",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be intact, but the walls are significantly damaged, with visible cracks and deformations.\n- There are large gaps and missing sections in the walls, indicating structural damage.\n- The immediate surroundings show signs of debris and destruction, with visible rubble and damaged infrastructure.\n\nOverall Damage Classification:\n- The building has sustained major damage, with significant structural damage to the walls and visible signs of destruction in the immediate surroundings.\n\nEvidence:\n- Cracks and deformations in the walls, indicating structural damage.\n- Large gaps and missing sections in the walls.\n- Visible rubble and debris in the immediate surroundings. ",
+    "polygon": [
+      [
+        926.5381813861188,
+        952.8457775086557
+      ],
+      [
+        941.7593342255831,
+        953.6781843037604
+      ],
+      [
+        941.1647579441528,
+        966.7588625249437
+      ],
+      [
+        925.4067548879555,
+        966.4908405675714
+      ],
+      [
+        926.5381813861188,
+        952.8457775086557
+      ]
+    ],
+    "lat": 18.232184024914623,
+    "lon": -73.75361638549619,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "eb9e7808-bd10-4676-bf98-bc23cdcd7697",
+    "gt_full_image_pixel_polygon": [
+      [
+        926.5381813861188,
+        952.8457775086557
+      ],
+      [
+        941.7593342255831,
+        953.6781843037604
+      ],
+      [
+        941.1647579441528,
+        966.7588625249437
+      ],
+      [
+        925.4067548879555,
+        966.4908405675714
+      ],
+      [
+        926.5381813861188,
+        952.8457775086557
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      925.4067548879555,
+      952.8457775086557,
+      941.7593342255831,
+      966.7588625249437
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_92e38986-dd0a-4557-99ae-da30acd6444e",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be intact, but the walls exhibit significant signs of damage, with visible cracks and possible structural instability.\n- The walls show extensive damage, with large cracks and possible deformation.\n- The immediate surroundings are not clearly visible, but there are no obvious indications of a disaster or significant damage to the immediate surroundings.\n\nOverall Damage Classification:\n- The building has sustained major damage, with significant structural instability and visible cracks in the walls.\n\nEvidence:\n- Large cracks in the walls, indicating structural damage.\n- Possible deformation of the walls, which could compromise the building's stability.\n- No obvious signs of damage in the immediate surroundings, suggesting that the building is the primary focus of the disaster assessment. ",
+    "polygon": [
+      [
+        896.2399999533516,
+        965.0800000096735
+      ],
+      [
+        894.7499999504897,
+        987.8000000094315
+      ],
+      [
+        894.6889856751304,
+        987.7975620181279
+      ],
+      [
+        892.8677534780331,
+        1003.58157436165
+      ],
+      [
+        879.0567426773885,
+        1002.974496963177
+      ],
+      [
+        881.1815135706065,
+        964.1215435050023
+      ],
+      [
+        896.2399999533516,
+        965.0800000096735
+      ]
+    ],
+    "lat": 18.232080700519578,
+    "lon": -73.75380803923001,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "92e38986-dd0a-4557-99ae-da30acd6444e",
+    "gt_full_image_pixel_polygon": [
+      [
+        896.2399999533516,
+        965.0800000096735
+      ],
+      [
+        894.7499999504897,
+        987.8000000094315
+      ],
+      [
+        894.6889856751304,
+        987.7975620181279
+      ],
+      [
+        892.8677534780331,
+        1003.58157436165
+      ],
+      [
+        879.0567426773885,
+        1002.974496963177
+      ],
+      [
+        881.1815135706065,
+        964.1215435050023
+      ],
+      [
+        896.2399999533516,
+        965.0800000096735
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      879.0567426773885,
+      964.1215435050023,
+      896.2399999533516,
+      1003.58157436165
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_e840451d-c763-4519-ac49-389bffd5bce9",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be intact, but the walls exhibit more pronounced signs of damage, with visible cracks and possible structural compromise.\n   - The surrounding area is not clearly visible, but there are hints of greenery, suggesting the building is in an urban or suburban setting with some vegetation.\n   - The overall condition of the building suggests it may have been affected by a natural disaster or other significant event.\n\n2) Overall Damage Classification:\n   - The building appears to be in a state of `major_damage`.\n\n3) Evidence:\n   - The walls show significant cracks and possible structural compromise, indicating a substantial impact on the building's structural integrity.\n   - The roof, while seemingly intact, may have been affected by the same event that damaged the walls, potentially leading to future issues.\n   - The surrounding area, though not clearly visible, may have been impacted by the same disaster, which could have caused further damage to the building or its immediate surroundings. ",
+    "polygon": [
+      [
+        922.1244835683569,
+        966.2071898845518
+      ],
+      [
+        921.6691755199814,
+        988.5172842549479
+      ],
+      [
+        895.670553644756,
+        987.325567449939
+      ],
+      [
+        897.1605536464194,
+        964.6155674504977
+      ],
+      [
+        922.1244835683569,
+        966.2071898845518
+      ]
+    ],
+    "lat": 18.23211419017222,
+    "lon": -73.75371119256317,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "e840451d-c763-4519-ac49-389bffd5bce9",
+    "gt_full_image_pixel_polygon": [
+      [
+        922.1244835683569,
+        966.2071898845518
+      ],
+      [
+        921.6691755199814,
+        988.5172842549479
+      ],
+      [
+        895.670553644756,
+        987.325567449939
+      ],
+      [
+        897.1605536464194,
+        964.6155674504977
+      ],
+      [
+        922.1244835683569,
+        966.2071898845518
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      895.670553644756,
+      964.6155674504977,
+      922.1244835683569,
+      988.5172842549479
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_127840c5-28a9-4321-a600-8afd414d4c26",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be damaged, with visible signs of wear and tear.\n   - The white facade shows signs of discoloration and possible peeling or chipping of paint.\n   - The surrounding area is now more visible, revealing a significant amount of debris and destruction in the immediate vicinity of the building.\n\n2) Overall Damage Classification:\n   - The building has sustained major damage.\n\n3) Evidence:\n   - The roof has visible signs of damage, such as missing shingles or tiles.\n   - The white facade shows discoloration and possible peeling or chipping of paint, indicating significant wear and tear.\n   - The surrounding area is filled with debris and destruction, which is indicative of a major disaster affecting the building and its immediate surroundings. ",
+    "polygon": [
+      [
+        861.3799999512869,
+        980.9400000102194
+      ],
+      [
+        860.3792387336056,
+        994.7144604396061
+      ],
+      [
+        878.587152393058,
+        996.126178808994
+      ],
+      [
+        878.5014463852706,
+        1003.561036575817
+      ],
+      [
+        827.1062903935755,
+        999.4310119449019
+      ],
+      [
+        829.3199999516404,
+        979.1000000089731
+      ],
+      [
+        861.3799999512869,
+        980.9400000102194
+      ]
+    ],
+    "lat": 18.232045114070107,
+    "lon": -73.75396471125669,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "127840c5-28a9-4321-a600-8afd414d4c26",
+    "gt_full_image_pixel_polygon": [
+      [
+        861.3799999512869,
+        980.9400000102194
+      ],
+      [
+        860.3792387336056,
+        994.7144604396061
+      ],
+      [
+        878.587152393058,
+        996.126178808994
+      ],
+      [
+        878.5014463852706,
+        1003.561036575817
+      ],
+      [
+        827.1062903935755,
+        999.4310119449019
+      ],
+      [
+        829.3199999516404,
+        979.1000000089731
+      ],
+      [
+        861.3799999512869,
+        980.9400000102194
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      827.1062903935755,
+      979.1000000089731,
+      878.587152393058,
+      1003.561036575817
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_9ebdb1de-b72e-42de-b649-9afb55368fc0",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be intact, but the walls exhibit more pronounced signs of damage, with visible cracks and possible structural compromise.\n   - There may be additional damage to the walls, such as bulging or bowing, which could indicate further structural compromise.\n   - The surrounding area is not clearly visible in the POST image, but there are no obvious signs of damage to the immediate surroundings, such as fallen debris or damaged infrastructure.\n\n2) Overall Damage Classification:\n   - Based on the visible damage to the walls and the potential for further structural compromise, the building can be classified as having `major_damage`.\n\n3) Evidence:\n   - Visible cracks in the walls, which could indicate structural compromise.\n   - Possible bulging or bowing of the walls, which could be a sign of further structural damage.\n   - The roof appears to be intact, which contrasts with the more severe damage to the walls, suggesting that the building has sustained significant damage. ",
+    "polygon": [
+      [
+        880.6696652665548,
+        962.2086209631358
+      ],
+      [
+        879.7845762415933,
+        970.3678305249007
+      ],
+      [
+        862.2355245299041,
+        969.0358402536884
+      ],
+      [
+        861.3799999512869,
+        980.9400000102194
+      ],
+      [
+        829.3199999516404,
+        979.1000000089731
+      ],
+      [
+        831.7551005325123,
+        956.8169190047778
+      ],
+      [
+        880.6696652665548,
+        962.2086209631358
+      ]
+    ],
+    "lat": 18.232141634590683,
+    "lon": -73.75394488885458,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "9ebdb1de-b72e-42de-b649-9afb55368fc0",
+    "gt_full_image_pixel_polygon": [
+      [
+        880.6696652665548,
+        962.2086209631358
+      ],
+      [
+        879.7845762415933,
+        970.3678305249007
+      ],
+      [
+        862.2355245299041,
+        969.0358402536884
+      ],
+      [
+        861.3799999512869,
+        980.9400000102194
+      ],
+      [
+        829.3199999516404,
+        979.1000000089731
+      ],
+      [
+        831.7551005325123,
+        956.8169190047778
+      ],
+      [
+        880.6696652665548,
+        962.2086209631358
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      829.3199999516404,
+      956.8169190047778,
+      880.6696652665548,
+      980.9400000102194
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_a9f500c2-b165-4635-a066-8b4918eb22c9",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be severely damaged or missing in some areas.\n- There are visible cracks and deformations in the walls.\n- The surrounding area is now more clearly visible, showing signs of debris and destruction.\n\nOverall Damage Classification:\n- `major_damage`\n\nEvidence:\n- The roof is visibly damaged or missing in multiple areas.\n- There are clear cracks and deformations in the walls.\n- The surrounding area shows signs of debris and destruction, indicating significant damage to the building and its immediate surroundings. ",
+    "polygon": [
+      [
+        803.6716220021085,
+        1022.979023452196
+      ],
+      [
+        807.9626138954203,
+        992.7362598398173
+      ],
+      [
+        824.001235943341,
+        993.6081009666941
+      ],
+      [
+        819.4243233178178,
+        1022.978905087146
+      ],
+      [
+        803.6716220021085,
+        1022.979023452196
+      ]
+    ],
+    "lat": 18.231957055017155,
+    "lon": -73.75417166678322,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "a9f500c2-b165-4635-a066-8b4918eb22c9",
+    "gt_full_image_pixel_polygon": [
+      [
+        803.6716220021085,
+        1022.979023452196
+      ],
+      [
+        807.9626138954203,
+        992.7362598398173
+      ],
+      [
+        824.001235943341,
+        993.6081009666941
+      ],
+      [
+        819.4243233178178,
+        1022.978905087146
+      ],
+      [
+        803.6716220021085,
+        1022.979023452196
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      803.6716220021085,
+      992.7362598398173,
+      824.001235943341,
+      1022.979023452196
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_8383fe8f-4d73-44f6-907f-6b485362d8d7",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be completely destroyed, with no visible remnants of the original structure.\n   - The walls show significant damage, with visible cracks and possible structural instability.\n   - The immediate surroundings are not clearly visible due to the low resolution and angle of the aerial shot, but the overall impression is that the building has been severely impacted by the disaster.\n\n2) Overall Damage Classification:\n   - The building has suffered major damage, as evidenced by the complete destruction of the roof and the visible structural damage to the walls.\n\n3) Evidence:\n   - The roof is entirely missing, leaving no trace of its original state.\n   - The walls show multiple cracks and signs of structural damage, indicating a significant impact from the disaster.\n   - The overall appearance of the building is drastically different from the pre-disaster image, with no recognizable features remaining. ",
+    "polygon": [
+      [
+        796.0167109772719,
+        949.5815703889396
+      ],
+      [
+        798.3411160485379,
+        931.3737306774489
+      ],
+      [
+        845.9914199713816,
+        937.7658446193543
+      ],
+      [
+        843.4733144808656,
+        956.5547855979423
+      ],
+      [
+        796.0167109772719,
+        949.5815703889396
+      ]
+    ],
+    "lat": 18.232246982152695,
+    "lon": -73.7541502110702,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "8383fe8f-4d73-44f6-907f-6b485362d8d7",
+    "gt_full_image_pixel_polygon": [
+      [
+        796.0167109772719,
+        949.5815703889396
+      ],
+      [
+        798.3411160485379,
+        931.3737306774489
+      ],
+      [
+        845.9914199713816,
+        937.7658446193543
+      ],
+      [
+        843.4733144808656,
+        956.5547855979423
+      ],
+      [
+        796.0167109772719,
+        949.5815703889396
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      796.0167109772719,
+      931.3737306774489,
+      845.9914199713816,
+      956.5547855979423
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_565e823a-5638-4ccd-bf36-d475640150a7",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings are not clearly visible due to the blurred nature of the image.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Visible cracks in the walls.\n- Missing sections of the roof.\n- Possible bulging or deformation of the walls. ",
+    "polygon": [
+      [
+        1023.064340132733,
+        916.5998470178341
+      ],
+      [
+        1012.584135322053,
+        915.2898212903405
+      ],
+      [
+        1016.032677760149,
+        898.5227701161892
+      ],
+      [
+        1023.064353232901,
+        899.3623732410973
+      ],
+      [
+        1023.064340132733,
+        916.5998470178341
+      ]
+    ],
+    "lat": 18.232397575781555,
+    "lon": -73.75321395016576,
+    "address": "Bergeaud, 1re Bourdet, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "565e823a-5638-4ccd-bf36-d475640150a7",
+    "gt_full_image_pixel_polygon": [
+      [
+        1023.064340132733,
+        916.5998470178341
+      ],
+      [
+        1012.584135322053,
+        915.2898212903405
+      ],
+      [
+        1016.032677760149,
+        898.5227701161892
+      ],
+      [
+        1023.064353232901,
+        899.3623732410973
+      ],
+      [
+        1023.064340132733,
+        916.5998470178341
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      1012.584135322053,
+      898.5227701161892,
+      1023.064353232901,
+      916.5998470178341
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_94721b17-4c9e-4f32-894d-bac4389aa958",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings, such as the ground and any nearby structures, are not clearly visible due to the angle and quality of the image.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Visible cracks in the walls.\n- Missing sections of the roof.\n- Possible bulging or deformation of the walls. ",
+    "polygon": [
+      [
+        979.4489027866009,
+        896.2987142606546
+      ],
+      [
+        981.5796074355011,
+        875.5727690593676
+      ],
+      [
+        1012.184274180565,
+        878.4782753934162
+      ],
+      [
+        1010.440970380232,
+        899.3979210199451
+      ],
+      [
+        979.4489027866009,
+        896.2987142606546
+      ]
+    ],
+    "lat": 18.232486451237484,
+    "lon": -73.75333706960566,
+    "address": "Bergeaud, 1re Bourdet, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "94721b17-4c9e-4f32-894d-bac4389aa958",
+    "gt_full_image_pixel_polygon": [
+      [
+        979.4489027866009,
+        896.2987142606546
+      ],
+      [
+        981.5796074355011,
+        875.5727690593676
+      ],
+      [
+        1012.184274180565,
+        878.4782753934162
+      ],
+      [
+        1010.440970380232,
+        899.3979210199451
+      ],
+      [
+        979.4489027866009,
+        896.2987142606546
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      979.4489027866009,
+      875.5727690593676,
+      1012.184274180565,
+      899.3979210199451
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_d4b401b5-d810-454c-b8fa-96fff5bd16b5",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings, including the greenery, show signs of damage, with fallen branches and debris scattered around the building.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- The roof has multiple cracks and is missing significant sections.\n- The walls show visible cracks and possible bulging or deformation.\n- The immediate surroundings, including the greenery, show signs of damage, with fallen branches and debris scattered around the building. ",
+    "polygon": [
+      [
+        1005.511667923683,
+        916.7943267178473
+      ],
+      [
+        971.2117949492551,
+        913.0000929812256
+      ],
+      [
+        972.4259497438047,
+        896.0019258436339
+      ],
+      [
+        1006.87759206857,
+        900.5550063264294
+      ],
+      [
+        1005.511667923683,
+        916.7943267178473
+      ]
+    ],
+    "lat": 18.23240122474153,
+    "lon": -73.75333911367599,
+    "address": "Bergeaud, 1re Bourdet, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "d4b401b5-d810-454c-b8fa-96fff5bd16b5",
+    "gt_full_image_pixel_polygon": [
+      [
+        1005.511667923683,
+        916.7943267178473
+      ],
+      [
+        971.2117949492551,
+        913.0000929812256
+      ],
+      [
+        972.4259497438047,
+        896.0019258436339
+      ],
+      [
+        1006.87759206857,
+        900.5550063264294
+      ],
+      [
+        1005.511667923683,
+        916.7943267178473
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      971.2117949492551,
+      896.0019258436339,
+      1006.87759206857,
+      916.7943267178473
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_19a09a65-716b-4962-bc7a-abcd41bbf426",
+    "damage_label": "no",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be intact, but there may be some damage or wear that is not clearly visible.\n   - The walls are not clearly visible due to the image's quality, but there could be potential damage or structural issues that are not apparent.\n   - The surrounding area is not distinctly visible, and no immediate surroundings can be confidently identified.\n\n2) Overall Damage Classification:\n   - Based on the image's quality and the lack of clear details, it is not possible to confidently classify the overall damage to this specific building. The image does not provide enough information to make a definitive assessment.\n\n3) Evidence:\n   - The image's quality does not allow for a thorough assessment of the building's condition.\n   - The lack of clear details in the image prevents the identification of any specific changes or damage to the building.\n   - The surrounding area is not distinctly visible, making it impossible to provide any evidence regarding the immediate surroundings. ",
+    "polygon": [
+      [
+        1023.064407913367,
+        817.0214528332797
+      ],
+      [
+        1011.008347458478,
+        816.1038005629874
+      ],
+      [
+        1015.458240456712,
+        772.840951940943
+      ],
+      [
+        1023.06443153432,
+        773.501368979016
+      ],
+      [
+        1023.064407913367,
+        817.0214528332797
+      ]
+    ],
+    "lat": 18.232880290040416,
+    "lon": -73.75321248548462,
+    "address": "Bergeaud, 1re Bourdet, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "19a09a65-716b-4962-bc7a-abcd41bbf426",
+    "gt_full_image_pixel_polygon": [
+      [
+        1023.064407913367,
+        817.0214528332797
+      ],
+      [
+        1011.008347458478,
+        816.1038005629874
+      ],
+      [
+        1015.458240456712,
+        772.840951940943
+      ],
+      [
+        1023.06443153432,
+        773.501368979016
+      ],
+      [
+        1023.064407913367,
+        817.0214528332797
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      1011.008347458478,
+      772.840951940943,
+      1023.06443153432,
+      817.0214528332797
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_b03e6562-530e-470e-9c6f-70f98a045383",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be severely damaged or missing in some areas.\n   - The walls show signs of structural damage, with visible cracks and deformations.\n   - The surrounding area is now clearly visible, revealing additional damage to nearby structures or landscaping.\n\n2) Overall Damage Classification:\n   - The building has sustained major damage.\n\n3) Evidence:\n   - The roof is visibly damaged or missing in multiple areas.\n   - The walls exhibit significant structural damage with cracks and deformations.\n   - The surrounding area shows signs of damage to other structures or landscaping. ",
+    "polygon": [
+      [
+        877.5828308017462,
+        890.7996632252599
+      ],
+      [
+        899.9444024263945,
+        891.6382221599677
+      ],
+      [
+        899.6648827820511,
+        906.8254562233762
+      ],
+      [
+        877.0237915121007,
+        905.707377643606
+      ],
+      [
+        877.5828308017462,
+        890.7996632252599
+      ]
+    ],
+    "lat": 18.232454755558976,
+    "lon": -73.7538253935543,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "b03e6562-530e-470e-9c6f-70f98a045383",
+    "gt_full_image_pixel_polygon": [
+      [
+        877.5828308017462,
+        890.7996632252599
+      ],
+      [
+        899.9444024263945,
+        891.6382221599677
+      ],
+      [
+        899.6648827820511,
+        906.8254562233762
+      ],
+      [
+        877.0237915121007,
+        905.707377643606
+      ],
+      [
+        877.5828308017462,
+        890.7996632252599
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      877.0237915121007,
+      890.7996632252599,
+      899.9444024263945,
+      906.8254562233762
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_62312a22-6a4f-45a9-9b37-c7cac5a4915f",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be severely damaged, with visible signs of wear and possible water damage.\n   - The walls are not clearly visible, but the surrounding area includes greenery, suggesting the building is in a natural or semi-natural environment.\n   - The overall condition of the building suggests it may have been exposed to harsh weather conditions or has been abandoned for some time.\n\n2) Overall Damage Classification:\n   - The building is in a state of `major_damage`.\n\n3) Evidence:\n   - The roof is visibly damaged, with signs of wear and possible water damage.\n   - The walls are not clearly visible, but the surrounding area includes greenery, suggesting the building is in a natural or semi-natural environment.\n   - The overall condition of the building suggests it may have been exposed to harsh weather conditions or has been abandoned for some time. ",
+    "polygon": [
+      [
+        959.4196095352971,
+        711.2763861262163
+      ],
+      [
+        958.5089934397445,
+        741.7820253649733
+      ],
+      [
+        943.3320584920558,
+        740.8714092691812
+      ],
+      [
+        944.0909052387092,
+        718.4095455501255
+      ],
+      [
+        939.9931328038087,
+        718.4095455506049
+      ],
+      [
+        939.9931328076435,
+        710.6693087287019
+      ],
+      [
+        959.4196095352971,
+        711.2763861262163
+      ]
+    ],
+    "lat": 18.233222465244257,
+    "lon": -73.75353103927553,
+    "address": "Bergeaud, 1re Bourdet, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "62312a22-6a4f-45a9-9b37-c7cac5a4915f",
+    "gt_full_image_pixel_polygon": [
+      [
+        959.4196095352971,
+        711.2763861262163
+      ],
+      [
+        958.5089934397445,
+        741.7820253649733
+      ],
+      [
+        943.3320584920558,
+        740.8714092691812
+      ],
+      [
+        944.0909052387092,
+        718.4095455501255
+      ],
+      [
+        939.9931328038087,
+        718.4095455506049
+      ],
+      [
+        939.9931328076435,
+        710.6693087287019
+      ],
+      [
+        959.4196095352971,
+        711.2763861262163
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      939.9931328038087,
+      710.6693087287019,
+      959.4196095352971,
+      741.7820253649733
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_aa8f3bb1-4eff-4978-8aef-df4888befd10",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be completely destroyed, with no visible structural integrity remaining.\n   - The walls show significant damage, with visible cracks and possible structural instability.\n   - The immediate surroundings are not clearly visible, but there are no signs of greenery or any other structures, indicating that the building is now isolated and possibly abandoned.\n\n2) Overall Damage Classification:\n   - The building is destroyed.\n\n3) Evidence:\n   - The roof is completely missing, with no visible support structures remaining.\n   - The walls show extensive cracks and possible structural damage, indicating that the building is no longer safe or habitable.\n   - The absence of any other structures or greenery in the immediate surroundings suggests that the building has been severely impacted and is now isolated. ",
+    "polygon": [
+      [
+        880.6525675910738,
+        687.2625219667492
+      ],
+      [
+        907.0429121589929,
+        691.562310704142
+      ],
+      [
+        904.6462965666115,
+        708.112745568358
+      ],
+      [
+        877.3122560352132,
+        704.7596731335233
+      ],
+      [
+        880.6525675910738,
+        687.2625219667492
+      ]
+    ],
+    "lat": 18.2333384451158,
+    "lon": -73.75380209642621,
+    "address": "Bergeaud, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "aa8f3bb1-4eff-4978-8aef-df4888befd10",
+    "gt_full_image_pixel_polygon": [
+      [
+        880.6525675910738,
+        687.2625219667492
+      ],
+      [
+        907.0429121589929,
+        691.562310704142
+      ],
+      [
+        904.6462965666115,
+        708.112745568358
+      ],
+      [
+        877.3122560352132,
+        704.7596731335233
+      ],
+      [
+        880.6525675910738,
+        687.2625219667492
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      877.3122560352132,
+      687.2625219667492,
+      907.0429121589929,
+      708.112745568358
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_bb54012e-028a-46f7-ba76-f71603935df2",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be severely damaged or missing, with visible signs of collapse or disintegration.\n   - The walls show significant structural damage, with visible cracks, bulging, or leaning.\n   - The surrounding area is now completely devoid of vegetation, indicating that the disaster has caused widespread damage to the immediate surroundings.\n\n2) Overall Damage Classification:\n   - The building is destroyed.\n\n3) Evidence:\n   - The roof is completely gone, with no visible support structures remaining.\n   - The walls are visibly damaged, with large cracks and bulging sections, indicating a significant structural failure.\n   - The surrounding area is now barren, with no vegetation remaining, which is highly unusual for the area as seen in the pre-disaster image. ",
+    "polygon": [
+      [
+        994.7207778062681,
+        630.4191950941325
+      ],
+      [
+        1017.637949572746,
+        630.8745031410699
+      ],
+      [
+        1016.727333476714,
+        662.8978358755303
+      ],
+      [
+        993.9619310627304,
+        661.8354504310785
+      ],
+      [
+        994.7207778062681,
+        630.4191950941325
+      ]
+    ],
+    "lat": 18.233565493947644,
+    "lon": -73.75327915988703,
+    "address": "Bergeaud, 1re Bourdet, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "bb54012e-028a-46f7-ba76-f71603935df2",
+    "gt_full_image_pixel_polygon": [
+      [
+        994.7207778062681,
+        630.4191950941325
+      ],
+      [
+        1017.637949572746,
+        630.8745031410699
+      ],
+      [
+        1016.727333476714,
+        662.8978358755303
+      ],
+      [
+        993.9619310627304,
+        661.8354504310785
+      ],
+      [
+        994.7207778062681,
+        630.4191950941325
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      993.9619310627304,
+      630.4191950941325,
+      1017.637949572746,
+      662.8978358755303
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_cdaa0000-b769-467f-a621-8771ccf18f6b",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be intact, but the walls exhibit signs of damage, possibly due to an impact or structural failure.\n- The walls show visible cracks and deformations.\n- There is a noticeable loss of structural integrity in the walls.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- The walls show visible cracks and deformations.\n- There is a noticeable loss of structural integrity in the walls.\n- The overall appearance of the building is significantly altered compared to the pre-disaster image. ",
+    "polygon": [
+      [
+        885.1054000890476,
+        620.8850590954692
+      ],
+      [
+        899.4392313489119,
+        622.8220633200857
+      ],
+      [
+        897.114826278365,
+        638.1243966946516
+      ],
+      [
+        882.3935941728104,
+        635.6062912019792
+      ],
+      [
+        885.1054000890476,
+        620.8850590954692
+      ]
+    ],
+    "lat": 18.233637470407377,
+    "lon": -73.75380102123574,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "cdaa0000-b769-467f-a621-8771ccf18f6b",
+    "gt_full_image_pixel_polygon": [
+      [
+        885.1054000890476,
+        620.8850590954692
+      ],
+      [
+        899.4392313489119,
+        622.8220633200857
+      ],
+      [
+        897.114826278365,
+        638.1243966946516
+      ],
+      [
+        882.3935941728104,
+        635.6062912019792
+      ],
+      [
+        885.1054000890476,
+        620.8850590954692
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      882.3935941728104,
+      620.8850590954692,
+      899.4392313489119,
+      638.1243966946516
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_50fdd8f4-6655-41d4-a126-0d12c0a6de26",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings are not clearly visible due to the low resolution and blurriness of the image.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Cracks and missing sections in the roof.\n- Visible cracks and possible bulging or deformation in the walls.\n- The surrounding area is not clearly visible due to the low resolution and blurriness of the image. ",
+    "polygon": [
+      [
+        888.3921756451442,
+        765.3938172298742
+      ],
+      [
+        911.0417829877931,
+        765.9988634656146
+      ],
+      [
+        909.8546831414191,
+        785.7836278373148
+      ],
+      [
+        886.6616617017193,
+        785.1711194566014
+      ],
+      [
+        888.3921756451442,
+        765.3938172298742
+      ]
+    ],
+    "lat": 18.232996960982202,
+    "lon": -73.75377326061641,
+    "address": "Bergeaud, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "50fdd8f4-6655-41d4-a126-0d12c0a6de26",
+    "gt_full_image_pixel_polygon": [
+      [
+        888.3921756451442,
+        765.3938172298742
+      ],
+      [
+        911.0417829877931,
+        765.9988634656146
+      ],
+      [
+        909.8546831414191,
+        785.7836278373148
+      ],
+      [
+        886.6616617017193,
+        785.1711194566014
+      ],
+      [
+        888.3921756451442,
+        765.3938172298742
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      886.6616617017193,
+      765.3938172298742,
+      911.0417829877931,
+      785.7836278373148
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_70f147b8-5025-48a4-b155-0488bc0a1a91",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The white facade of the building appears to be damaged or discolored, with visible cracks and areas of discoloration.\n- The roof of the building is partially damaged, with visible holes and missing sections.\n- The surrounding vegetation is significantly less dense, with many areas of bare ground and damaged foliage.\n\nOverall Damage Classification:\n- major_damage\n\nEvidence:\n- Cracks and discoloration on the white facade of the building.\n- Holes and missing sections in the roof.\n- Bare ground and damaged foliage in the surrounding vegetation. ",
+    "polygon": [
+      [
+        830.8532266199894,
+        812.7472774543546
+      ],
+      [
+        831.8217287301409,
+        801.512652950908
+      ],
+      [
+        853.7098764697021,
+        803.2559567517206
+      ],
+      [
+        852.7413743559555,
+        815.0716825227439
+      ],
+      [
+        830.8532266199894,
+        812.7472774543546
+      ]
+    ],
+    "lat": 18.232842764326875,
+    "lon": -73.75403559810687,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "70f147b8-5025-48a4-b155-0488bc0a1a91",
+    "gt_full_image_pixel_polygon": [
+      [
+        830.8532266199894,
+        812.7472774543546
+      ],
+      [
+        831.8217287301409,
+        801.512652950908
+      ],
+      [
+        853.7098764697021,
+        803.2559567517206
+      ],
+      [
+        852.7413743559555,
+        815.0716825227439
+      ],
+      [
+        830.8532266199894,
+        812.7472774543546
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      830.8532266199894,
+      801.512652950908,
+      853.7098764697021,
+      815.0716825227439
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_aaa883cd-3dbf-4fab-ae75-981a01b8f9b2",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be in a state of disrepair, with visible cracks and possible structural damage.\n   - The walls show more pronounced cracks and structural damage compared to the pre-disaster image.\n   - The surrounding area is still overgrown with vegetation, indicating neglect or abandonment.\n\n2) Overall Damage Classification:\n   - major_damage\n\n3) Evidence:\n   - The roof has significantly more cracks and appears to be sagging or collapsing in some areas.\n   - The walls show extensive cracks and possible structural damage, with some sections visibly bowed or leaning.\n   - The surrounding area is still overgrown with vegetation, suggesting that the building has been exposed to the elements for an extended period, potentially due to a disaster or lack of maintenance. ",
+    "polygon": [
+      [
+        935.1946880986961,
+        836.5178216882013
+      ],
+      [
+        935.1946881003738,
+        863.2429557822617
+      ],
+      [
+        841.656718775695,
+        855.019837599732
+      ],
+      [
+        844.226443208545,
+        829.836538166244
+      ],
+      [
+        935.1946880986961,
+        836.5178216882013
+      ]
+    ],
+    "lat": 18.23268670164815,
+    "lon": -73.75376892521854,
+    "address": "Bergeaud, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "aaa883cd-3dbf-4fab-ae75-981a01b8f9b2",
+    "gt_full_image_pixel_polygon": [
+      [
+        935.1946880986961,
+        836.5178216882013
+      ],
+      [
+        935.1946881003738,
+        863.2429557822617
+      ],
+      [
+        841.656718775695,
+        855.019837599732
+      ],
+      [
+        844.226443208545,
+        829.836538166244
+      ],
+      [
+        935.1946880986961,
+        836.5178216882013
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      841.656718775695,
+      829.836538166244,
+      935.1946881003738,
+      863.2429557822617
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_6dadec7c-e1fd-4775-9afc-c77db5de9403",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be in a state of disrepair, with possible damage or missing sections.\n   - The walls are partially obscured by vegetation, making it difficult to assess their condition.\n   - The surrounding area is not clearly visible, but there are hints of greenery, suggesting a natural environment or a location with vegetation growth.\n\n2) Overall Damage Classification:\n   - The building appears to be in a state of disrepair and abandonment, with potential exposure to the elements.\n   - The visible damage to the roof and the overall condition of the building suggest that it has experienced `major_damage`.\n\n3) Evidence:\n   - The roof has visible damage or missing sections.\n   - The walls are partially obscured by vegetation, indicating possible structural damage or neglect.\n   - The surrounding area shows signs of natural growth, which could be a result of the building being abandoned and left exposed to the elements. ",
+    "polygon": [
+      [
+        969.1285121130886,
+        789.5616738082111
+      ],
+      [
+        966.941496062406,
+        815.762520998064
+      ],
+      [
+        908.3519378238519,
+        812.7996313873866
+      ],
+      [
+        909.8546831414191,
+        785.7836278373148
+      ],
+      [
+        969.1285121130886,
+        789.5616738082111
+      ]
+    ],
+    "lat": 18.23288516579576,
+    "lon": -73.75355443437817,
+    "address": "Bergeaud, 1re Bourdet, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "6dadec7c-e1fd-4775-9afc-c77db5de9403",
+    "gt_full_image_pixel_polygon": [
+      [
+        969.1285121130886,
+        789.5616738082111
+      ],
+      [
+        966.941496062406,
+        815.762520998064
+      ],
+      [
+        908.3519378238519,
+        812.7996313873866
+      ],
+      [
+        909.8546831414191,
+        785.7836278373148
+      ],
+      [
+        969.1285121130886,
+        789.5616738082111
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      908.3519378238519,
+      785.7836278373148,
+      969.1285121130886,
+      815.762520998064
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_912bd308-7071-4147-9d4e-2ee98d1cdc5b",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The white facade of the building appears to be damaged and discolored, with visible cracks and areas of discoloration.\n- The roof of the building is partially damaged, with visible holes and missing sections.\n- The walls of the building show signs of damage, with visible cracks and areas of discoloration.\n\nOverall Damage Classification:\n- major_damage\n\nEvidence:\n- Cracks and discoloration on the white facade of the building.\n- Holes and missing sections in the roof of the building.\n- Visible cracks and discoloration on the walls of the building. ",
+    "polygon": [
+      [
+        784.7576077956577,
+        695.7466225081507
+      ],
+      [
+        772.644010182815,
+        748.156473407444
+      ],
+      [
+        748.9112475086278,
+        742.4704990160856
+      ],
+      [
+        762.0137102316565,
+        691.0495132288955
+      ],
+      [
+        784.7576077956577,
+        695.7466225081507
+      ]
+    ],
+    "lat": 18.233259313102796,
+    "lon": -73.75435131875118,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "912bd308-7071-4147-9d4e-2ee98d1cdc5b",
+    "gt_full_image_pixel_polygon": [
+      [
+        784.7576077956577,
+        695.7466225081507
+      ],
+      [
+        772.644010182815,
+        748.156473407444
+      ],
+      [
+        748.9112475086278,
+        742.4704990160856
+      ],
+      [
+        762.0137102316565,
+        691.0495132288955
+      ],
+      [
+        784.7576077956577,
+        695.7466225081507
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      748.9112475086278,
+      691.0495132288955,
+      784.7576077956577,
+      748.156473407444
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_35848b7a-402e-4081-90a5-9bf5011faeeb",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof is completely missing, exposing the interior structure.\n   - The walls have significant cracks and are visibly unstable, with sections of the structure collapsing.\n   - The surrounding area is now clearly visible, showing signs of debris and destruction.\n\n2) Overall Damage Classification:\n   - The building is destroyed.\n\n3) Evidence:\n   - The roof is entirely missing, leaving the interior exposed.\n   - The walls are severely cracked and visibly unstable, with sections collapsing.\n   - The surrounding area is filled with debris and destruction, indicating a significant event. ",
+    "polygon": [
+      [
+        960.6103093695427,
+        624.0382832570838
+      ],
+      [
+        958.7172039038593,
+        642.9693378976158
+      ],
+      [
+        918.6464715804481,
+        638.5520918148569
+      ],
+      [
+        919.9085418904243,
+        620.5675899057284
+      ],
+      [
+        960.6103093695427,
+        624.0382832570838
+      ]
+    ],
+    "lat": 18.233625465171805,
+    "lon": -73.75355367306605,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "35848b7a-402e-4081-90a5-9bf5011faeeb",
+    "gt_full_image_pixel_polygon": [
+      [
+        960.6103093695427,
+        624.0382832570838
+      ],
+      [
+        958.7172039038593,
+        642.9693378976158
+      ],
+      [
+        918.6464715804481,
+        638.5520918148569
+      ],
+      [
+        919.9085418904243,
+        620.5675899057284
+      ],
+      [
+        960.6103093695427,
+        624.0382832570838
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      918.6464715804481,
+      620.5675899057284,
+      960.6103093695427,
+      642.9693378976158
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_bd32f1ac-459e-45f4-8a90-c6e556cc9f2c",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be damaged, with visible cracks and missing sections.\n   - The walls show signs of distress, with visible cracks and possible bulging or deformation.\n   - The immediate surroundings are not clearly visible due to the blurriness of the image, but there may be debris or damage to nearby structures.\n\n2) Overall Damage Classification:\n   - The building has sustained major damage.\n\n3) Evidence:\n   - Cracked and missing roof sections.\n   - Cracks and possible deformation in the walls.\n   - Indistinct surroundings that may indicate additional damage or debris. ",
+    "polygon": [
+      [
+        926.3278877516638,
+        614.6900276134525
+      ],
+      [
+        926.8223203067568,
+        602.5764300008524
+      ],
+      [
+        947.1918658157467,
+        604.5196120280575
+      ],
+      [
+        946.3524062575,
+        616.9149741141271
+      ],
+      [
+        926.3278877516638,
+        614.6900276134525
+      ]
+    ],
+    "lat": 18.23371068767141,
+    "lon": -73.75359483898717,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "bd32f1ac-459e-45f4-8a90-c6e556cc9f2c",
+    "gt_full_image_pixel_polygon": [
+      [
+        926.3278877516638,
+        614.6900276134525
+      ],
+      [
+        926.8223203067568,
+        602.5764300008524
+      ],
+      [
+        947.1918658157467,
+        604.5196120280575
+      ],
+      [
+        946.3524062575,
+        616.9149741141271
+      ],
+      [
+        926.3278877516638,
+        614.6900276134525
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      926.3278877516638,
+      602.5764300008524,
+      947.1918658157467,
+      616.9149741141271
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_478631ac-30b9-4803-bae5-11389928d877",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be in a state of disrepair, with visible damage and possible missing sections.\n   - The walls of the building show signs of damage or wear.\n   - The immediate surroundings are not clearly visible due to the low resolution and angle of the image.\n\n2) Overall Damage Classification:\n   - The building has suffered major damage.\n\n3) Evidence:\n   - The roof has visible damage and possible missing sections.\n   - The walls show signs of damage or wear.\n   - The immediate surroundings are not clearly visible due to the low resolution and angle of the image. ",
+    "polygon": [
+      [
+        931.2722133069086,
+        587.9906696082336
+      ],
+      [
+        929.9626115816745,
+        601.2277037691407
+      ],
+      [
+        905.1247165334066,
+        598.8394714933482
+      ],
+      [
+        906.7978018025983,
+        584.7768579964144
+      ],
+      [
+        931.2722133069086,
+        587.9906696082336
+      ]
+    ],
+    "lat": 18.233792353729136,
+    "lon": -73.7536572724735,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "478631ac-30b9-4803-bae5-11389928d877",
+    "gt_full_image_pixel_polygon": [
+      [
+        931.2722133069086,
+        587.9906696082336
+      ],
+      [
+        929.9626115816745,
+        601.2277037691407
+      ],
+      [
+        905.1247165334066,
+        598.8394714933482
+      ],
+      [
+        906.7978018025983,
+        584.7768579964144
+      ],
+      [
+        931.2722133069086,
+        587.9906696082336
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      905.1247165334066,
+      584.7768579964144,
+      931.2722133069086,
+      601.2277037691407
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_97750e1e-a77a-460b-b007-3a293299f69b",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be intact, but the walls show significant signs of damage, with visible cracks and possible structural compromise.\n   - The immediate surroundings are not clearly visible due to the low resolution and angle of the aerial shot.\n\n2) Overall Damage Classification:\n   - The building's condition suggests it has sustained major damage, as evidenced by the extensive cracks and potential structural compromise in the walls.\n\n3) Evidence:\n   - Cracks in the walls: The most apparent visual cue is the extensive cracks in the walls, which indicate significant structural damage.\n   - Possible structural compromise: The cracks and potential structural compromise in the walls suggest that the building's structural integrity has been compromised.\n   - No clear view of the surroundings: The low resolution and angle of the aerial shot make it difficult to assess the damage to the immediate surroundings, but the visible damage to the building itself is enough to classify it as having major damage. ",
+    "polygon": [
+      [
+        915.6739103429738,
+        542.8560639680198
+      ],
+      [
+        952.8166695542051,
+        547.1450519094063
+      ],
+      [
+        951.8189274031668,
+        562.0654743475538
+      ],
+      [
+        914.6881595032258,
+        558.6903369709638
+      ],
+      [
+        915.6739103429738,
+        542.8560639680198
+      ]
+    ],
+    "lat": 18.233973972865424,
+    "lon": -73.75361349664297,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "97750e1e-a77a-460b-b007-3a293299f69b",
+    "gt_full_image_pixel_polygon": [
+      [
+        915.6739103429738,
+        542.8560639680198
+      ],
+      [
+        952.8166695542051,
+        547.1450519094063
+      ],
+      [
+        951.8189274031668,
+        562.0654743475538
+      ],
+      [
+        914.6881595032258,
+        558.6903369709638
+      ],
+      [
+        915.6739103429738,
+        542.8560639680198
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      914.6881595032258,
+      542.8560639680198,
+      952.8166695542051,
+      562.0654743475538
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_7917dc0c-e918-4e51-95b9-b7036e003d92",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be intact, but the walls are significantly damaged, with visible cracks and deformations.\n- The immediate surroundings show signs of debris and destruction, indicating that the building has been severely impacted by the disaster.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Cracks and deformations in the walls, which are clearly visible in the post-disaster image.\n- Debris and destruction in the immediate surroundings, which are not present in the pre-disaster image.\n- The overall appearance of the building in the post-disaster image, which looks significantly worse than in the pre-disaster image. ",
+    "polygon": [
+      [
+        933.8663484747894,
+        529.5090083488602
+      ],
+      [
+        950.978430880209,
+        531.6405799610696
+      ],
+      [
+        949.4279605367742,
+        545.4967564225815
+      ],
+      [
+        931.6704990408169,
+        543.1983274894027
+      ],
+      [
+        933.8663484747894,
+        529.5090083488602
+      ]
+    ],
+    "lat": 18.234038865642326,
+    "lon": -73.7535678918186,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "7917dc0c-e918-4e51-95b9-b7036e003d92",
+    "gt_full_image_pixel_polygon": [
+      [
+        933.8663484747894,
+        529.5090083488602
+      ],
+      [
+        950.978430880209,
+        531.6405799610696
+      ],
+      [
+        949.4279605367742,
+        545.4967564225815
+      ],
+      [
+        931.6704990408169,
+        543.1983274894027
+      ],
+      [
+        933.8663484747894,
+        529.5090083488602
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      931.6704990408169,
+      529.5090083488602,
+      950.978430880209,
+      545.4967564225815
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_56d9dba0-7e25-4a45-a3a7-d82385e986c1",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be damaged, with visible cracks or missing sections.\n   - The walls show signs of distress, such as visible cracks or missing sections.\n   - The immediate surroundings of the building show significant destruction or damage, with visible debris and damaged structures.\n\n2) Overall Damage Classification:\n   - The building has sustained major damage.\n\n3) Evidence:\n   - Visible cracks in the roof and walls.\n   - Missing sections of the roof and walls.\n   - Surrounding area with significant destruction or damage. ",
+    "polygon": [
+      [
+        997.478396867928,
+        447.1446443523695
+      ],
+      [
+        1019.134331166615,
+        459.6385108245484
+      ],
+      [
+        1009.526714523902,
+        475.9867507908353
+      ],
+      [
+        998.0594981340668,
+        469.6138933559073
+      ],
+      [
+        1002.514607850398,
+        460.8973743456125
+      ],
+      [
+        992.7719580393069,
+        454.9689297847
+      ],
+      [
+        997.478396867928,
+        447.1446443523695
+      ]
+    ],
+    "lat": 18.234372891329816,
+    "lon": -73.7532785983186,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "56d9dba0-7e25-4a45-a3a7-d82385e986c1",
+    "gt_full_image_pixel_polygon": [
+      [
+        997.478396867928,
+        447.1446443523695
+      ],
+      [
+        1019.134331166615,
+        459.6385108245484
+      ],
+      [
+        1009.526714523902,
+        475.9867507908353
+      ],
+      [
+        998.0594981340668,
+        469.6138933559073
+      ],
+      [
+        1002.514607850398,
+        460.8973743456125
+      ],
+      [
+        992.7719580393069,
+        454.9689297847
+      ],
+      [
+        997.478396867928,
+        447.1446443523695
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      992.7719580393069,
+      447.1446443523695,
+      1019.134331166615,
+      475.9867507908353
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_270297f5-7eb5-4f65-a1c1-df397de9ad47",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be severely damaged or missing in the post-disaster image.\n   - The walls show significant structural damage, with visible cracks and possible deformation.\n   - The immediate surroundings, including the greenery, appear to be undamaged, but there may be hidden damage not visible from the aerial perspective.\n\n2) Overall Damage Classification:\n   - The building in the post-disaster image has sustained major damage.\n\n3) Evidence:\n   - The roof is completely missing or severely damaged, which indicates a significant structural failure.\n   - The walls show extensive cracks and deformation, suggesting a major structural compromise.\n   - The surrounding greenery appears to be undamaged, which contrasts with the severe damage to the building itself. ",
+    "polygon": [
+      [
+        1023.064490168708,
+        432.4288067212482
+      ],
+      [
+        1002.656183520063,
+        419.8696547468344
+      ],
+      [
+        1007.341763619742,
+        412.4722687302009
+      ],
+      [
+        1003.46775516955,
+        408.5982602814473
+      ],
+      [
+        1009.278767844359,
+        399.1069395826482
+      ],
+      [
+        1023.064485760841,
+        407.9951001056997
+      ],
+      [
+        1023.064490168708,
+        432.4288067212482
+      ]
+    ],
+    "lat": 18.23456224011057,
+    "lon": -73.75322805040365,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "270297f5-7eb5-4f65-a1c1-df397de9ad47",
+    "gt_full_image_pixel_polygon": [
+      [
+        1023.064490168708,
+        432.4288067212482
+      ],
+      [
+        1002.656183520063,
+        419.8696547468344
+      ],
+      [
+        1007.341763619742,
+        412.4722687302009
+      ],
+      [
+        1003.46775516955,
+        408.5982602814473
+      ],
+      [
+        1009.278767844359,
+        399.1069395826482
+      ],
+      [
+        1023.064485760841,
+        407.9951001056997
+      ],
+      [
+        1023.064490168708,
+        432.4288067212482
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      1002.656183520063,
+      399.1069395826482,
+      1023.064490168708,
+      432.4288067212482
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_7a8f1641-a691-476e-84f2-879aa06ee370",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof is completely destroyed, with no visible sections remaining.\n   - The walls are severely damaged, with large cracks and visible structural instability.\n   - The surrounding area is not clearly visible due to the blurred nature of the image.\n\n2) Overall Damage Classification:\n   - The building is destroyed.\n\n3) Evidence:\n   - The roof is entirely missing, with no visible remnants.\n   - The walls show extensive cracks and signs of structural collapse.\n   - The surrounding area is not clearly visible due to the blurred nature of the image. ",
+    "polygon": [
+      [
+        1023.064482363444,
+        392.4814261384693
+      ],
+      [
+        1009.429670220601,
+        382.9776242983593
+      ],
+      [
+        1017.3493935052,
+        371.5173188412151
+      ],
+      [
+        1023.064478117837,
+        375.5206592075311
+      ],
+      [
+        1023.064482363444,
+        392.4814261384693
+      ]
+    ],
+    "lat": 18.234707482596477,
+    "lon": -73.75319917658858,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "7a8f1641-a691-476e-84f2-879aa06ee370",
+    "gt_full_image_pixel_polygon": [
+      [
+        1023.064482363444,
+        392.4814261384693
+      ],
+      [
+        1009.429670220601,
+        382.9776242983593
+      ],
+      [
+        1017.3493935052,
+        371.5173188412151
+      ],
+      [
+        1023.064478117837,
+        375.5206592075311
+      ],
+      [
+        1023.064482363444,
+        392.4814261384693
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      1009.429670220601,
+      371.5173188412151,
+      1023.064482363444,
+      392.4814261384693
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_a4c2c1d0-94fc-4886-819a-80c4f5456090",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof is severely damaged, with large holes and missing sections.\n   - The walls show extensive structural damage, with visible cracks and possible collapse.\n   - The surrounding area is now clearly visible, revealing no other buildings or structures in the immediate vicinity.\n\n2) Overall Damage Classification:\n   - The building is destroyed.\n\n3) Evidence:\n   - The roof is completely gone, with no remaining structural integrity.\n   - The walls are visibly damaged, with cracks and possible collapse.\n   - The surrounding area is now clearly visible, showing no other buildings or structures in the immediate vicinity. ",
+    "polygon": [
+      [
+        1007.642996160317,
+        304.5987541705878
+      ],
+      [
+        1013.469843732762,
+        311.1390932809397
+      ],
+      [
+        1005.978182568908,
+        318.1550934205582
+      ],
+      [
+        1000.151334999339,
+        311.2580085381366
+      ],
+      [
+        1007.642996160317,
+        304.5987541705878
+      ]
+    ],
+    "lat": 18.235028453345752,
+    "lon": -73.75325300934612,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "a4c2c1d0-94fc-4886-819a-80c4f5456090",
+    "gt_full_image_pixel_polygon": [
+      [
+        1007.642996160317,
+        304.5987541705878
+      ],
+      [
+        1013.469843732762,
+        311.1390932809397
+      ],
+      [
+        1005.978182568908,
+        318.1550934205582
+      ],
+      [
+        1000.151334999339,
+        311.2580085381366
+      ],
+      [
+        1007.642996160317,
+        304.5987541705878
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      1000.151334999339,
+      304.5987541705878,
+      1013.469843732762,
+      318.1550934205582
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_e0f49a9e-d027-4c0b-8e3c-502be4174cf3",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be intact, but the walls exhibit more pronounced signs of damage, with visible cracks and possible structural compromise.\n   - The surrounding area is not clearly visible, but there are hints of greenery, suggesting the building is in an urban or suburban setting with some vegetation.\n   - The overall condition of the building suggests it may have been affected by a recent disaster or event causing damage to its structure.\n\n2) Overall Damage Classification:\n   - The building appears to be in a state of `major_damage`.\n\n3) Evidence:\n   - The walls show significant cracks and possible structural compromise, indicating a substantial impact on the building's structure.\n   - The roof, while seemingly intact, may have been affected by the same event that caused damage to the walls, suggesting a more comprehensive impact on the building.\n   - The surrounding area is not clearly visible, but the presence of greenery implies that the building is part of a larger urban or suburban environment, which may have also been affected by the same disaster or event. ",
+    "polygon": [
+      [
+        1023.064415251743,
+        223.4200985847225
+      ],
+      [
+        997.7439024966271,
+        226.2009638433287
+      ],
+      [
+        995.770900952548,
+        201.7660985806737
+      ],
+      [
+        1023.06440072311,
+        198.5378354982192
+      ],
+      [
+        1023.064415251743,
+        223.4200985847225
+      ]
+    ],
+    "lat": 18.23544648508862,
+    "lon": -73.75322446949752,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "e0f49a9e-d027-4c0b-8e3c-502be4174cf3",
+    "gt_full_image_pixel_polygon": [
+      [
+        1023.064415251743,
+        223.4200985847225
+      ],
+      [
+        997.7439024966271,
+        226.2009638433287
+      ],
+      [
+        995.770900952548,
+        201.7660985806737
+      ],
+      [
+        1023.06440072311,
+        198.5378354982192
+      ],
+      [
+        1023.064415251743,
+        223.4200985847225
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      995.770900952548,
+      198.5378354982192,
+      1023.064415251743,
+      226.2009638433287
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_a999eb5a-6d31-44f3-9950-103b2b1d3096",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be intact, but the walls exhibit signs of significant damage, with visible cracks and possible structural compromise.\n   - The walls show extensive damage, with possible structural compromise.\n   - The surrounding area is not clearly visible, but there are no obvious indications of recent disaster activity.\n\n2) Overall Damage Classification:\n   - The building's condition suggests it has experienced major damage.\n\n3) Evidence:\n   - The walls show extensive damage, with visible cracks and possible structural compromise.\n   - The roof appears to be intact, but the walls exhibit signs of significant damage.\n   - The surrounding area is not clearly visible, but there are no obvious indications of recent disaster activity. ",
+    "polygon": [
+      [
+        1023.064429952224,
+        250.976465785243
+      ],
+      [
+        1008.67129565764,
+        253.5415786466375
+      ],
+      [
+        1004.269984522065,
+        229.5620214333166
+      ],
+      [
+        1023.064416985075,
+        226.525997961327
+      ],
+      [
+        1023.064429952224,
+        250.976465785243
+      ]
+    ],
+    "lat": 18.23532502120392,
+    "lon": -73.75320748814663,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "a999eb5a-6d31-44f3-9950-103b2b1d3096",
+    "gt_full_image_pixel_polygon": [
+      [
+        1023.064429952224,
+        250.976465785243
+      ],
+      [
+        1008.67129565764,
+        253.5415786466375
+      ],
+      [
+        1004.269984522065,
+        229.5620214333166
+      ],
+      [
+        1023.064416985075,
+        226.525997961327
+      ],
+      [
+        1023.064429952224,
+        250.976465785243
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      1004.269984522065,
+      226.525997961327,
+      1023.064429952224,
+      253.5415786466375
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_f147a049-760f-436c-9081-30a50be0b90d",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings are not clearly visible due to the blurriness of the image, but there may be additional damage or debris in the area.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Visible cracks in the walls.\n- Missing sections of the roof.\n- Possible bulging or deformation of the walls. ",
+    "polygon": [
+      [
+        956.4801839446468,
+        4.83678843669081
+      ],
+      [
+        963.7340145933877,
+        15.06350050096944
+      ],
+      [
+        949.2263532942281,
+        24.91628673556837
+      ],
+      [
+        942.2103531579636,
+        14.23109370586471
+      ],
+      [
+        956.4801839446468,
+        4.83678843669081
+      ]
+    ],
+    "lat": 18.236334371979837,
+    "lon": -73.75348876902211,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "f147a049-760f-436c-9081-30a50be0b90d",
+    "gt_full_image_pixel_polygon": [
+      [
+        956.4801839446468,
+        4.83678843669081
+      ],
+      [
+        963.7340145933877,
+        15.06350050096944
+      ],
+      [
+        949.2263532942281,
+        24.91628673556837
+      ],
+      [
+        942.2103531579636,
+        14.23109370586471
+      ],
+      [
+        956.4801839446468,
+        4.83678843669081
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      942.2103531579636,
+      4.83678843669081,
+      963.7340145933877,
+      24.91628673556837
+    ],
+    "gt_label_from_json": "major_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_8c265b43-4b62-49dd-91f2-55b284aaefc0",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings are not clearly visible due to the blurred nature of the image, but there may be debris or damage to nearby structures.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Visible cracks and missing sections on the roof.\n- Visible cracks and possible bulging or deformation on the walls.\n- Debris or damage to nearby structures, although not clearly visible due to the blurred nature of the image. ",
+    "polygon": [
+      [
+        889.5940153410685,
+        309.8250329967529
+      ],
+      [
+        901.9671856389479,
+        313.1931751559842
+      ],
+      [
+        899.3510499959568,
+        323.6577177336977
+      ],
+      [
+        886.7460328006819,
+        319.6145990091393
+      ],
+      [
+        889.5940153410685,
+        309.8250329967529
+      ]
+    ],
+    "lat": 18.23500870145617,
+    "lon": -73.7537746306655,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "8c265b43-4b62-49dd-91f2-55b284aaefc0",
+    "gt_full_image_pixel_polygon": [
+      [
+        889.5940153410685,
+        309.8250329967529
+      ],
+      [
+        901.9671856389479,
+        313.1931751559842
+      ],
+      [
+        899.3510499959568,
+        323.6577177336977
+      ],
+      [
+        886.7460328006819,
+        319.6145990091393
+      ],
+      [
+        889.5940153410685,
+        309.8250329967529
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      886.7460328006819,
+      309.8250329967529,
+      901.9671856389479,
+      323.6577177336977
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_1c8f283f-a1ee-4cf6-9534-35f94bb8567a",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings are not clearly visible due to the low resolution and blurriness of the image.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Cracks and missing sections in the roof.\n- Visible cracks and possible bulging or deformation in the walls.\n- The surrounding area is not clearly visible due to the low resolution and blurriness of the image. ",
+    "polygon": [
+      [
+        899.4694095968105,
+        263.1103690586948
+      ],
+      [
+        919.4690813240724,
+        252.8206004056738
+      ],
+      [
+        924.5113522560268,
+        263.413907757452
+      ],
+      [
+        904.1742594292253,
+        273.7342235214273
+      ],
+      [
+        899.4694095968105,
+        263.1103690586948
+      ]
+    ],
+    "lat": 18.235236393025566,
+    "lon": -73.75369965894026,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "1c8f283f-a1ee-4cf6-9534-35f94bb8567a",
+    "gt_full_image_pixel_polygon": [
+      [
+        899.4694095968105,
+        263.1103690586948
+      ],
+      [
+        919.4690813240724,
+        252.8206004056738
+      ],
+      [
+        924.5113522560268,
+        263.413907757452
+      ],
+      [
+        904.1742594292253,
+        273.7342235214273
+      ],
+      [
+        899.4694095968105,
+        263.1103690586948
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      899.4694095968105,
+      252.8206004056738,
+      924.5113522560268,
+      273.7342235214273
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_3e8b8f79-4d0e-41ce-96b1-f85acb8b6751",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof is significantly damaged, with large sections missing or visibly damaged.\n   - The walls appear to be in a state of disrepair, with visible cracks and damage.\n   - The surrounding area, including the path or road leading to the building, shows signs of neglect or damage, such as overgrown vegetation and possible debris.\n\n2) Overall Damage Classification:\n   - The building has suffered major damage.\n\n3) Evidence:\n   - The roof is missing large sections, indicating structural failure.\n   - The walls show visible cracks and damage, suggesting significant stress on the building's structure.\n   - The surrounding area appears to be in a state of disrepair, with overgrown vegetation and possible debris, which could be a result of the building's damage or the aftermath of a disaster. ",
+    "polygon": [
+      [
+        895.5295060520052,
+        282.4200544802279
+      ],
+      [
+        907.1486711099944,
+        287.9199243521462
+      ],
+      [
+        909.5277816305332,
+        283.3769790905976
+      ],
+      [
+        918.314452480182,
+        287.8058861196645
+      ],
+      [
+        920.2385316420596,
+        283.7271163871778
+      ],
+      [
+        943.3415609050235,
+        294.990340494609
+      ],
+      [
+        936.0021975854567,
+        312.6772968191094
+      ],
+      [
+        890.8323967749061,
+        293.3586824636813
+      ],
+      [
+        895.5295060520052,
+        282.4200544802279
+      ]
+    ],
+    "lat": 18.23511946180909,
+    "lon": -73.7536843146941,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "3e8b8f79-4d0e-41ce-96b1-f85acb8b6751",
+    "gt_full_image_pixel_polygon": [
+      [
+        895.5295060520052,
+        282.4200544802279
+      ],
+      [
+        907.1486711099944,
+        287.9199243521462
+      ],
+      [
+        909.5277816305332,
+        283.3769790905976
+      ],
+      [
+        918.314452480182,
+        287.8058861196645
+      ],
+      [
+        920.2385316420596,
+        283.7271163871778
+      ],
+      [
+        943.3415609050235,
+        294.990340494609
+      ],
+      [
+        936.0021975854567,
+        312.6772968191094
+      ],
+      [
+        890.8323967749061,
+        293.3586824636813
+      ],
+      [
+        895.5295060520052,
+        282.4200544802279
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      890.8323967749061,
+      282.4200544802279,
+      943.3415609050235,
+      312.6772968191094
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_18631a29-dd08-4dd0-aa2a-8fc990a615c0",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be severely damaged, with visible signs of collapse or significant structural damage.\n   - The walls show extensive damage, with possible cracks, bulging, or missing sections.\n   - The immediate surroundings, including any greenery, are significantly altered, with debris scattered around the building.\n\n2) Overall Damage Classification:\n   - The building has experienced `major_damage`.\n\n3) Evidence:\n   - The roof's structural integrity is compromised, with visible signs of collapse or severe damage.\n   - The walls exhibit significant cracks and bulging, indicating a weakened structure.\n   - Debris is scattered around the building, suggesting that the surrounding area has also been affected by the disaster. ",
+    "polygon": [
+      [
+        804.3631719986489,
+        143.1837601047438
+      ],
+      [
+        817.9880324882229,
+        158.5753363538602
+      ],
+      [
+        805.6947151804056,
+        169.3509601657316
+      ],
+      [
+        792.7943204760327,
+        153.5669478226892
+      ],
+      [
+        804.3631719986489,
+        143.1837601047438
+      ]
+    ],
+    "lat": 18.23572084596436,
+    "lon": -73.75417566629919,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "18631a29-dd08-4dd0-aa2a-8fc990a615c0",
+    "gt_full_image_pixel_polygon": [
+      [
+        804.3631719986489,
+        143.1837601047438
+      ],
+      [
+        817.9880324882229,
+        158.5753363538602
+      ],
+      [
+        805.6947151804056,
+        169.3509601657316
+      ],
+      [
+        792.7943204760327,
+        153.5669478226892
+      ],
+      [
+        804.3631719986489,
+        143.1837601047438
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      792.7943204760327,
+      143.1837601047438,
+      817.9880324882229,
+      169.3509601657316
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_ced02460-351c-4791-9cbb-e468b079a39f",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be intact, but there are visible signs of damage or distress, such as debris or structural damage.\n- The walls are obscured by the blur, but there are noticeable cracks and deformations in the structure.\n- The immediate surroundings show significant damage, with debris scattered around the building.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Cracks and deformations in the structure are visible, indicating significant stress or structural damage.\n- Debris is scattered around the building, indicating that parts of the building have been destroyed or displaced.\n- The walls are obscured by the blur, but the visible cracks and deformations suggest that the entire structure has been affected by the disaster. ",
+    "polygon": [
+      [
+        602.5472127359614,
+        0.003988745648985848
+      ],
+      [
+        602.0922625548213,
+        5.07477952438112
+      ],
+      [
+        584.1834793195159,
+        4.315932777727871
+      ],
+      [
+        584.3351070965707,
+        0.004025960022011468
+      ],
+      [
+        602.5472127359614,
+        0.003988745648985848
+      ]
+    ],
+    "lat": 18.236392904070208,
+    "lon": -73.7551350545264,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "ced02460-351c-4791-9cbb-e468b079a39f",
+    "gt_full_image_pixel_polygon": [
+      [
+        602.5472127359614,
+        0.003988745648985848
+      ],
+      [
+        602.0922625548213,
+        5.07477952438112
+      ],
+      [
+        584.1834793195159,
+        4.315932777727871
+      ],
+      [
+        584.3351070965707,
+        0.004025960022011468
+      ],
+      [
+        602.5472127359614,
+        0.003988745648985848
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      584.1834793195159,
+      0.003988745648985848,
+      602.5472127359614,
+      5.07477952438112
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_ccd8dd83-1f3b-49b4-b882-6ea533cab0d4",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be intact, but the walls are significantly damaged, with visible cracks and deformations.\n- There is noticeable damage to the walls, with some sections appearing to be missing or severely weakened.\n- The immediate surroundings are not clearly visible due to the low resolution and blurriness of the image, but there is no visible damage to the surrounding area.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Cracks and deformations in the walls.\n- Missing or severely weakened sections of the walls.\n- No visible damage to the surrounding area. ",
+    "polygon": [
+      [
+        595.0210489328138,
+        80.6171762130309
+      ],
+      [
+        607.9905977996311,
+        81.07248426188569
+      ],
+      [
+        608.4459058460893,
+        90.63395327729037
+      ],
+      [
+        616.64145071613,
+        90.78572262642929
+      ],
+      [
+        616.7932200671862,
+        106.7215043176519
+      ],
+      [
+        594.7866643986581,
+        107.0250430178472
+      ],
+      [
+        595.0210489328138,
+        80.6171762130309
+      ]
+    ],
+    "lat": 18.236001159471925,
+    "lon": -73.75509275230584,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "ccd8dd83-1f3b-49b4-b882-6ea533cab0d4",
+    "gt_full_image_pixel_polygon": [
+      [
+        595.0210489328138,
+        80.6171762130309
+      ],
+      [
+        607.9905977996311,
+        81.07248426188569
+      ],
+      [
+        608.4459058460893,
+        90.63395327729037
+      ],
+      [
+        616.64145071613,
+        90.78572262642929
+      ],
+      [
+        616.7932200671862,
+        106.7215043176519
+      ],
+      [
+        594.7866643986581,
+        107.0250430178472
+      ],
+      [
+        595.0210489328138,
+        80.6171762130309
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      594.7866643986581,
+      80.6171762130309,
+      616.7932200671862,
+      107.0250430178472
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_5357dafa-aaa9-4c16-9326-c2b7b17bf49d",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof is severely damaged, with large holes and missing sections.\n   - The walls show extensive structural damage, with visible cracks and possible deformation.\n   - The surrounding area is now completely obscured by the debris and rubble from the building.\n\n2) Overall Damage Classification:\n   - The building is destroyed.\n\n3) Evidence:\n   - The roof is completely gone, leaving behind a skeletal structure.\n   - The walls are visibly deformed and cracked, indicating significant structural damage.\n   - The surrounding area is completely covered in debris and rubble, indicating that the building has been reduced to a pile of rubble. ",
+    "polygon": [
+      [
+        721.9425233394843,
+        192.2005691433043
+      ],
+      [
+        736.3606115352467,
+        199.6372672674088
+      ],
+      [
+        729.6827601635462,
+        214.3588941631234
+      ],
+      [
+        715.4164413118896,
+        206.3151186424633
+      ],
+      [
+        721.9425233394843,
+        192.2005691433043
+      ]
+    ],
+    "lat": 18.23551532079613,
+    "lon": -73.75454447844695,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "5357dafa-aaa9-4c16-9326-c2b7b17bf49d",
+    "gt_full_image_pixel_polygon": [
+      [
+        721.9425233394843,
+        192.2005691433043
+      ],
+      [
+        736.3606115352467,
+        199.6372672674088
+      ],
+      [
+        729.6827601635462,
+        214.3588941631234
+      ],
+      [
+        715.4164413118896,
+        206.3151186424633
+      ],
+      [
+        721.9425233394843,
+        192.2005691433043
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      715.4164413118896,
+      192.2005691433043,
+      736.3606115352467,
+      214.3588941631234
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_69f06f3f-735e-4260-a686-055627221073",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof is severely damaged, with large holes and missing sections.\n   - The walls show significant structural damage, with visible cracks and possible bulging.\n   - The surrounding area is now clearly visible, revealing no other buildings or structures in the immediate vicinity.\n\n2) Overall Damage Classification:\n   - The building is destroyed.\n\n3) Evidence:\n   - The roof is completely gone, with no remaining structural integrity.\n   - The walls exhibit extensive cracks and bulging, indicating a weakened structural framework.\n   - The surrounding area is now visible, showing no other buildings or structures nearby, which suggests that the building was likely isolated and suffered significant damage. ",
+    "polygon": [
+      [
+        557.4015036567844,
+        743.7765717335071
+      ],
+      [
+        566.9498369778262,
+        746.0813418443747
+      ],
+      [
+        565.3035726158649,
+        757.2759395331274
+      ],
+      [
+        555.2613599818247,
+        754.8065429839545
+      ],
+      [
+        557.4015036567844,
+        743.7765717335071
+      ]
+    ],
+    "lat": 18.23311412030605,
+    "lon": -73.75531767425407,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "69f06f3f-735e-4260-a686-055627221073",
+    "gt_full_image_pixel_polygon": [
+      [
+        557.4015036567844,
+        743.7765717335071
+      ],
+      [
+        566.9498369778262,
+        746.0813418443747
+      ],
+      [
+        565.3035726158649,
+        757.2759395331274
+      ],
+      [
+        555.2613599818247,
+        754.8065429839545
+      ],
+      [
+        557.4015036567844,
+        743.7765717335071
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      555.2613599818247,
+      743.7765717335071,
+      566.9498369778262,
+      757.2759395331274
+    ],
+    "gt_label_from_json": null
+  },
+  {
+    "id": "hurricane-matthew_00000011_3912fc08-9e20-4307-a94c-243cb16b074a",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be severely damaged, with visible cracks and possible areas of disrepair.\n   - The walls show signs of damage, with visible cracks and possible areas of disrepair.\n   - The surrounding area is mostly grassy, with no other structures or significant features visible in the immediate vicinity.\n\n2) Overall Damage Classification:\n   - The building has sustained major damage.\n\n3) Evidence:\n   - The roof has multiple cracks and appears to be in a state of disrepair.\n   - The walls show visible cracks and possible areas of disrepair.\n   - The surrounding area is mostly grassy, with no other structures or significant features visible in the immediate vicinity, which could indicate that the building has been isolated or abandoned due to the damage. ",
+    "polygon": [
+      [
+        511.4918364724106,
+        917.7199059146749
+      ],
+      [
+        543.8681057788077,
+        930.4898288691212
+      ],
+      [
+        533.2909978785978,
+        956.1586638976812
+      ],
+      [
+        507.1062063723209,
+        945.5815559967546
+      ],
+      [
+        510.0729561445646,
+        937.9711978716662
+      ],
+      [
+        504.9133913183213,
+        935.6493936994378
+      ],
+      [
+        511.4918364724106,
+        917.7199059146749
+      ]
+    ],
+    "lat": 18.232301983901984,
+    "lon": -73.75552097417044,
+    "address": "Semen, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Semen",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "3912fc08-9e20-4307-a94c-243cb16b074a",
+    "gt_full_image_pixel_polygon": [
+      [
+        511.4918364724106,
+        917.7199059146749
+      ],
+      [
+        543.8681057788077,
+        930.4898288691212
+      ],
+      [
+        533.2909978785978,
+        956.1586638976812
+      ],
+      [
+        507.1062063723209,
+        945.5815559967546
+      ],
+      [
+        510.0729561445646,
+        937.9711978716662
+      ],
+      [
+        504.9133913183213,
+        935.6493936994378
+      ],
+      [
+        511.4918364724106,
+        917.7199059146749
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      504.9133913183213,
+      917.7199059146749,
+      543.8681057788077,
+      956.1586638976812
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_18c88480-30f8-4f6c-9517-7c7d9c277785",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof is completely missing, exposing the interior of the building.\n   - The walls are severely damaged, with large sections missing or visibly damaged beyond repair.\n   - The surrounding area is now covered in debris, indicating that the building has been severely damaged or destroyed.\n\n2) Overall Damage Classification:\n   - The building is destroyed.\n\n3) Evidence:\n   - The roof is entirely missing, leaving the interior exposed.\n   - Large sections of the walls are missing or damaged beyond repair.\n   - The surrounding area is covered in debris, indicating that the building has been severely damaged or destroyed. ",
+    "polygon": [
+      [
+        512.543678037364,
+        844.5269066596329
+      ],
+      [
+        539.2131607631161,
+        852.7582284890906
+      ],
+      [
+        531.4757182449772,
+        877.1229411003739
+      ],
+      [
+        503.9831033380048,
+        866.4222227231813
+      ],
+      [
+        512.543678037364,
+        844.5269066596329
+      ]
+    ],
+    "lat": 18.232641620798425,
+    "lon": -73.75550712229844,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "18c88480-30f8-4f6c-9517-7c7d9c277785",
+    "gt_full_image_pixel_polygon": [
+      [
+        512.543678037364,
+        844.5269066596329
+      ],
+      [
+        539.2131607631161,
+        852.7582284890906
+      ],
+      [
+        531.4757182449772,
+        877.1229411003739
+      ],
+      [
+        503.9831033380048,
+        866.4222227231813
+      ],
+      [
+        512.543678037364,
+        844.5269066596329
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      503.9831033380048,
+      844.5269066596329,
+      539.2131607631161,
+      877.1229411003739
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_ded0d2c5-7719-469e-8548-f878a4e70449",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings, such as the ground and any nearby structures, are not clearly visible due to the angle and quality of the aerial image.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Visible cracks in the roof and walls.\n- Missing sections of the roof.\n- Possible bulging or deformation of the walls. ",
+    "polygon": [
+      [
+        468.8445858703242,
+        844.7954556628368
+      ],
+      [
+        489.0936375723957,
+        855.8254269137637
+      ],
+      [
+        479.7099306867831,
+        872.6173234425786
+      ],
+      [
+        459.9547582972306,
+        860.4349671359784
+      ],
+      [
+        468.8445858703242,
+        844.7954556628368
+      ]
+    ],
+    "lat": 18.232649059679193,
+    "lon": -73.75572140859944,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "ded0d2c5-7719-469e-8548-f878a4e70449",
+    "gt_full_image_pixel_polygon": [
+      [
+        468.8445858703242,
+        844.7954556628368
+      ],
+      [
+        489.0936375723957,
+        855.8254269137637
+      ],
+      [
+        479.7099306867831,
+        872.6173234425786
+      ],
+      [
+        459.9547582972306,
+        860.4349671359784
+      ],
+      [
+        468.8445858703242,
+        844.7954556628368
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      459.9547582972306,
+      844.7954556628368,
+      489.0936375723957,
+      872.6173234425786
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_311d66cb-b104-4070-86dd-0c9f9285dba3",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be severely damaged or missing in the post-disaster image.\n- The walls show significant signs of damage, with visible cracks and possible structural instability.\n- The immediate surroundings, including any greenery, are obscured by debris and rubble, indicating a significant amount of destruction.\n\nOverall Damage Classification:\n- The building in the post-disaster image has been destroyed.\n\nEvidence:\n- The roof is completely missing, leaving the interior exposed to the elements.\n- The walls are visibly damaged, with large cracks and possible structural damage.\n- The surrounding area is covered in debris and rubble, indicating a significant amount of destruction beyond the building itself. ",
+    "polygon": [
+      [
+        929.2574456328978,
+        665.0843621012249
+      ],
+      [
+        963.5818127301627,
+        666.6933168091897
+      ],
+      [
+        963.8499718493553,
+        683.3191821219498
+      ],
+      [
+        928.4529682801136,
+        681.7102274149437
+      ],
+      [
+        929.2574456328978,
+        665.0843621012249
+      ]
+    ],
+    "lat": 18.23343963212496,
+    "lon": -73.75355875738833,
+    "address": "Bergeaud, 1re Bourdet, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "311d66cb-b104-4070-86dd-0c9f9285dba3",
+    "gt_full_image_pixel_polygon": [
+      [
+        929.2574456328978,
+        665.0843621012249
+      ],
+      [
+        963.5818127301627,
+        666.6933168091897
+      ],
+      [
+        963.8499718493553,
+        683.3191821219498
+      ],
+      [
+        928.4529682801136,
+        681.7102274149437
+      ],
+      [
+        929.2574456328978,
+        665.0843621012249
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      928.4529682801136,
+      665.0843621012249,
+      963.8499718493553,
+      683.3191821219498
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_62eb2328-6091-4ece-b26d-bb6863718aeb",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings are not clearly visible due to the blurred nature of the image.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Cracks and missing sections in the roof.\n- Visible cracks and possible bulging or deformation in the walls.\n- The surrounding area is not clearly visible due to the blurred nature of the image. ",
+    "polygon": [
+      [
+        897.8828288326102,
+        679.0286362340437
+      ],
+      [
+        910.7544664941745,
+        681.0092827420883
+      ],
+      [
+        908.0374780758763,
+        690.9220025602674
+      ],
+      [
+        895.2012376543461,
+        688.6823644818325
+      ],
+      [
+        897.8828288326102,
+        679.0286362340437
+      ]
+    ],
+    "lat": 18.233391012749525,
+    "lon": -73.75374710412419,
+    "address": "Bergeaud, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "62eb2328-6091-4ece-b26d-bb6863718aeb",
+    "gt_full_image_pixel_polygon": [
+      [
+        897.8828288326102,
+        679.0286362340437
+      ],
+      [
+        910.7544664941745,
+        681.0092827420883
+      ],
+      [
+        908.0374780758763,
+        690.9220025602674
+      ],
+      [
+        895.2012376543461,
+        688.6823644818325
+      ],
+      [
+        897.8828288326102,
+        679.0286362340437
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      895.2012376543461,
+      679.0286362340437,
+      910.7544664941745,
+      690.9220025602674
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_f38affc2-40cf-4809-b81f-c3d9b1c5569a",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings are not clearly visible due to the blurred nature of the image.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Cracks and missing sections in the roof.\n- Visible cracks and possible bulging or deformation in the walls.\n- The surrounding area is not clearly visible due to the blurred nature of the image. ",
+    "polygon": [
+      [
+        905.0371678952577,
+        666.872887511016
+      ],
+      [
+        922.0208337306219,
+        668.4552287739108
+      ],
+      [
+        921.4998115477056,
+        684.9817955333302
+      ],
+      [
+        910.1405874247195,
+        684.3232897872996
+      ],
+      [
+        910.7544664941745,
+        681.0092827420883
+      ],
+      [
+        903.7201564036753,
+        679.3844966903919
+      ],
+      [
+        905.0371678952577,
+        666.872887511016
+      ]
+    ],
+    "lat": 18.233424746209337,
+    "lon": -73.75370450733242,
+    "address": "Bergeaud, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "f38affc2-40cf-4809-b81f-c3d9b1c5569a",
+    "gt_full_image_pixel_polygon": [
+      [
+        905.0371678952577,
+        666.872887511016
+      ],
+      [
+        922.0208337306219,
+        668.4552287739108
+      ],
+      [
+        921.4998115477056,
+        684.9817955333302
+      ],
+      [
+        910.1405874247195,
+        684.3232897872996
+      ],
+      [
+        910.7544664941745,
+        681.0092827420883
+      ],
+      [
+        903.7201564036753,
+        679.3844966903919
+      ],
+      [
+        905.0371678952577,
+        666.872887511016
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      903.7201564036753,
+      666.872887511016,
+      922.0208337306219,
+      684.9817955333302
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_05d6d00a-2d4c-42b6-ad73-aebbaff2b301",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be severely damaged or missing in the post-disaster image.\n- The walls show signs of structural damage, with visible cracks and deformations.\n- The surrounding area is now clearly visible, revealing additional damage to nearby structures and vegetation.\n\nOverall Damage Classification: `destroyed`\n\nEvidence:\n- The roof is completely missing, indicating a significant structural failure.\n- The walls show extensive cracks and deformations, suggesting a major structural collapse.\n- The surrounding area is heavily damaged, with visible destruction to nearby structures and vegetation. ",
+    "polygon": [
+      [
+        928.6250470748157,
+        563.0129432015742
+      ],
+      [
+        928.7101876966439,
+        581.6765574053899
+      ],
+      [
+        910.4606705283418,
+        579.3119671056078
+      ],
+      [
+        911.5422654816156,
+        561.0324244504937
+      ],
+      [
+        928.6250470748157,
+        563.0129432015742
+      ]
+    ],
+    "lat": 18.23389133204133,
+    "lon": -73.75365332101842,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "05d6d00a-2d4c-42b6-ad73-aebbaff2b301",
+    "gt_full_image_pixel_polygon": [
+      [
+        928.6250470748157,
+        563.0129432015742
+      ],
+      [
+        928.7101876966439,
+        581.6765574053899
+      ],
+      [
+        910.4606705283418,
+        579.3119671056078
+      ],
+      [
+        911.5422654816156,
+        561.0324244504937
+      ],
+      [
+        928.6250470748157,
+        563.0129432015742
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      910.4606705283418,
+      561.0324244504937,
+      928.7101876966439,
+      581.6765574053899
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_b102d7b4-4ea9-4fe0-97ce-19907cdce97f",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be partially damaged, with visible tears or punctures.\n   - The walls show signs of structural damage, with cracks and possible bulging or bowing.\n   - The immediate surroundings are now more distinct, revealing additional buildings and structures in the background that also show signs of damage.\n\n2) Overall Damage Classification:\n   - The building has sustained `major_damage`.\n\n3) Evidence:\n   - The roof's visible damage, such as tears or punctures.\n   - The cracks and possible bulging or bowing in the walls.\n   - The damage to the surrounding buildings and structures in the background, which indicates that the building is part of a larger affected area. ",
+    "polygon": [
+      [
+        874.9151523461425,
+        619.7945242098441
+      ],
+      [
+        884.1905424465618,
+        619.9134394675202
+      ],
+      [
+        883.8337966718556,
+        626.8105244127369
+      ],
+      [
+        874.5584065755107,
+        626.8105244127369
+      ],
+      [
+        874.9151523461425,
+        619.7945242098441
+      ]
+    ],
+    "lat": 18.233659929972166,
+    "lon": -73.75385299246257,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "b102d7b4-4ea9-4fe0-97ce-19907cdce97f",
+    "gt_full_image_pixel_polygon": [
+      [
+        874.9151523461425,
+        619.7945242098441
+      ],
+      [
+        884.1905424465618,
+        619.9134394675202
+      ],
+      [
+        883.8337966718556,
+        626.8105244127369
+      ],
+      [
+        874.5584065755107,
+        626.8105244127369
+      ],
+      [
+        874.9151523461425,
+        619.7945242098441
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      874.5584065755107,
+      619.7945242098441,
+      884.1905424465618,
+      626.8105244127369
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_178f05a0-be79-467c-bbf8-0d10d8151543",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings are not clearly visible due to the low resolution and blurriness of the image.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Cracks and missing sections in the roof.\n- Visible cracks and possible bulging or deformation in the walls.\n- The surrounding area is not clearly visible due to the low resolution and blurriness of the image. ",
+    "polygon": [
+      [
+        858.4982048589102,
+        749.695823248487
+      ],
+      [
+        877.2866421499393,
+        751.4263372101269
+      ],
+      [
+        876.0505607484254,
+        764.2815837772414
+      ],
+      [
+        857.2621234617103,
+        761.8094209751727
+      ],
+      [
+        858.4982048589102,
+        749.695823248487
+      ]
+    ],
+    "lat": 18.233077631999343,
+    "lon": -73.75391668656395,
+    "address": "Bergeaud, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "178f05a0-be79-467c-bbf8-0d10d8151543",
+    "gt_full_image_pixel_polygon": [
+      [
+        858.4982048589102,
+        749.695823248487
+      ],
+      [
+        877.2866421499393,
+        751.4263372101269
+      ],
+      [
+        876.0505607484254,
+        764.2815837772414
+      ],
+      [
+        857.2621234617103,
+        761.8094209751727
+      ],
+      [
+        858.4982048589102,
+        749.695823248487
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      857.2621234617103,
+      749.695823248487,
+      877.2866421499393,
+      764.2815837772414
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_61bff6f6-e984-4262-b1e3-0e2bd70a9d92",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof is completely destroyed and missing, with no visible remnants of the original structure.\n   - The walls appear to be severely damaged or destroyed, with visible cracks and deformations.\n   - The surrounding area shows signs of destruction, with debris scattered around the building.\n\n2) Overall Damage Classification:\n   - The building is destroyed.\n\n3) Evidence:\n   - The roof is entirely missing, leaving no trace of its original state.\n   - The walls are heavily damaged, with visible cracks and deformations.\n   - The surrounding area is littered with debris, indicating widespread destruction. ",
+    "polygon": [
+      [
+        767.93534317243,
+        599.5944299614156
+      ],
+      [
+        782.8585020967719,
+        600.2254651228748
+      ],
+      [
+        781.9119493548226,
+        621.6806605813305
+      ],
+      [
+        766.7671055001703,
+        620.41859025985
+      ],
+      [
+        767.93534317243,
+        599.5944299614156
+      ]
+    ],
+    "lat": 18.23372592690613,
+    "lon": -73.75433483719824,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "61bff6f6-e984-4262-b1e3-0e2bd70a9d92",
+    "gt_full_image_pixel_polygon": [
+      [
+        767.93534317243,
+        599.5944299614156
+      ],
+      [
+        782.8585020967719,
+        600.2254651228748
+      ],
+      [
+        781.9119493548226,
+        621.6806605813305
+      ],
+      [
+        766.7671055001703,
+        620.41859025985
+      ],
+      [
+        767.93534317243,
+        599.5944299614156
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      766.7671055001703,
+      599.5944299614156,
+      782.8585020967719,
+      621.6806605813305
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_8b89bad8-7cc6-48b5-a814-c7d6da35bf5a",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be intact, but there are visible signs of damage, such as missing shingles or tiles.\n- The walls are significantly damaged, with visible cracks and structural deformation.\n- The immediate surroundings show signs of debris and destruction, indicating that the building has been severely impacted by the disaster.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Cracks and deformation in the walls.\n- Debris and destruction in the immediate surroundings.\n- Visible signs of damage on the roof. ",
+    "polygon": [
+      [
+        918.8765510774625,
+        234.8560730398346
+      ],
+      [
+        926.1062036115626,
+        245.959734054803
+      ],
+      [
+        908.1712707665116,
+        257.3143423997915
+      ],
+      [
+        901.7791567663636,
+        246.4671186399336
+      ],
+      [
+        918.8765510774625,
+        234.8560730398346
+      ]
+    ],
+    "lat": 18.235321150412048,
+    "lon": -73.75367451104273,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "8b89bad8-7cc6-48b5-a814-c7d6da35bf5a",
+    "gt_full_image_pixel_polygon": [
+      [
+        918.8765510774625,
+        234.8560730398346
+      ],
+      [
+        926.1062036115626,
+        245.959734054803
+      ],
+      [
+        908.1712707665116,
+        257.3143423997915
+      ],
+      [
+        901.7791567663636,
+        246.4671186399336
+      ],
+      [
+        918.8765510774625,
+        234.8560730398346
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      901.7791567663636,
+      234.8560730398346,
+      926.1062036115626,
+      257.3143423997915
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_daec103e-4250-4f8a-afb9-c82c2a2a2b74",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be damaged, with visible signs of wear and tear.\n   - The white facade shows signs of discoloration and possible damage to the exterior walls.\n   - The immediate surroundings are not clearly visible due to the blurred background, making it difficult to assess the condition of the area around the building.\n\n2) Overall Damage Classification:\n   - The building has sustained `major_damage`.\n\n3) Evidence:\n   - The roof shows clear signs of damage, with visible tears and wear.\n   - The white facade exhibits discoloration and potential damage to the exterior walls.\n   - The blurred background makes it difficult to assess the condition of the immediate surroundings, but the overall appearance of the building suggests significant damage. ",
+    "polygon": [
+      [
+        960.8681530034333,
+        633.270584736558
+      ],
+      [
+        975.8933187381186,
+        633.8776621407833
+      ],
+      [
+        975.5897800372043,
+        644.8050554024571
+      ],
+      [
+        970.7331608084344,
+        644.5015167008239
+      ],
+      [
+        959.8057675465183,
+        643.8944392965986
+      ],
+      [
+        960.8681530034333,
+        633.270584736558
+      ]
+    ],
+    "lat": 18.23358568162048,
+    "lon": -73.75344557692375,
+    "address": "Bergeaud, 1re Bourdet, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "daec103e-4250-4f8a-afb9-c82c2a2a2b74",
+    "gt_full_image_pixel_polygon": [
+      [
+        960.8681530034333,
+        633.270584736558
+      ],
+      [
+        975.8933187381186,
+        633.8776621407833
+      ],
+      [
+        975.5897800372043,
+        644.8050554024571
+      ],
+      [
+        970.7331608084344,
+        644.5015167008239
+      ],
+      [
+        959.8057675465183,
+        643.8944392965986
+      ],
+      [
+        960.8681530034333,
+        633.270584736558
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      959.8057675465183,
+      633.270584736558,
+      975.8933187381186,
+      644.8050554024571
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_3142d7e7-86e6-4a3e-8855-0dd97bf2ae48",
+    "damage_label": "minor",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be intact, but the walls are obscured by a blurred background, making it difficult to assess their condition.\n- The immediate surroundings are not clearly visible due to the blurriness of the image.\n- The overall condition of the building and its surroundings is unclear without a clearer view.\n\nOverall Damage Classification:\n- `minor_damage`\n\nEvidence:\n- The roof is intact, which suggests that the damage is not severe.\n- The walls are obscured by a blurred background, making it difficult to assess their condition. However, the fact that the roof is intact implies that the damage to the walls might be limited.\n- The immediate surroundings are not clearly visible due to the blurriness of the image. This could indicate that the damage to the building is not extensive enough to affect the surrounding area. ",
+    "polygon": [
+      [
+        866.3482480995747,
+        925.4015695165302
+      ],
+      [
+        866.6517868016874,
+        915.6883310609101
+      ],
+      [
+        882.2840299393996,
+        915.9918697615847
+      ],
+      [
+        882.1322605883433,
+        925.7051082186429
+      ],
+      [
+        866.3482480995747,
+        925.4015695165302
+      ]
+    ],
+    "lat": 18.232347700785436,
+    "lon": -73.75388865761568,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "3142d7e7-86e6-4a3e-8855-0dd97bf2ae48",
+    "gt_full_image_pixel_polygon": [
+      [
+        866.3482480995747,
+        925.4015695165302
+      ],
+      [
+        866.6517868016874,
+        915.6883310609101
+      ],
+      [
+        882.2840299393996,
+        915.9918697615847
+      ],
+      [
+        882.1322605883433,
+        925.7051082186429
+      ],
+      [
+        866.3482480995747,
+        925.4015695165302
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      866.3482480995747,
+      915.6883310609101,
+      882.2840299393996,
+      925.7051082186429
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_4376a261-31a2-451c-aa19-f572c8ec7ee1",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be severely damaged or missing in the post-disaster image.\n   - The walls show significant signs of damage, with visible cracks and possible structural instability.\n   - The immediate surroundings are not clearly visible due to the blurriness of the image, but the overall appearance of the area suggests extensive damage.\n\n2) Overall Damage Classification:\n   - The building in the post-disaster image has been destroyed.\n\n3) Evidence:\n   - The roof is completely missing, indicating a high level of damage.\n   - The walls show extensive cracks and signs of structural damage, which is indicative of a destroyed building.\n   - The surrounding area appears to be in a state of disrepair, with no clear signs of life or activity, further supporting the classification of the building as destroyed. ",
+    "polygon": [
+      [
+        856.2439161517068,
+        901.5081153392475
+      ],
+      [
+        868.640743305833,
+        901.701815762572
+      ],
+      [
+        868.2533424563078,
+        912.5490395214713
+      ],
+      [
+        855.6628148776587,
+        912.1616386729049
+      ],
+      [
+        856.2439161517068,
+        901.5081153392475
+      ]
+    ],
+    "lat": 18.232417188576513,
+    "lon": -73.75394210743525,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "4376a261-31a2-451c-aa19-f572c8ec7ee1",
+    "gt_full_image_pixel_polygon": [
+      [
+        856.2439161517068,
+        901.5081153392475
+      ],
+      [
+        868.640743305833,
+        901.701815762572
+      ],
+      [
+        868.2533424563078,
+        912.5490395214713
+      ],
+      [
+        855.6628148776587,
+        912.1616386729049
+      ],
+      [
+        856.2439161517068,
+        901.5081153392475
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      855.6628148776587,
+      901.5081153392475,
+      868.640743305833,
+      912.5490395214713
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_7f822c4c-d429-4acf-912d-123b9e30c196",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be intact, but there are visible signs of damage or distress, such as debris or structural damage.\n- The walls are obscured by the blur, but there are noticeable cracks and deformations in the structure.\n- The immediate surroundings show significant damage, with debris scattered around the building.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Cracks and deformations in the structure are visible, indicating significant stress or impact.\n- Debris is scattered around the building, indicating that parts of the structure have been destroyed or displaced.\n- The roof appears to be intact, but the walls show noticeable damage, which is not present in the pre-disaster image. ",
+    "polygon": [
+      [
+        871.403085024103,
+        909.1990038470638
+      ],
+      [
+        892.2132551152766,
+        909.3179191042606
+      ],
+      [
+        892.2132551150369,
+        915.6204277610964
+      ],
+      [
+        871.165254508511,
+        915.3825972462234
+      ],
+      [
+        871.403085024103,
+        909.1990038470638
+      ]
+    ],
+    "lat": 18.23239091927304,
+    "lon": -73.75385653285544,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "7f822c4c-d429-4acf-912d-123b9e30c196",
+    "gt_full_image_pixel_polygon": [
+      [
+        871.403085024103,
+        909.1990038470638
+      ],
+      [
+        892.2132551152766,
+        909.3179191042606
+      ],
+      [
+        892.2132551150369,
+        915.6204277610964
+      ],
+      [
+        871.165254508511,
+        915.3825972462234
+      ],
+      [
+        871.403085024103,
+        909.1990038470638
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      871.165254508511,
+      909.1990038470638,
+      892.2132551152766,
+      915.6204277610964
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_d44f256a-5a7d-4d03-9cfc-0cbda97fca0f",
+    "damage_label": "minor",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be intact, but there are visible signs of damage to the walls, with some areas showing discoloration or possible water damage.\n   - The surrounding area is not clearly visible due to the image's resolution and angle, but there are no obvious indications of significant structural damage or environmental hazards.\n\n2) Overall Damage Classification:\n   - minor_damage\n\n3) Evidence:\n   - Discoloration or possible water damage on the walls.\n   - No obvious signs of significant structural damage or environmental hazards.\n   - The roof appears to be intact, which suggests that the damage is limited to the walls. ",
+    "polygon": [
+      [
+        966.4981504087439,
+        550.2722153898935
+      ],
+      [
+        966.8016891098979,
+        561.3513780026237
+      ],
+      [
+        955.8742958487007,
+        561.0478393014698
+      ],
+      [
+        956.0260651992778,
+        550.1204460397959
+      ],
+      [
+        966.4981504087439,
+        550.2722153898935
+      ]
+    ],
+    "lat": 18.233955935937246,
+    "lon": -73.75346569184592,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "d44f256a-5a7d-4d03-9cfc-0cbda97fca0f",
+    "gt_full_image_pixel_polygon": [
+      [
+        966.4981504087439,
+        550.2722153898935
+      ],
+      [
+        966.8016891098979,
+        561.3513780026237
+      ],
+      [
+        955.8742958487007,
+        561.0478393014698
+      ],
+      [
+        956.0260651992778,
+        550.1204460397959
+      ],
+      [
+        966.4981504087439,
+        550.2722153898935
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      955.8742958487007,
+      550.1204460397959,
+      966.8016891098979,
+      561.3513780026237
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_f5d42696-75c2-4df3-84f3-1fdc0ffb3d92",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be severely damaged or missing in some areas.\n- The walls show more pronounced signs of wear and possible damage, with visible cracks and potential structural damage.\n- The immediate surroundings are not clearly visible due to the angle and distance of the aerial shot, but the building's overall condition suggests it has been significantly impacted by the disaster.\n\nOverall Damage Classification: `major_damage`\n\nEvidence:\n- The roof's condition indicates a significant structural failure.\n- The walls exhibit more severe cracks and potential structural damage compared to the pre-disaster image.\n- The building's overall appearance suggests a substantial impact from the disaster, which is consistent with major damage. ",
+    "polygon": [
+      [
+        820.6637930305935,
+        0.00289639558731738
+      ],
+      [
+        820.2812812856547,
+        2.880490225643089
+      ],
+      [
+        805.7486798978,
+        1.981566430472641
+      ],
+      [
+        805.8559599395024,
+        0.003008321043815661
+      ],
+      [
+        820.6637930305935,
+        0.00289639558731738
+      ]
+    ],
+    "lat": 18.236390328065294,
+    "lon": -73.75412679134384,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "f5d42696-75c2-4df3-84f3-1fdc0ffb3d92",
+    "gt_full_image_pixel_polygon": [
+      [
+        820.6637930305935,
+        0.00289639558731738
+      ],
+      [
+        820.2812812856547,
+        2.880490225643089
+      ],
+      [
+        805.7486798978,
+        1.981566430472641
+      ],
+      [
+        805.8559599395024,
+        0.003008321043815661
+      ],
+      [
+        820.6637930305935,
+        0.00289639558731738
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      805.7486798978,
+      0.00289639558731738,
+      820.6637930305935,
+      2.880490225643089
+    ],
+    "gt_label_from_json": null
+  },
+  {
+    "id": "hurricane-matthew_00000011_a1644d37-1267-411b-9251-3a4a1974000e",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be severely damaged, with visible signs of wear and possible water damage.\n   - The walls are in a state of disrepair, with cracks and missing sections.\n   - The surrounding area is overgrown with vegetation, indicating that the building has been abandoned for some time.\n   - The overall condition of the building suggests neglect and potential structural instability.\n\n2) Overall Damage Classification:\n   - The building is in a state of disrepair and has been abandoned for some time.\n   - The roof is severely damaged, and the walls are in a state of disrepair.\n   - The surrounding area is overgrown with vegetation.\n   - The building appears to be structurally unstable.\n   - Based on the above observations, the overall damage classification for this building is `destroyed`.\n\n3) Evidence:\n   - The roof is severely damaged, with visible signs of wear and possible water damage.\n   - The walls are in a state of disrepair, with cracks and missing sections.\n   - The surrounding area is overgrown with vegetation, indicating that the",
+    "polygon": [
+      [
+        930.1133575185382,
+        563.8323497557291
+      ],
+      [
+        961.0175865654978,
+        567.8793321322433
+      ],
+      [
+        961.2015403103643,
+        564.7521184786228
+      ],
+      [
+        971.1350425043894,
+        565.763864072991
+      ],
+      [
+        971.3189962492557,
+        563.0965347791397
+      ],
+      [
+        988.0587869841639,
+        564.2922341169362
+      ],
+      [
+        983.8278508620632,
+        596.9440237358051
+      ],
+      [
+        974.8141173892544,
+        595.9322781419162
+      ],
+      [
+        974.9060942645638,
+        595.1044862919349
+      ],
+      [
+        962.7651471378939,
+        593.7248332097513
+      ],
+      [
+        963.0410777535159,
+        588.5741283678735
+      ],
+      [
+        929.2855656695156,
+        583.8833078881617
+      ],
+      [
+        930.1133575185382,
+        563.8323497557291
+      ]
+    ],
+    "lat": 18.23385546413668,
+    "lon": -73.75346952320916,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "a1644d37-1267-411b-9251-3a4a1974000e",
+    "gt_full_image_pixel_polygon": [
+      [
+        930.1133575185382,
+        563.8323497557291
+      ],
+      [
+        961.0175865654978,
+        567.8793321322433
+      ],
+      [
+        961.2015403103643,
+        564.7521184786228
+      ],
+      [
+        971.1350425043894,
+        565.763864072991
+      ],
+      [
+        971.3189962492557,
+        563.0965347791397
+      ],
+      [
+        988.0587869841639,
+        564.2922341169362
+      ],
+      [
+        983.8278508620632,
+        596.9440237358051
+      ],
+      [
+        974.8141173892544,
+        595.9322781419162
+      ],
+      [
+        974.9060942645638,
+        595.1044862919349
+      ],
+      [
+        962.7651471378939,
+        593.7248332097513
+      ],
+      [
+        963.0410777535159,
+        588.5741283678735
+      ],
+      [
+        929.2855656695156,
+        583.8833078881617
+      ],
+      [
+        930.1133575185382,
+        563.8323497557291
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      929.2855656695156,
+      563.0965347791397,
+      988.0587869841639,
+      596.9440237358051
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_323682d4-9f43-4b26-a472-7775e1334731",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings are not clearly visible due to the blurred nature of the image, but there may be additional damage or debris in the area.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Visible cracks and missing sections on the roof.\n- Visible cracks and possible bulging or deformation on the walls.\n- The immediate surroundings are not clearly visible due to the blurred nature of the image, but the presence of debris or additional damage is suggested. ",
+    "polygon": [
+      [
+        880.6525675910738,
+        687.2625219667492
+      ],
+      [
+        878.2892312620302,
+        699.6643899712773
+      ],
+      [
+        866.595829765725,
+        698.8549693830164
+      ],
+      [
+        867.5931067234388,
+        686.3935037160414
+      ],
+      [
+        880.6525675910738,
+        687.2625219667492
+      ]
+    ],
+    "lat": 18.23335603904291,
+    "lon": -73.7538722718644,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "323682d4-9f43-4b26-a472-7775e1334731",
+    "gt_full_image_pixel_polygon": [
+      [
+        880.6525675910738,
+        687.2625219667492
+      ],
+      [
+        878.2892312620302,
+        699.6643899712773
+      ],
+      [
+        866.595829765725,
+        698.8549693830164
+      ],
+      [
+        867.5931067234388,
+        686.3935037160414
+      ],
+      [
+        880.6525675910738,
+        687.2625219667492
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      866.595829765725,
+      686.3935037160414,
+      880.6525675910738,
+      699.6643899712773
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_4a288d81-c3fe-4d02-b400-d15bed2b1967",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible holes or tears.\n- The walls show signs of cracking and possible bulging, indicating structural damage.\n- The immediate surroundings, which were not clearly visible in the PRE image, now show signs of debris and destruction, suggesting that the building is part of a larger disaster.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- The roof has visible holes or tears, which were not present in the PRE image.\n- The walls show signs of cracking and possible bulging, indicating structural damage.\n- The immediate surroundings show signs of debris and destruction, suggesting that the building is part of a larger disaster. ",
+    "polygon": [
+      [
+        886.6616617017193,
+        785.1711194566014
+      ],
+      [
+        909.8546831414191,
+        785.7836278373148
+      ],
+      [
+        908.3519378238519,
+        812.7996313873866
+      ],
+      [
+        885.769051336317,
+        811.4669913014994
+      ],
+      [
+        886.6616617017193,
+        785.1711194566014
+      ]
+    ],
+    "lat": 18.23289811536825,
+    "lon": -73.75378043541497,
+    "address": "Bergeaud, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "4a288d81-c3fe-4d02-b400-d15bed2b1967",
+    "gt_full_image_pixel_polygon": [
+      [
+        886.6616617017193,
+        785.1711194566014
+      ],
+      [
+        909.8546831414191,
+        785.7836278373148
+      ],
+      [
+        908.3519378238519,
+        812.7996313873866
+      ],
+      [
+        885.769051336317,
+        811.4669913014994
+      ],
+      [
+        886.6616617017193,
+        785.1711194566014
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      885.769051336317,
+      785.1711194566014,
+      909.8546831414191,
+      812.7996313873866
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_4a77312b-26be-42f8-82a1-d1aff9d5fe4e",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged or partially collapsed, with visible gaps and missing sections.\n- There are visible cracks and deformations in the walls, indicating structural damage.\n- The immediate surroundings show signs of debris and destruction, with damaged or destroyed structures visible in the background.\n\nOverall Damage Classification: `major_damage`\n\nEvidence:\n- The roof is visibly damaged and partially collapsed, which is a clear sign of major damage.\n- The cracks and deformations in the walls indicate significant structural damage, which is a key characteristic of major damage.\n- The debris and destruction in the immediate surroundings provide additional evidence of the extent of the disaster, which supports the classification of major damage. ",
+    "polygon": [
+      [
+        818.3690149812795,
+        825.4359729901049
+      ],
+      [
+        842.0703103119447,
+        825.6706392804696
+      ],
+      [
+        841.1316451528828,
+        846.5559391262747
+      ],
+      [
+        816.7263509504046,
+        845.8519402561396
+      ],
+      [
+        818.3690149812795,
+        825.4359729901049
+      ]
+    ],
+    "lat": 18.232734630047304,
+    "lon": -73.75409453273427,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "4a77312b-26be-42f8-82a1-d1aff9d5fe4e",
+    "gt_full_image_pixel_polygon": [
+      [
+        818.3690149812795,
+        825.4359729901049
+      ],
+      [
+        842.0703103119447,
+        825.6706392804696
+      ],
+      [
+        841.1316451528828,
+        846.5559391262747
+      ],
+      [
+        816.7263509504046,
+        845.8519402561396
+      ],
+      [
+        818.3690149812795,
+        825.4359729901049
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      816.7263509504046,
+      825.4359729901049,
+      842.0703103119447,
+      846.5559391262747
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_b6f20c76-b3b3-4557-a794-1b229613248c",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be severely damaged or missing, with visible signs of collapse or removal.\n   - The walls show significant damage, with visible cracks, holes, or missing sections.\n   - The immediate surroundings are obscured by the damage to the building, making it difficult to assess any changes in the area.\n\n2) Overall Damage Classification:\n   - The building has sustained major damage, as evidenced by the extensive damage to the roof and walls.\n\n3) Evidence:\n   - The roof is visibly damaged or missing, with no intact sections.\n   - The walls have multiple cracks and holes, indicating structural compromise.\n   - The surrounding area is obscured by the damage to the building, making it difficult to assess any changes in the immediate surroundings. ",
+    "polygon": [
+      [
+        882.2840299393996,
+        915.9918697615847
+      ],
+      [
+        904.8007589250943,
+        916.3979549260704
+      ],
+      [
+        904.6378694642347,
+        927.257252438787
+      ],
+      [
+        882.1591236141813,
+        926.9314735127535
+      ],
+      [
+        882.1322605883433,
+        925.7051082186429
+      ],
+      [
+        882.2840299393996,
+        915.9918697615847
+      ]
+    ],
+    "lat": 18.232348328355364,
+    "lon": -73.75381073339435,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "b6f20c76-b3b3-4557-a794-1b229613248c",
+    "gt_full_image_pixel_polygon": [
+      [
+        882.2840299393996,
+        915.9918697615847
+      ],
+      [
+        904.8007589250943,
+        916.3979549260704
+      ],
+      [
+        904.6378694642347,
+        927.257252438787
+      ],
+      [
+        882.1591236141813,
+        926.9314735127535
+      ],
+      [
+        882.1322605883433,
+        925.7051082186429
+      ],
+      [
+        882.2840299393996,
+        915.9918697615847
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      882.1322605883433,
+      915.9918697615847,
+      904.8007589250943,
+      927.257252438787
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_3f4ff90b-01d0-4e3a-a39e-502392156c1f",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof is severely damaged, with large holes and missing sections.\n   - The walls show significant structural damage, with visible cracks and possible bulging or leaning.\n   - The surrounding area is now clearly visible, revealing a more detailed view of the building's immediate surroundings, which appear to be in a state of disrepair as well.\n\n2) Overall Damage Classification:\n   - The building has suffered major damage.\n\n3) Evidence:\n   - The roof has large, irregular holes and is missing substantial sections.\n   - The walls exhibit significant structural damage, with visible cracks and possible bulging or leaning.\n   - The surrounding area shows signs of disrepair, indicating that the building has likely been exposed to harsh weather conditions or has been abandoned for an extended period. ",
+    "polygon": [
+      [
+        882.1591236141813,
+        926.9314735127535
+      ],
+      [
+        901.3222604362538,
+        927.2484968255555
+      ],
+      [
+        901.4555937703757,
+        940.9272499223928
+      ],
+      [
+        882.1533706071775,
+        940.0242219376845
+      ],
+      [
+        882.1591236141813,
+        926.9314735127535
+      ]
+    ],
+    "lat": 18.232299897892542,
+    "lon": -73.7538104648988,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "3f4ff90b-01d0-4e3a-a39e-502392156c1f",
+    "gt_full_image_pixel_polygon": [
+      [
+        882.1591236141813,
+        926.9314735127535
+      ],
+      [
+        901.3222604362538,
+        927.2484968255555
+      ],
+      [
+        901.4555937703757,
+        940.9272499223928
+      ],
+      [
+        882.1533706071775,
+        940.0242219376845
+      ],
+      [
+        882.1591236141813,
+        926.9314735127535
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      882.1533706071775,
+      926.9314735127535,
+      901.4555937703757,
+      940.9272499223928
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_19174e03-eddd-45db-85b0-a9eaf4c0b79a",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be damaged, with visible signs of wear and tear.\n   - The facade shows signs of discoloration and possible structural damage.\n   - The surrounding vegetation is less lush and green, indicating potential damage to the building's immediate surroundings.\n\n2) Overall Damage Classification:\n   - The building's condition has deteriorated significantly compared to the pre-disaster image.\n   - The visible damage to the roof and facade, as well as the surrounding vegetation, suggests that the building has sustained major damage.\n\n3) Evidence:\n   - The roof shows clear signs of damage, with visible cracks and missing tiles.\n   - The facade exhibits discoloration and possible structural damage, which are not present in the pre-disaster image.\n   - The surrounding vegetation appears less lush and green, indicating potential damage to the building's immediate surroundings. ",
+    "polygon": [
+      [
+        882.844833296263,
+        940.9395179200418
+      ],
+      [
+        906.0169665871258,
+        941.2932909475003
+      ],
+      [
+        905.5747503016042,
+        960.1317046536697
+      ],
+      [
+        882.3141737538768,
+        959.5126018563365
+      ],
+      [
+        882.844833296263,
+        940.9395179200418
+      ]
+    ],
+    "lat": 18.232228948712425,
+    "lon": -73.75380146550779,
+    "address": "Route Nationale # 2, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "Route Nationale # 2",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "19174e03-eddd-45db-85b0-a9eaf4c0b79a",
+    "gt_full_image_pixel_polygon": [
+      [
+        882.844833296263,
+        940.9395179200418
+      ],
+      [
+        906.0169665871258,
+        941.2932909475003
+      ],
+      [
+        905.5747503016042,
+        960.1317046536697
+      ],
+      [
+        882.3141737538768,
+        959.5126018563365
+      ],
+      [
+        882.844833296263,
+        940.9395179200418
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      882.3141737538768,
+      940.9395179200418,
+      906.0169665871258,
+      960.1317046536697
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_49b5e00d-9615-499c-b354-7d56925f8158",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be damaged, with visible cracks and missing sections.\n   - The walls show signs of distress, with visible cracks and possible bulging or deformation.\n   - The immediate surroundings are not clearly visible due to the blurriness of the image, but there may be debris or damage to nearby structures.\n\n2) Overall Damage Classification:\n   - The building has sustained major damage.\n\n3) Evidence:\n   - Cracked and missing roof sections.\n   - Cracks and possible deformation in the walls.\n   - Indistinct surroundings that may indicate additional damage or debris. ",
+    "polygon": [
+      [
+        983.2096522078995,
+        959.0263303274443
+      ],
+      [
+        999.3815360274722,
+        960.5557104990709
+      ],
+      [
+        1011.121361132797,
+        961.3942694347373
+      ],
+      [
+        1009.623220751516,
+        973.136142583838
+      ],
+      [
+        982.7581382181817,
+        971.5558436103588
+      ],
+      [
+        983.2096522078995,
+        959.0263303274443
+      ]
+    ],
+    "lat": 18.232157610944668,
+    "lon": -73.75332901600987,
+    "address": "Bergeaud, 1re Bourdet, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "49b5e00d-9615-499c-b354-7d56925f8158",
+    "gt_full_image_pixel_polygon": [
+      [
+        983.2096522078995,
+        959.0263303274443
+      ],
+      [
+        999.3815360274722,
+        960.5557104990709
+      ],
+      [
+        1011.121361132797,
+        961.3942694347373
+      ],
+      [
+        1009.623220751516,
+        973.136142583838
+      ],
+      [
+        982.7581382181817,
+        971.5558436103588
+      ],
+      [
+        983.2096522078995,
+        959.0263303274443
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      982.7581382181817,
+      959.0263303274443,
+      1011.121361132797,
+      973.136142583838
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_5254099c-4bbe-4cbc-930d-66eeff756295",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be intact, but the walls are significantly damaged, with visible cracks and missing sections.\n- There is debris scattered around the immediate surroundings, indicating that parts of the building have fallen or been removed.\n- The overall structure of the building is compromised, with noticeable deformation and misalignment.\n\nOverall Damage Classification:\n- major_damage\n\nEvidence:\n- Cracks and missing sections in the walls.\n- Debris scattered around the immediate surroundings.\n- Misalignment and deformation of the building's structure. ",
+    "polygon": [
+      [
+        180.3695968332769,
+        152.8746696820135
+      ],
+      [
+        197.2251720983631,
+        153.3068639199731
+      ],
+      [
+        196.9370426062302,
+        167.2811442656449
+      ],
+      [
+        179.9374025979537,
+        166.7048852813793
+      ],
+      [
+        180.3695968332769,
+        152.8746696820135
+      ]
+    ],
+    "lat": 18.235717181409264,
+    "lon": -73.75701480223958,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "5254099c-4bbe-4cbc-930d-66eeff756295",
+    "gt_full_image_pixel_polygon": [
+      [
+        180.3695968332769,
+        152.8746696820135
+      ],
+      [
+        197.2251720983631,
+        153.3068639199731
+      ],
+      [
+        196.9370426062302,
+        167.2811442656449
+      ],
+      [
+        179.9374025979537,
+        166.7048852813793
+      ],
+      [
+        180.3695968332769,
+        152.8746696820135
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      179.9374025979537,
+      152.8746696820135,
+      197.2251720983631,
+      167.2811442656449
+    ],
+    "gt_label_from_json": "minor_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_87bab410-4a54-459c-9045-0ade41728524",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be severely damaged or missing in some areas.\n   - The walls show signs of structural damage, with visible cracks and deformations.\n   - The surrounding area is now clearly visible, revealing additional damage to nearby structures and vegetation.\n\n2) Overall Damage Classification:\n   - The building has suffered major damage.\n\n3) Evidence:\n   - The roof is visibly damaged or missing in multiple areas.\n   - The walls exhibit significant structural damage with cracks and deformations.\n   - The surrounding area shows signs of destruction, including damaged nearby structures and vegetation. ",
+    "polygon": [
+      [
+        289.7809870939572,
+        317.5347565297114
+      ],
+      [
+        292.3741525188388,
+        298.2300805870127
+      ],
+      [
+        310.9585047316891,
+        298.8063395698402
+      ],
+      [
+        309.229727782487,
+        317.6788212764968
+      ],
+      [
+        289.7809870939572,
+        317.5347565297114
+      ]
+    ],
+    "lat": 18.235049573709308,
+    "lon": -73.75650757089882,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "87bab410-4a54-459c-9045-0ade41728524",
+    "gt_full_image_pixel_polygon": [
+      [
+        289.7809870939572,
+        317.5347565297114
+      ],
+      [
+        292.3741525188388,
+        298.2300805870127
+      ],
+      [
+        310.9585047316891,
+        298.8063395698402
+      ],
+      [
+        309.229727782487,
+        317.6788212764968
+      ],
+      [
+        289.7809870939572,
+        317.5347565297114
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      289.7809870939572,
+      298.2300805870127,
+      310.9585047316891,
+      317.6788212764968
+    ],
+    "gt_label_from_json": null
+  },
+  {
+    "id": "hurricane-matthew_00000011_21c89196-3003-4717-b953-4d81dd46ddcd",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be severely damaged or missing, with visible holes and gaps.\n   - The walls show signs of structural damage, with cracks and possible bulging or leaning.\n   - The surrounding area is now more visible, revealing additional damage to nearby structures or vegetation.\n\n2) Overall Damage Classification:\n   - The building in the POST image has sustained major damage.\n\n3) Evidence:\n   - The roof is visibly damaged and missing large sections.\n   - The walls show significant structural damage with cracks and possible bulging or leaning.\n   - The surrounding area reveals additional damage to nearby structures or vegetation. ",
+    "polygon": [
+      [
+        822.917295764103,
+        95.00934364215283
+      ],
+      [
+        832.0955347072934,
+        82.19805177800544
+      ],
+      [
+        846.8189596866157,
+        93.09721052770033
+      ],
+      [
+        836.4934408701038,
+        106.0997157038682
+      ],
+      [
+        822.917295764103,
+        95.00934364215283
+      ]
+    ],
+    "lat": 18.235980260869034,
+    "lon": -73.75404883985945,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "21c89196-3003-4717-b953-4d81dd46ddcd",
+    "gt_full_image_pixel_polygon": [
+      [
+        822.917295764103,
+        95.00934364215283
+      ],
+      [
+        832.0955347072934,
+        82.19805177800544
+      ],
+      [
+        846.8189596866157,
+        93.09721052770033
+      ],
+      [
+        836.4934408701038,
+        106.0997157038682
+      ],
+      [
+        822.917295764103,
+        95.00934364215283
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      822.917295764103,
+      82.19805177800544,
+      846.8189596866157,
+      106.0997157038682
+    ],
+    "gt_label_from_json": "major_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_e8722e4b-d093-49d0-b29b-ac802912b9d5",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible signs of wear and tear.\n- The walls show signs of cracking and possible structural damage.\n- The immediate surroundings are not clearly visible due to the blurred background, but there are indications of debris and destruction in the area.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- The roof is visibly damaged, with signs of wear and tear.\n- The walls show signs of cracking and possible structural damage.\n- The immediate surroundings are not clearly visible due to the blurred background, but there are indications of debris and destruction in the area. ",
+    "polygon": [
+      [
+        641.3535913188965,
+        243.5923414688714
+      ],
+      [
+        647.6378783597974,
+        245.1968402864272
+      ],
+      [
+        646.8356289507797,
+        248.8069626289236
+      ],
+      [
+        640.2839254426029,
+        247.2024638113679
+      ],
+      [
+        641.3535913188965,
+        243.5923414688714
+      ]
+    ],
+    "lat": 18.23532140640763,
+    "lon": -73.7549205766031,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "e8722e4b-d093-49d0-b29b-ac802912b9d5",
+    "gt_full_image_pixel_polygon": [
+      [
+        641.3535913188965,
+        243.5923414688714
+      ],
+      [
+        647.6378783597974,
+        245.1968402864272
+      ],
+      [
+        646.8356289507797,
+        248.8069626289236
+      ],
+      [
+        640.2839254426029,
+        247.2024638113679
+      ],
+      [
+        641.3535913188965,
+        243.5923414688714
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      640.2839254426029,
+      243.5923414688714,
+      647.6378783597974,
+      248.8069626289236
+    ],
+    "gt_label_from_json": null
+  },
+  {
+    "id": "hurricane-matthew_00000011_26d2883f-b2e0-4c99-96dc-a8f5e3f54b04",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be damaged, with visible signs of wear and tear.\n   - The white facade shows signs of discoloration and possible damage to the exterior walls.\n   - The immediate surroundings are not clearly visible due to the blurred background, making it difficult to assess the condition of the area around the building.\n\n2) Overall Damage Classification:\n   - The building has sustained `major_damage`.\n\n3) Evidence:\n   - The roof shows clear signs of damage, with visible tears and wear.\n   - The white facade exhibits discoloration and potential damage to the exterior walls.\n   - The blurred background makes it difficult to assess the condition of the immediate surroundings, but the visible damage to the building itself indicates a significant impact. ",
+    "polygon": [
+      [
+        520.0769365307606,
+        76.54328025574252
+      ],
+      [
+        527.2582469713844,
+        76.67698849057878
+      ],
+      [
+        527.2582469721034,
+        74.13653202629307
+      ],
+      [
+        536.3504069443267,
+        74.27024026112933
+      ],
+      [
+        536.21669870973,
+        76.81069672493568
+      ],
+      [
+        545.4425669189467,
+        76.94440495977194
+      ],
+      [
+        545.0414422158758,
+        95.79726608366842
+      ],
+      [
+        535.4144493028693,
+        95.79726608270973
+      ],
+      [
+        535.2807410697109,
+        103.6860519438013
+      ],
+      [
+        516.5057484345514,
+        103.3441668461192
+      ],
+      [
+        516.639456669148,
+        83.49103212907072
+      ],
+      [
+        519.9042940505949,
+        83.55534807741019
+      ],
+      [
+        520.0769365307606,
+        76.54328025574252
+      ]
+    ],
+    "lat": 18.236032546895085,
+    "lon": -73.75543985951585,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "26d2883f-b2e0-4c99-96dc-a8f5e3f54b04",
+    "gt_full_image_pixel_polygon": [
+      [
+        520.0769365307606,
+        76.54328025574252
+      ],
+      [
+        527.2582469713844,
+        76.67698849057878
+      ],
+      [
+        527.2582469721034,
+        74.13653202629307
+      ],
+      [
+        536.3504069443267,
+        74.27024026112933
+      ],
+      [
+        536.21669870973,
+        76.81069672493568
+      ],
+      [
+        545.4425669189467,
+        76.94440495977194
+      ],
+      [
+        545.0414422158758,
+        95.79726608366842
+      ],
+      [
+        535.4144493028693,
+        95.79726608270973
+      ],
+      [
+        535.2807410697109,
+        103.6860519438013
+      ],
+      [
+        516.5057484345514,
+        103.3441668461192
+      ],
+      [
+        516.639456669148,
+        83.49103212907072
+      ],
+      [
+        519.9042940505949,
+        83.55534807741019
+      ],
+      [
+        520.0769365307606,
+        76.54328025574252
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      516.5057484345514,
+      74.13653202629307,
+      545.4425669189467,
+      103.6860519438013
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_e08199de-083c-4bb5-948c-0aa5909a7265",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof is significantly damaged, with large sections missing or severely damaged.\n- There are visible signs of structural damage to the walls, with cracks and deformations.\n- The immediate surroundings show signs of destruction, with debris scattered around the building.\n\nOverall Damage Classification: `destroyed`\n\nEvidence:\n- The roof is completely missing in several areas, indicating a severe structural failure.\n- The walls show significant cracks and deformations, which are indicative of major structural damage.\n- The debris scattered around the building indicates that the surrounding area has also been severely damaged. ",
+    "polygon": [
+      [
+        725.6117819132863,
+        0.2225842308419013
+      ],
+      [
+        725.3335802854574,
+        3.190068265170261
+      ],
+      [
+        704.0975226665578,
+        1.149922991389758
+      ],
+      [
+        704.2829904216394,
+        0.2225842303625509
+      ],
+      [
+        725.6117819132863,
+        0.2225842308419013
+      ]
+    ],
+    "lat": 18.236393124472368,
+    "lon": -73.75457535073147,
+    "address": "4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "e08199de-083c-4bb5-948c-0aa5909a7265",
+    "gt_full_image_pixel_polygon": [
+      [
+        725.6117819132863,
+        0.2225842308419013
+      ],
+      [
+        725.3335802854574,
+        3.190068265170261
+      ],
+      [
+        704.0975226665578,
+        1.149922991389758
+      ],
+      [
+        704.2829904216394,
+        0.2225842303625509
+      ],
+      [
+        725.6117819132863,
+        0.2225842308419013
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      704.0975226665578,
+      0.2225842303625509,
+      725.6117819132863,
+      3.190068265170261
+    ],
+    "gt_label_from_json": null
+  },
+  {
+    "id": "hurricane-matthew_00000011_08717f19-a2de-412f-82a8-9698bec8268a",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be damaged, with visible signs of wear and tear.\n   - There are noticeable cracks in the walls, indicating structural damage.\n   - The surrounding area is not clearly visible, but there are indications of debris and destruction in the immediate vicinity of the building.\n\n2) Overall Damage Classification:\n   - The building has sustained major damage.\n\n3) Evidence:\n   - The roof is visibly damaged, with signs of wear and tear.\n   - There are cracks in the walls, which indicate structural damage.\n   - The debris and destruction in the immediate vicinity of the building suggest that the surrounding area has also been severely affected. ",
+    "polygon": [
+      [
+        905.7784421132352,
+        700.8762186127377
+      ],
+      [
+        911.3055294719638,
+        700.8762186136964
+      ],
+      [
+        911.449714357157,
+        708.1335246203856
+      ],
+      [
+        904.6462965666115,
+        708.112745568358
+      ],
+      [
+        905.7784421132352,
+        700.8762186127377
+      ]
+    ],
+    "lat": 18.233302877041837,
+    "lon": -73.75372090674526,
+    "address": "Bergeaud, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "08717f19-a2de-412f-82a8-9698bec8268a",
+    "gt_full_image_pixel_polygon": [
+      [
+        905.7784421132352,
+        700.8762186127377
+      ],
+      [
+        911.3055294719638,
+        700.8762186136964
+      ],
+      [
+        911.449714357157,
+        708.1335246203856
+      ],
+      [
+        904.6462965666115,
+        708.112745568358
+      ],
+      [
+        905.7784421132352,
+        700.8762186127377
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      904.6462965666115,
+      700.8762186127377,
+      911.449714357157,
+      708.1335246203856
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_a8b17007-a83d-4917-b071-ca79f2bc2c10",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be intact, but there may be some damage or wear that is not immediately visible.\n   - The walls are obscured by the surrounding vegetation, making it difficult to discern specific architectural features or damage.\n   - The immediate surroundings, including the greenery, appear to be undamaged.\n\n2) Overall Damage Classification:\n   - Based on the visible changes and the difficulty in discerning specific architectural features, it is not possible to definitively classify the overall damage to this building. Further investigation and a clearer image would be required to make an accurate assessment.\n\n3) Evidence:\n   - The roof appears to be intact, which could suggest that the building has not suffered significant structural damage.\n   - The walls are obscured by vegetation, making it difficult to assess any damage to the walls.\n   - The immediate surroundings, including the greenery, appear to be undamaged, which could indicate that the building has not been severely affected by the disaster. ",
+    "polygon": [
+      [
+        865.3728357357354,
+        710.0449100195425
+      ],
+      [
+        901.8212164318228,
+        714.0787229026909
+      ],
+      [
+        899.5161805024295,
+        738.8578591887225
+      ],
+      [
+        862.3474760716957,
+        734.5359168120033
+      ],
+      [
+        865.3728357357354,
+        710.0449100195425
+      ]
+    ],
+    "lat": 18.233225888858716,
+    "lon": -73.75385423058962,
+    "address": "Bergeaud, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "a8b17007-a83d-4917-b071-ca79f2bc2c10",
+    "gt_full_image_pixel_polygon": [
+      [
+        865.3728357357354,
+        710.0449100195425
+      ],
+      [
+        901.8212164318228,
+        714.0787229026909
+      ],
+      [
+        899.5161805024295,
+        738.8578591887225
+      ],
+      [
+        862.3474760716957,
+        734.5359168120033
+      ],
+      [
+        865.3728357357354,
+        710.0449100195425
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      862.3474760716957,
+      710.0449100195425,
+      901.8212164318228,
+      738.8578591887225
+    ],
+    "gt_label_from_json": "no_damage"
+  },
+  {
+    "id": "hurricane-matthew_00000011_82f76989-61cc-48b5-9a16-36a3337408cc",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings show signs of significant destruction, with visible debris and damaged structures.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- The roof has multiple visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings show signs of significant destruction, with visible debris and damaged structures. ",
+    "polygon": [
+      [
+        865.791855676758,
+        810.6618895190028
+      ],
+      [
+        927.4845744322225,
+        816.0625989053731
+      ],
+      [
+        926.4459764734893,
+        828.5257744116069
+      ],
+      [
+        864.545538130113,
+        822.5019062509556
+      ],
+      [
+        865.791855676758,
+        810.6618895190028
+      ]
+    ],
+    "lat": 18.232803454402994,
+    "lon": -73.75380613383643,
+    "address": "Bergeaud, 4e Laurent, Bergereau, Commune Les Cayes, Arrondissement des Cayes, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000011.png",
+    "building_uid": "82f76989-61cc-48b5-9a16-36a3337408cc",
+    "gt_full_image_pixel_polygon": [
+      [
+        865.791855676758,
+        810.6618895190028
+      ],
+      [
+        927.4845744322225,
+        816.0625989053731
+      ],
+      [
+        926.4459764734893,
+        828.5257744116069
+      ],
+      [
+        864.545538130113,
+        822.5019062509556
+      ],
+      [
+        865.791855676758,
+        810.6618895190028
+      ]
+    ],
+    "gt_full_image_pixel_bbox": [
+      864.545538130113,
+      810.6618895190028,
+      927.4845744322225,
+      828.5257744116069
+    ],
+    "gt_label_from_json": "minor_damage"
+  }
+]

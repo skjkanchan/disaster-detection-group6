@@ -1,0 +1,53 @@
+[
+  {
+    "id": "hurricane-matthew_00000349_adb02b38-074a-44a4-a275-c204cc08f181",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be severely damaged or missing, with visible signs of collapse or disintegration.\n   - The walls are more clearly visible in the post-disaster image, showing significant structural damage, including cracks, bulging, and possible partial collapse.\n   - The immediate surroundings are more distinct in the post-disaster image, revealing debris scattered around the building, indicating a violent event that caused the damage.\n\n2) Overall Damage Classification:\n   - The building in the post-disaster image has sustained major damage.\n\n3) Evidence:\n   - The roof is completely missing or in a state of disrepair, which is not present in the pre-disaster image.\n   - The walls show extensive structural damage, with visible cracks and bulging, which were not apparent in the pre-disaster image.\n   - The debris scattered around the building in the post-disaster image is a clear indication of a significant event that caused the damage. ",
+    "polygon": null,
+    "lat": 18.55503539851683,
+    "lon": -74.12250567641466,
+    "address": "2e Haute Voldrogue, Commune de J\u00e9r\u00e9mie, Arrondissement de J\u00e9r\u00e9mie, D\u00e9partement de la Grande-Anse, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement de la Grande-Anse",
+    "source_full_image_name": "hurricane-matthew_00000349.png",
+    "building_uid": "adb02b38-074a-44a4-a275-c204cc08f181",
+    "gt_full_image_pixel_polygon": null,
+    "gt_full_image_pixel_bbox": null,
+    "gt_label_from_json": null
+  },
+  {
+    "id": "hurricane-matthew_00000349_ca3a897f-6ba3-47ed-9f2e-c0b0d9549b7f",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be damaged, with visible cracks and missing sections.\n- The walls show signs of distress, with visible cracks and possible bulging or deformation.\n- The immediate surroundings are not clearly visible due to the blurriness of the image, but there may be debris or damage to nearby structures.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Visible cracks in the roof and walls.\n- Missing sections of the roof.\n- Possible bulging or deformation of the walls. ",
+    "polygon": null,
+    "lat": 18.553269150893264,
+    "lon": -74.12355752136008,
+    "address": "2e Haute Voldrogue, Commune de J\u00e9r\u00e9mie, Arrondissement de J\u00e9r\u00e9mie, D\u00e9partement de la Grande-Anse, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement de la Grande-Anse",
+    "source_full_image_name": "hurricane-matthew_00000349.png",
+    "building_uid": "ca3a897f-6ba3-47ed-9f2e-c0b0d9549b7f",
+    "gt_full_image_pixel_polygon": null,
+    "gt_full_image_pixel_bbox": null,
+    "gt_label_from_json": null
+  },
+  {
+    "id": "hurricane-matthew_00000349_88d56139-74c3-44bc-b51a-150e3c631dfb",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "Changes Detected:\n- The roof appears to be intact, but the walls are significantly damaged, with visible cracks and deformations.\n- There is noticeable damage to the walls, with some sections appearing to be missing or severely weakened.\n- The immediate surroundings are not clearly visible due to the low resolution of the image, but there is no visible damage to the area outside the building.\n\nOverall Damage Classification:\n- The building has sustained major damage.\n\nEvidence:\n- Cracks and deformations in the walls are visible, indicating significant structural damage.\n- Some sections of the walls appear to be missing or severely weakened.\n- The roof appears to be intact, but the walls are in a much worse condition than in the pre-disaster image. ",
+    "polygon": null,
+    "lat": 18.555091207007827,
+    "lon": -74.12317109090252,
+    "address": "2e Haute Voldrogue, Commune de J\u00e9r\u00e9mie, Arrondissement de J\u00e9r\u00e9mie, D\u00e9partement de la Grande-Anse, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement de la Grande-Anse",
+    "source_full_image_name": "hurricane-matthew_00000349.png",
+    "building_uid": "88d56139-74c3-44bc-b51a-150e3c631dfb",
+    "gt_full_image_pixel_polygon": null,
+    "gt_full_image_pixel_bbox": null,
+    "gt_label_from_json": null
+  }
+]
