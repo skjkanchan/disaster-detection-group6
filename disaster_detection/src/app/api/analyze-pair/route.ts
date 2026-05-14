@@ -13,9 +13,9 @@ const MOCK_RESULTS = [
       "The post-disaster image shows large sections of the roof missing and significant wall damage compared to the pre-disaster baseline. Structural integrity appears severely compromised with visible debris accumulation around the building perimeter.",
   },
   {
-    damage_label: "destroyed",
+    damage_label: "major",
     explanation:
-      "Comparing pre- and post-disaster imagery reveals complete structural collapse of the building. The roof and walls are no longer visible as intact structures; the site shows only rubble and foundation remnants consistent with total destruction.",
+      "Comparing pre- and post-disaster imagery reveals partial structural collapse and heavy roof damage. Multiple exterior walls show visible cracking and displacement, with debris accumulation consistent with major hurricane-force wind damage.",
   },
   {
     damage_label: "major",
@@ -23,9 +23,9 @@ const MOCK_RESULTS = [
       "Significant roof collapse and exterior wall failure are visible in the post-disaster image. Multiple structural elements have shifted or detached, and the building perimeter shows heavy debris consistent with major wind or flood damage.",
   },
   {
-    damage_label: "destroyed",
+    damage_label: "major",
     explanation:
-      "The post-disaster image shows the building has been reduced to foundation level. No intact walls or roof structure remain; scattered debris and exposed ground indicate total destruction of the structure.",
+      "The post-disaster image shows severe structural compromise including missing roof sections and compromised load-bearing walls. The extent of damage indicates major impact requiring significant reconstruction efforts.",
   },
 ];
 
