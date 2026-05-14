@@ -45,7 +45,7 @@ export default function Home() {
           >
             AI Chatbot
           </button> */}
-          {/* <button
+          <button
             onClick={() => setActiveTab('upload')}
             className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${activeTab === 'upload'
               ? 'border-indigo-600 text-indigo-600'
@@ -53,7 +53,7 @@ export default function Home() {
               }`}
           >
             Image Upload
-          </button> */}
+          </button>
         </div>
 
         <section className="bg-white rounded-xl border border-zinc-200 p-4 md:p-6 shadow-sm w-full min-h-[80vh]">
