@@ -15,7 +15,6 @@ const INITIAL_AI_MESSAGE: Message = {
   role: "ai",
   content:
     "I'm your disaster damage assessment assistant. I can look up property damage, filter by severity or confidence, find nearby properties, and summarize affected areas. I can also answer general questions about the VLM pipeline, dataset, and methodology. I only answer disaster-related questions — try a suggestion below!",
-  time: formatTime(new Date()),
 };
 
 const SUGGESTIONS = [

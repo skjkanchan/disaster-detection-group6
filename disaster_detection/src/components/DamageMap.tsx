@@ -47,21 +47,13 @@ export default function DamageMap({
 
     map.on("load", async () => {
       try {
-        const [res, buildRes] = await Promise.all([
-          fetch("/api/matthew-metadata").catch(() => null),
-          fetch("/api/matthew-buildings").catch(() => null),
-        ]);
+        const res = await fetch("/api/matthew-metadata").catch(() => null);
 
         if (!res || !res.ok) {
           console.error("Failed to load map boundaries metadata.");
           return;
         }
         const metadataList = await res.json();
-
-        let buildingsGeojson = null;
-        if (buildRes && buildRes.ok) {
-          buildingsGeojson = await buildRes.json();
-        }
 
         if (!Array.isArray(metadataList)) return;
 
@@ -121,53 +113,58 @@ export default function DamageMap({
             "line-dasharray": [2, 2],
             "line-opacity": 0.8,
           },
-          layout: { visibility: "none" },
+          layout: { visibility: "visible" },
         });
-
-        if (buildingsGeojson?.features) {
-          map.addSource("matthew-buildings-source", {
-            type: "geojson",
-            data: buildingsGeojson,
-          });
-          map.addLayer({
-            id: "matthew-buildings-fill",
-            type: "fill",
-            source: "matthew-buildings-source",
-            paint: {
-              "fill-color": [
-                "match", ["get", "subtype"],
-                "no-damage", "#22c55e",
-                "minor-damage", "#eab308",
-                "major-damage", "#f97316",
-                "destroyed", "#ef4444",
-                "#a1a1aa",
-              ],
-              "fill-opacity": 0.5,
-            },
-            layout: { visibility: "none" },
-          });
-          map.addLayer({
-            id: "matthew-buildings-outline",
-            type: "line",
-            source: "matthew-buildings-source",
-            paint: {
-              "line-color": [
-                "match", ["get", "subtype"],
-                "no-damage", "#15803d",
-                "minor-damage", "#a16207",
-                "major-damage", "#c2410c",
-                "destroyed", "#b91c1c",
-                "#52525b",
-              ],
-              "line-width": 1.5,
-              "line-opacity": 0.9,
-            },
-            layout: { visibility: "none" },
-          });
-        }
 
         (map as any)._matthewLayerIds = metadataList.map((m: any) => m.id);
         map.fire("idle");
+
+        // Load building overlays separately so they don't block imagery
+        fetch("/api/matthew-buildings")
+          .then((r) => (r.ok ? r.json() : null))
+          .then((buildingsGeojson) => {
+            if (!buildingsGeojson?.features || !map.getStyle()) return;
+            map.addSource("matthew-buildings-source", {
+              type: "geojson",
+              data: buildingsGeojson,
+            });
+            map.addLayer({
+              id: "matthew-buildings-fill",
+              type: "fill",
+              source: "matthew-buildings-source",
+              paint: {
+                "fill-color": [
+                  "match", ["get", "subtype"],
+                  "no-damage", "#22c55e",
+                  "minor-damage", "#eab308",
+                  "major-damage", "#f97316",
+                  "destroyed", "#ef4444",
+                  "#a1a1aa",
+                ],
+                "fill-opacity": 0.5,
+              },
+              layout: { visibility: (map as any)._heatmapVisible ? "visible" : "none" },
+            });
+            map.addLayer({
+              id: "matthew-buildings-outline",
+              type: "line",
+              source: "matthew-buildings-source",
+              paint: {
+                "line-color": [
+                  "match", ["get", "subtype"],
+                  "no-damage", "#15803d",
+                  "minor-damage", "#a16207",
+                  "major-damage", "#c2410c",
+                  "destroyed", "#b91c1c",
+                  "#52525b",
+                ],
+                "line-width": 1.5,
+                "line-opacity": 0.9,
+              },
+              layout: { visibility: (map as any)._heatmapVisible ? "visible" : "none" },
+            });
+          })
+          .catch((err) => console.error("Failed to load building footprints", err));
       } catch (err) {
         console.error("Failed to load metadata list", err);
       }
@@ -185,6 +182,8 @@ export default function DamageMap({
     const map = mapRef.current;
     if (!map) return;
 
+    (map as any)._heatmapVisible = showHeatmap;
+
     const updateLayers = () => {
       const ids = (map as any)._matthewLayerIds || [];
       ids.forEach((id: string) => {
@@ -196,7 +195,7 @@ export default function DamageMap({
           map.setLayoutProperty(postLayerId, "visibility", imagery === "post" ? "visible" : "none");
       });
       if (map.getLayer("matthew-bounds-layer"))
-        map.setLayoutProperty("matthew-bounds-layer", "visibility", imagery !== "none" ? "visible" : "none");
+        map.setLayoutProperty("matthew-bounds-layer", "visibility", "visible");
       if (map.getLayer("matthew-buildings-fill"))
         map.setLayoutProperty("matthew-buildings-fill", "visibility", showHeatmap ? "visible" : "none");
       if (map.getLayer("matthew-buildings-outline"))
