@@ -7,6 +7,19 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  async headers() {
+    return [
+      {
+        source: '/api/aws-image',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, s-maxage=86400, immutable',
+          },
+        ],
+      },
+    ];
+  },
   async rewrites() {
     return [
       {

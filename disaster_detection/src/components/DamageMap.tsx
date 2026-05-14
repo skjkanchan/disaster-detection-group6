@@ -38,8 +38,8 @@ export default function DamageMap({
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/satellite-v9",
-      center: [-73.7646, 18.1912],
-      zoom: 16.5,
+      center: [-73.765, 18.213],
+      zoom: 15,
       maxZoom: 18,
     });
 
