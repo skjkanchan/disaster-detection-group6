@@ -36,7 +36,7 @@ export default function Home() {
           >
             Evaluation Metrics
           </button>
-          <button
+          {/* <button
             onClick={() => setActiveTab('chatbot')}
             className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${activeTab === 'chatbot'
               ? 'border-indigo-600 text-indigo-600'
@@ -44,7 +44,7 @@ export default function Home() {
               }`}
           >
             AI Chatbot
-          </button>
+          </button> */}
           <button
             onClick={() => setActiveTab('upload')}
             className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${activeTab === 'upload'
