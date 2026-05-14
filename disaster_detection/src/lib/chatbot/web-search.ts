@@ -58,15 +58,44 @@ export async function fetchExternalContext(
 
 // ─── Wikipedia ───────────────────────────────────────────────────────────────
 
+/**
+ * If the query mentions a specific named event, extract it so we can
+ * search Wikipedia directly for that title rather than the full question.
+ * e.g. "How many people died in Hurricane Matthew?" → "Hurricane Matthew"
+ */
+function extractNamedEvent(query: string): string | null {
+  const lower = query.toLowerCase();
+
+  // Named hurricanes / tropical storms
+  const namedHurricane = query.match(
+    /\b(hurricane|tropical storm|typhoon|cyclone)\s+([A-Z][a-z]+)/i
+  );
+  if (namedHurricane) return `${namedHurricane[1]} ${namedHurricane[2]}`;
+
+  // Named earthquakes, floods, wildfires with a year or location
+  const namedDisaster = query.match(
+    /\b(\d{4})\s+(.{3,30}?)\s+(earthquake|flood|wildfire|tornado|tsunami)/i
+  );
+  if (namedDisaster) return namedDisaster[0];
+
+  // Keyword-only fallback: add "disaster" if the query contains generic terms
+  if (/\b(fema|preparedness|evacuat|storm surge|disaster response)\b/i.test(lower)) {
+    return null; // let general search handle it
+  }
+
+  return null;
+}
+
 async function searchWikipedia(
   query: string
 ): Promise<{ sources: WebSource[]; text: string } | null> {
   try {
-    // Bias search toward disaster/hurricane/flood topics
-    const enriched = `${query} disaster hurricane flood FEMA`;
+    // Use the named event directly if we can extract one, otherwise use the raw query
+    const namedEvent = extractNamedEvent(query);
+    const searchTerm = namedEvent ?? query;
     const searchUrl =
       `https://en.wikipedia.org/w/api.php?action=query&list=search` +
-      `&srsearch=${encodeURIComponent(enriched)}&format=json&utf8=1&srlimit=3&origin=*`;
+      `&srsearch=${encodeURIComponent(searchTerm)}&format=json&utf8=1&srlimit=3&origin=*`;
 
     const searchRes = await fetch(searchUrl, {
       signal: AbortSignal.timeout(6000),
