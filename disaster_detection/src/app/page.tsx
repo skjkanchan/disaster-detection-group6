@@ -6,11 +6,13 @@ import GeospatialDashboard from "@/components/GeospatialDashboard";
 import MetricsDashboard from "@/components/MetricsDashboard";
 import UploadDashboard from "@/components/UploadDashboard";
 import ChatbotDashboard from "@/components/ChatbotDashboard";
+import { MapProvider } from "@/components/MapContext";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<'map' | 'evaluation' | 'upload' | 'chatbot'>('map');
 
   return (
+    <MapProvider>
     <div className="min-h-screen bg-zinc-50 p-4 md:p-8">
       <main className="mx-auto w-full px-4 lg:px-8 space-y-6">
         <DashboardHeader />
@@ -56,5 +58,6 @@ export default function Home() {
         </section>
       </main>
     </div>
+    </MapProvider>
   );
 }

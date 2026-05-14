@@ -41,7 +41,7 @@ function formatTime(date: Date): string {
 }
 
 export default function ChatbotDashboard() {
-  const { pushRecords, clearRecords } = useMapContext();
+  const { pushRecords, clearRecords, activeTile } = useMapContext();
   const [messages, setMessages] = useState<Message[]>([INITIAL_AI_MESSAGE]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -72,7 +72,10 @@ export default function ChatbotDashboard() {
         const res = await fetch("/api/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ messages: history }),
+          body: JSON.stringify({
+            messages: history,
+            ...(activeTile && { activeTile }),
+          }),
         });
 
         const data = await res.json();
@@ -126,7 +129,7 @@ export default function ChatbotDashboard() {
         setLoading(false);
       }
     },
-    [messages, loading, pushRecords, clearRecords]
+    [messages, loading, pushRecords, clearRecords, activeTile]
   );
 
   return (
@@ -144,6 +147,11 @@ export default function ChatbotDashboard() {
             <p className="text-xs font-medium text-zinc-500">
               Geospatial Damage Assessment Assistant
             </p>
+            {activeTile && (
+              <span className="ml-2 px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700 text-[11px] font-semibold border border-indigo-200">
+                Zone {activeTile.id.replace(/^0+/, '') || '0'} selected
+              </span>
+            )}
           </div>
         </div>
       </div>

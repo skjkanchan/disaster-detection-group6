@@ -40,18 +40,25 @@ function buildContextBlock(result: RetrievalResult): string {
   if (summary) {
     lines.push(`Summary: ${JSON.stringify(summary)}`);
   }
-  if (records.length > 0) {
+  // For summary/knowledge intents the aggregate stats above are sufficient;
+  // individual records add noise and bloat the LLM context.
+  const SUMMARY_ONLY_INTENTS = new Set([
+    "severity_summary", "dataset_summary", "general_knowledge",
+    "top_affected_areas", "region_summary",
+  ]);
+  const includeRecords = !SUMMARY_ONLY_INTENTS.has(intent);
+  if (includeRecords && records.length > 0) {
     lines.push("Records (use only these):");
-    records.slice(0, 50).forEach((r) => {
+    records.slice(0, 20).forEach((r) => {
       const parts = [r.id, r.damage_label, `${(r.confidence * 100).toFixed(0)}%`];
       if (r.address) parts.push(r.address);
       if (r.street) parts.push(r.street);
       if (r.region) parts.push(r.region);
-      if (r.explanation) parts.push(r.explanation);
+      if (r.explanation) parts.push(r.explanation.slice(0, 120));
       lines.push(`  ${parts.join(" | ")}`);
     });
-    if (records.length > 50) lines.push(`  ... and ${records.length - 50} more`);
-  } else if (!knowledge) {
+    if (records.length > 20) lines.push(`  ... and ${records.length - 20} more`);
+  } else if (!knowledge && !summary) {
     lines.push("Records: (none)");
   }
   return lines.join("\n");
@@ -78,7 +85,7 @@ export async function generateResponse(
       { role: "system", content: systemPrompt },
       { role: "user", content },
     ],
-    max_tokens: 512,
+    max_tokens: isExternal ? 512 : 300,
     temperature: 0.2,
   });
 

@@ -18,8 +18,11 @@ const USE_MOCK =
 
 type Message = { role: "user" | "assistant" | "system"; content: string };
 
+type TileBbox = { minLng: number; maxLng: number; minLat: number; maxLat: number };
+type ActiveTile = { id: string; bbox: TileBbox };
+
 export async function POST(req: Request) {
-  let body: { messages?: Message[] };
+  let body: { messages?: Message[]; activeTile?: ActiveTile };
   try {
     body = await req.json();
   } catch {
@@ -46,6 +49,8 @@ export async function POST(req: Request) {
     );
   }
 
+  const activeTile: ActiveTile | undefined = body.activeTile;
+
   let records;
   try {
     records = await loadPredictions();
@@ -59,7 +64,23 @@ export async function POST(req: Request) {
     );
   }
 
+  // Filter records to the selected tile bbox when one is active
+  if (activeTile) {
+    const { minLng, maxLng, minLat, maxLat } = activeTile.bbox;
+    records = records.filter(
+      (r) =>
+        r.lat != null &&
+        r.lon != null &&
+        r.lon >= minLng && r.lon <= maxLng &&
+        r.lat >= minLat && r.lat <= maxLat
+    );
+  }
+
   const intent = parseIntent(userQuestion);
+  // Annotate intent params with zone id so responses mention the zone
+  if (activeTile && intent.type !== "external_knowledge" && intent.type !== "general_knowledge") {
+    intent.params.zone = activeTile.id.replace(/^0+/, '') || '0';
+  }
 
   if (!isSupported(intent)) {
     const message = buildFallbackResponse("unsupported", intent.params, 0);

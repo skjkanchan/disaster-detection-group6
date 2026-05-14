@@ -26,10 +26,13 @@ export default function DamageMap({
   imagery: "pre" | "post" | "none";
   showHeatmap?: boolean;
 }) {
-  const { command } = useMapContext();
+  const { command, setActiveTile, activeTile } = useMapContext();
   const [tileCount, setTileCount] = useState(0);
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
+  const metadataRef = useRef<any[]>([]);
+  const setActiveTileRef = useRef(setActiveTile);
+  useEffect(() => { setActiveTileRef.current = setActiveTile; }, [setActiveTile]);
 
   // ─── Map init ───────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -122,6 +125,45 @@ export default function DamageMap({
         });
 
         (map as any)._matthewLayerIds = metadataList.map((m: any) => m.id);
+        metadataRef.current = metadataList;
+
+        // Invisible fill so the whole tile area is clickable
+        map.addLayer({
+          id: "matthew-bounds-fill",
+          type: "fill",
+          source: "matthew-bounds-source",
+          paint: { "fill-color": "#a855f7", "fill-opacity": 0 },
+          layout: { visibility: "visible" },
+        });
+
+        // Selected tile highlight
+        map.addLayer({
+          id: "matthew-selected-fill",
+          type: "fill",
+          source: "matthew-bounds-source",
+          paint: { "fill-color": "#a855f7", "fill-opacity": 0.18 },
+          filter: ["==", ["get", "id"], ""],
+          layout: { visibility: "visible" },
+        });
+
+        map.on("mouseenter", "matthew-bounds-fill", () => { map.getCanvas().style.cursor = "pointer"; });
+        map.on("mouseleave", "matthew-bounds-fill", () => { map.getCanvas().style.cursor = ""; });
+        map.on("click", "matthew-bounds-fill", (e) => {
+          const tileId = e.features?.[0]?.properties?.id;
+          if (!tileId) return;
+          const meta = metadataRef.current.find((m: any) => m.id === tileId);
+          if (!meta) return;
+          const coords: number[][] = meta.coordinates;
+          let minLng = Infinity, maxLng = -Infinity, minLat = Infinity, maxLat = -Infinity;
+          coords.forEach(([lng, lat]: number[]) => {
+            if (lng < minLng) minLng = lng;
+            if (lng > maxLng) maxLng = lng;
+            if (lat < minLat) minLat = lat;
+            if (lat > maxLat) maxLat = lat;
+          });
+          setActiveTileRef.current({ id: tileId, bbox: { minLng, maxLng, minLat, maxLat } });
+        });
+
         map.fire("idle");
 
         // Buildings and predictions were already fetched in parallel above
@@ -223,6 +265,21 @@ export default function DamageMap({
       mapRef.current = null;
     };
   }, []);
+
+  // ─── Selected tile highlight ────────────────────────────────────────────────
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    const update = () => {
+      if (!map.getLayer("matthew-selected-fill")) return;
+      map.setFilter(
+        "matthew-selected-fill",
+        activeTile ? ["==", ["get", "id"], activeTile.id] : ["==", ["get", "id"], ""]
+      );
+    };
+    if (map.isStyleLoaded() && map.getLayer("matthew-selected-fill")) update();
+    else map.once("idle", update);
+  }, [activeTile]);
 
   // ─── Imagery / heatmap toggle ────────────────────────────────────────────────
   useEffect(() => {
@@ -370,6 +427,17 @@ export default function DamageMap({
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
           </span>
           Rendering {tileCount * 2} Satellite Images ({tileCount} Locations)
+        </div>
+      )}
+      {activeTile && (
+        <div className="absolute top-4 left-4 z-10 bg-white/95 backdrop-blur px-3 py-2 rounded-lg border border-indigo-200 shadow-md text-xs font-bold text-indigo-700 flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-indigo-500 shrink-0" />
+          Zone {activeTile.id.replace(/^0+/, "") || "0"} selected — chatbot filtered to this zone
+          <button
+            onClick={() => setActiveTile(null)}
+            className="ml-1 text-zinc-400 hover:text-red-500 transition-colors leading-none"
+            title="Clear selection"
+          >✕</button>
         </div>
       )}
     </div>

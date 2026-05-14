@@ -4,7 +4,6 @@ import { useState } from "react";
 import DamagePercentageIndicators from "./DamagePercentageIndicators";
 import DamageMap from "./DamageMap";
 import ChatbotDashboard from "./ChatbotDashboard";
-import { MapProvider } from "./MapContext";
 
 const DAMAGE_COLORS: Record<string, string> = {
   no_damage: "#22c55e",
@@ -25,7 +24,6 @@ export default function GeospatialDashboard() {
   const [showHeatmap, setShowHeatmap] = useState(true);
 
   return (
-    <MapProvider>
       <div className="flex flex-col gap-4">
         {/* Side-by-side layout */}
         <div className="flex gap-6 items-start">
@@ -113,7 +111,6 @@ export default function GeospatialDashboard() {
 
         </div>
       </div>
-    </MapProvider>
   );
 }
 

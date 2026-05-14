@@ -28,6 +28,17 @@ export function parseIntent(userInput: string): Intent {
     return { type: "unsupported", params: {} };
   }
 
+  // Selected tile/zone query: "tell me about this tile", "damage in this zone", "what's here"
+  // Also: compare queries referencing previous tiles in chat history
+  // Must come first to prevent these from being captured as street/region lookups
+  if (
+    /\b(this\s+tile|this\s+zone|this\s+area|this\s+region|current\s+zone|current\s+tile|selected\s+zone|selected\s+tile|selected\s+area|in\s+this\s+zone|on\s+this\s+tile|about\s+this\s+(tile|zone|area)|damage\s+here|what.s\s+here|tell\s+me\s+about\s+(the\s+)?damage\s+(on|in)\s+this)\b/i.test(lower) ||
+    /\b(compare|contrast|difference\s+between|versus|vs\.?)\b.*(tile|zone|area|damage|previous)/i.test(lower) ||
+    /\b(previous|last|prior)\s+(tile|zone|area|damage\s+data)/i.test(lower)
+  ) {
+    return { type: "severity_summary", params: {} };
+  }
+
   // Address lookup: "what's the damage at 501 River Rd", "address 100 Main St", "501 Coastal Hwy"
   const addressMatch = lower.match(
     /(?:address|at|for)\s+(.+?)(?:\?|$)|^(\d+\s+[\w\s]+(?:rd|st|ave|dr|hwy|road|street|avenue|drive|highway))(?:\?|$)/i
