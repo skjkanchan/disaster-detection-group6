@@ -1,0 +1,53 @@
+[
+  {
+    "id": "hurricane-matthew_00000115_df879087-3556-46e9-af83-169b84e45484",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be severely damaged or missing in some areas.\n   - The walls show visible signs of damage, such as cracks and deformations.\n   - The surrounding area is now clearly visible, revealing additional damage to nearby structures.\n\n2) Overall Damage Classification:\n   - The building has suffered major damage.\n\n3) Evidence:\n   - The roof is visibly damaged or missing in multiple areas.\n   - The walls show significant cracks and deformations.\n   - The immediate surroundings reveal additional damage to nearby structures. ",
+    "polygon": null,
+    "lat": 18.63230860134825,
+    "lon": -74.13885683735268,
+    "address": "5e Fonds Rouge Dah\u00e8re, Commune de J\u00e9r\u00e9mie, Arrondissement de J\u00e9r\u00e9mie, D\u00e9partement de la Grande-Anse, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement de la Grande-Anse",
+    "source_full_image_name": "hurricane-matthew_00000115.png",
+    "building_uid": "df879087-3556-46e9-af83-169b84e45484",
+    "gt_full_image_pixel_polygon": null,
+    "gt_full_image_pixel_bbox": null,
+    "gt_label_from_json": null
+  },
+  {
+    "id": "hurricane-matthew_00000115_1d056931-3f1e-4193-bcf1-1a0f1dab6e5a",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be intact, but the walls exhibit signs of significant damage, with visible cracks and possible structural instability.\n   - The building's walls show extensive damage, with large cracks and possible deformation.\n   - The immediate surroundings are not clearly visible due to the blurred nature of the image, making it difficult to assess any changes in the area.\n\n2) Overall Damage Classification:\n   - The building's condition suggests it has experienced major damage, with visible structural issues and extensive wall damage.\n\n3) Evidence:\n   - Large cracks in the walls, indicating significant structural damage.\n   - Possible deformation of the walls, which could compromise the building's stability.\n   - The roof's intact appearance contrasting with the severely damaged walls, highlighting the extent of the damage. ",
+    "polygon": null,
+    "lat": 18.629005310212385,
+    "lon": -74.14039444835265,
+    "address": "5e Fonds Rouge Dah\u00e8re, Commune de J\u00e9r\u00e9mie, Arrondissement de J\u00e9r\u00e9mie, D\u00e9partement de la Grande-Anse, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement de la Grande-Anse",
+    "source_full_image_name": "hurricane-matthew_00000115.png",
+    "building_uid": "1d056931-3f1e-4193-bcf1-1a0f1dab6e5a",
+    "gt_full_image_pixel_polygon": null,
+    "gt_full_image_pixel_bbox": null,
+    "gt_label_from_json": null
+  },
+  {
+    "id": "hurricane-matthew_00000115_d7c6b11d-14ad-4205-b121-6540819511ec",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be intact, but there are visible signs of damage or destruction, such as missing shingles or tiles.\n   - The walls are obscured by a blurred background, making it difficult to assess their condition. However, there are noticeable cracks and deformations in the walls, indicating significant structural damage.\n   - The immediate surroundings show signs of destruction, with debris scattered around the building.\n\n2) Overall Damage Classification:\n   - The building has sustained major damage, as evidenced by the visible cracks and deformations in the walls, the missing roof components, and the debris in the surrounding area.\n\n3) Evidence:\n   - Cracks and deformations in the walls: These indicate that the building's structural integrity has been compromised, which is a clear sign of major damage.\n   - Missing roof components: The roof's condition is not as severe as the walls, but the presence of missing shingles or tiles suggests that it has also been affected by the disaster.\n   - Debris in the surrounding area: The presence of debris around the building is a strong indicator of significant destruction",
+    "polygon": null,
+    "lat": 18.628854695553564,
+    "lon": -74.14177574958663,
+    "address": "5e Fonds Rouge Dah\u00e8re, Commune de J\u00e9r\u00e9mie, Arrondissement de J\u00e9r\u00e9mie, D\u00e9partement de la Grande-Anse, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement de la Grande-Anse",
+    "source_full_image_name": "hurricane-matthew_00000115.png",
+    "building_uid": "d7c6b11d-14ad-4205-b121-6540819511ec",
+    "gt_full_image_pixel_polygon": null,
+    "gt_full_image_pixel_bbox": null,
+    "gt_label_from_json": null
+  }
+]

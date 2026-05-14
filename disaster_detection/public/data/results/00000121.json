@@ -1,0 +1,19 @@
+[
+  {
+    "id": "hurricane-matthew_00000121_88112a06-eded-42b7-9a8b-b26fa1fffe30",
+    "damage_label": "destroyed",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be severely damaged or missing in some areas.\n   - The walls show signs of structural damage, with visible cracks and deformations.\n   - There is debris scattered around the immediate vicinity of the building, indicating that parts of the structure have collapsed or been dislodged.\n\n2) Overall Damage Classification:\n   - The building has sustained major damage.\n\n3) Evidence:\n   - The roof is visibly damaged or missing in multiple areas.\n   - The walls exhibit significant structural damage, with cracks and deformations that suggest the building has been severely impacted.\n   - Debris is scattered around the building, indicating that parts of the structure have collapsed or been dislodged. ",
+    "polygon": null,
+    "lat": 18.59514425854938,
+    "lon": -74.14221952229035,
+    "address": "Duch\u00e8ne, 4e Basse Guinaud\u00e9e, Latiboli\u00e8re, Commune de J\u00e9r\u00e9mie, Arrondissement de J\u00e9r\u00e9mie, D\u00e9partement de la Grande-Anse, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement de la Grande-Anse",
+    "source_full_image_name": "hurricane-matthew_00000121.png",
+    "building_uid": "88112a06-eded-42b7-9a8b-b26fa1fffe30",
+    "gt_full_image_pixel_polygon": null,
+    "gt_full_image_pixel_bbox": null,
+    "gt_label_from_json": null
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "id": "hurricane-matthew_00000394_c7460da9-5d53-44e4-bc71-c394b72dda65",
+    "damage_label": "major",
+    "confidence": 0.9,
+    "explanation": "1) Changes Detected:\n   - The roof appears to be severely damaged or missing in some areas.\n   - The walls are more exposed and show signs of structural damage or collapse.\n   - The vegetation that partially obscured the walls has been significantly reduced or removed.\n\n2) Overall Damage Classification:\n   - The building is in a state of `major_damage`.\n\n3) Evidence:\n   - The roof is visibly damaged or missing in multiple areas.\n   - The walls show clear signs of structural damage or collapse.\n   - The vegetation that partially obscured the walls is significantly reduced or removed, revealing the extent of the damage. ",
+    "polygon": null,
+    "lat": 18.257346888213284,
+    "lon": -74.10725906283581,
+    "address": "2e D\u00e9joie, Commune Chardonnieres, Arrondissement des Chardonni\u00e8res, D\u00e9partement du Sud, Ayiti",
+    "street": "",
+    "region": "D\u00e9partement du Sud",
+    "source_full_image_name": "hurricane-matthew_00000394.png",
+    "building_uid": "c7460da9-5d53-44e4-bc71-c394b72dda65",
+    "gt_full_image_pixel_polygon": null,
+    "gt_full_image_pixel_bbox": null,
+    "gt_label_from_json": null
+  }
+]
