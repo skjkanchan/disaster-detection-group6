@@ -52,7 +52,7 @@ export default function Home() {
               : 'border-transparent text-zinc-500 hover:text-zinc-700 hover:border-zinc-300'
               }`}
           >
-            Image Upload
+            VLM Evaluation
           </button>
         </div>
 
