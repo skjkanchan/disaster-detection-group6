@@ -122,17 +122,26 @@ export default function DamageMap({
         // Load building polygons and VLM predictions, then join them
         Promise.all([
           fetch("/api/matthew-buildings").then((r) => (r.ok ? r.json() : null)),
-          fetch("/api/vlm-predictions").then((r) => (r.ok ? r.json() : null))
+          fetch("/data/all_predictions.json").then((r) => (r.ok ? r.json() : null))
         ])
-          .then(([buildingsGeojson, vlmGeojson]) => {
+          .then(([buildingsGeojson, vlmJson]) => {
             if (!buildingsGeojson?.features || !map.getStyle()) return;
             
+            const SUBTYPE_MAP: Record<string, string> = {
+              "no damage": "no-damage",
+              no_damage: "no-damage",
+              minor: "minor-damage",
+              major: "major-damage",
+              destroyed: "destroyed",
+            };
+
             // Map VLM predictions by UID
             const vlmMap = new Map();
-            if (vlmGeojson?.features) {
-                vlmGeojson.features.forEach((f: any) => {
-                    if (f.properties?.uid) {
-                        vlmMap.set(f.properties.uid, f.properties.subtype);
+            if (Array.isArray(vlmJson)) {
+                vlmJson.forEach((pred: any) => {
+                    if (pred.building_uid && pred.damage_label) {
+                        const subtype = SUBTYPE_MAP[pred.damage_label.toLowerCase()] ?? "un-classified";
+                        vlmMap.set(pred.building_uid, subtype);
                     }
                 });
             }
