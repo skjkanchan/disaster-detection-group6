@@ -153,13 +153,13 @@ export default function DamageMap({
             });
 
             const finalGeojson = {
-                type: "FeatureCollection",
+                type: "FeatureCollection" as const,
                 features: joinedFeatures
             };
 
             map.addSource("matthew-buildings-source", {
               type: "geojson",
-              data: finalGeojson,
+              data: finalGeojson as any,
             });
             map.addLayer({
               id: "matthew-buildings-fill",
