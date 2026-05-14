@@ -14,6 +14,7 @@ export type QuestionType =
   | "confidence_filter"
   | "nearby_lookup"
   | "general_knowledge"
+  | "external_knowledge"
   | "unsupported";
 
 export type Intent = {
@@ -50,4 +51,6 @@ export type RetrievalResult = {
   };
   /** Curated knowledge base text for general_knowledge intent */
   knowledge?: string;
+  /** External web sources fetched for external_knowledge intent */
+  sources?: import("./web-search").WebSource[];
 };

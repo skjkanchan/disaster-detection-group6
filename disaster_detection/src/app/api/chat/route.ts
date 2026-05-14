@@ -84,13 +84,15 @@ export async function POST(req: Request) {
   ]);
 
   const noResults = result.records.length === 0;
-  const isGeneralKnowledge = result.intent === "general_knowledge";
+  const isKnowledgeIntent =
+    result.intent === "general_knowledge" || result.intent === "external_knowledge";
   const useFallback =
     result.intent === "unsupported" ||
-    (!isGeneralKnowledge && noResults && PROPERTY_INTENTS.has(result.intent));
+    (!isKnowledgeIntent && noResults && PROPERTY_INTENTS.has(result.intent));
 
   const includeRecords = PROPERTY_INTENTS.has(result.intent);
   const cappedRecords = includeRecords ? result.records.slice(0, 100) : undefined;
+  const sources = result.sources && result.sources.length > 0 ? result.sources : undefined;
 
   if (useFallback) {
     const message = buildFallbackResponse(result.intent, result.params, result.records.length);
@@ -117,7 +119,7 @@ export async function POST(req: Request) {
       usedMock: true,
       messagePreview: message.slice(0, 200),
     });
-    return NextResponse.json({ message, ...(cappedRecords && { records: cappedRecords }) });
+    return NextResponse.json({ message, ...(cappedRecords && { records: cappedRecords }), ...(sources && { sources }) });
   }
 
   const openai = getOpenAIClient();
@@ -142,7 +144,7 @@ export async function POST(req: Request) {
       usedMock: false,
       messagePreview: message.slice(0, 200),
     });
-    return NextResponse.json({ message, ...(cappedRecords && { records: cappedRecords }) });
+    return NextResponse.json({ message, ...(cappedRecords && { records: cappedRecords }), ...(sources && { sources }) });
   } catch (err) {
     const errorMessage = err instanceof Error ? err.message : String(err);
     const is429 = errorMessage.includes("429") || errorMessage.toLowerCase().includes("quota");

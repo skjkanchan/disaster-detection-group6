@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import type { DamageRecord, Intent, RetrievalResult } from "./types";
 import { normalizeForMatch } from "./data";
+import { fetchExternalContext } from "./web-search";
 
 /**
  * Fetch records matching the parsed intent.
@@ -34,6 +35,8 @@ export async function retrieve(
       return nearbyLookup(intent.params, records);
     case "general_knowledge":
       return generalKnowledge(records);
+    case "external_knowledge":
+      return externalKnowledge(intent.params, records);
     default:
       return { intent: "unsupported", params: intent.params, records: [] };
   }
@@ -252,6 +255,34 @@ function generalKnowledge(records: DamageRecord[]): RetrievalResult {
     records: [],
     knowledge: knowledge + datasetContext,
     summary: { total: records.length, byLabel, byRegion },
+  };
+}
+
+async function externalKnowledge(
+  params: Record<string, string>,
+  records: DamageRecord[]
+): Promise<RetrievalResult> {
+  const query = params.query || "Hurricane Matthew disaster damage";
+  const webResult = await fetchExternalContext(query);
+
+  const byLabel: Record<string, number> = {};
+  records.forEach((r) => {
+    const L = (r.damage_label || "unknown").toLowerCase();
+    byLabel[L] = (byLabel[L] ?? 0) + 1;
+  });
+
+  const datasetNote =
+    records.length > 0
+      ? `\n\n## Dataset Context\nThis dashboard has ${records.length} assessed buildings from Hurricane Matthew imagery.\nDamage breakdown: ${Object.entries(byLabel).map(([k, v]) => `${k}: ${v}`).join(", ")}.`
+      : "";
+
+  return {
+    intent: "external_knowledge",
+    params,
+    records: [],
+    sources: webResult.sources,
+    knowledge: webResult.combinedText + datasetNote,
+    summary: { total: records.length, byLabel },
   };
 }
 

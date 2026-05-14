@@ -5,24 +5,31 @@ import MessageBubble from "./MessageBubble";
 import { useMapContext } from "./MapContext";
 import type { PropertyRecord } from "./MapContext";
 
+type WebSource = {
+  title: string;
+  url: string;
+  snippet: string;
+};
+
 type Message = {
   role: "ai" | "user";
   content: string;
   time?: string;
+  sources?: WebSource[];
 };
 
 const INITIAL_AI_MESSAGE: Message = {
   role: "ai",
   content:
-    "I'm your disaster damage assessment assistant. I can look up property damage, filter by severity or confidence, find nearby properties, and summarize affected areas. I can also answer general questions about the VLM pipeline, dataset, and methodology. I only answer disaster-related questions — try a suggestion below!",
+    "I'm your disaster damage assessment assistant. I can:\n• Look up property damage by address, street, or region\n• Filter buildings by severity or confidence level\n• Summarize the VLM pipeline, dataset, and methodology\n• Answer real-world questions using Wikipedia and FEMA data — e.g. Hurricane Matthew casualties, FEMA response, or disaster preparedness\n\nI only respond to disaster-related questions — try a suggestion below!",
 };
 
 const SUGGESTIONS = [
-  "What's the damage at 501 River Rd?",
   "Show all destroyed properties",
-  "Properties above 90% confidence",
-  "Properties near 501 River Rd",
   "Top affected areas",
+  "How many people died in Hurricane Matthew?",
+  "What does FEMA do after a disaster?",
+  "What is disaster preparedness?",
 ];
 
 function formatTime(date: Date): string {
@@ -86,6 +93,7 @@ export default function ChatbotDashboard() {
         }
 
         const aiRecords = data.records as PropertyRecord[] | undefined;
+        const aiSources = data.sources as WebSource[] | undefined;
 
         setMessages((prev) => [
           ...prev,
@@ -93,6 +101,7 @@ export default function ChatbotDashboard() {
             role: "ai",
             content: data.message ?? "No response.",
             time: formatTime(new Date()),
+            sources: aiSources,
           },
         ]);
 
@@ -143,12 +152,35 @@ export default function ChatbotDashboard() {
       <div className="flex-1 bg-white overflow-y-auto w-full">
         <div className="px-6 py-8 space-y-6">
           {messages.map((msg, i) => (
-            <MessageBubble
-              key={i}
-              role={msg.role}
-              message={msg.content}
-              time={msg.time}
-            />
+            <div key={i}>
+              <MessageBubble
+                role={msg.role}
+                message={msg.content}
+                time={msg.time}
+              />
+              {msg.sources && msg.sources.length > 0 && (
+                <div className="ml-11 mt-2 space-y-1">
+                  <p className="text-[11px] font-semibold text-zinc-400 uppercase tracking-wide">Sources</p>
+                  {msg.sources.map((src, si) => (
+                    <a
+                      key={si}
+                      href={src.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-start gap-2 rounded-lg border border-zinc-200 bg-zinc-50 px-3 py-2 hover:bg-indigo-50 hover:border-indigo-200 transition-colors group"
+                    >
+                      <svg className="mt-0.5 w-3.5 h-3.5 flex-shrink-0 text-zinc-400 group-hover:text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      <div className="min-w-0">
+                        <p className="text-xs font-semibold text-zinc-700 group-hover:text-indigo-700 truncate">{src.title}</p>
+                        <p className="text-[11px] text-zinc-500 line-clamp-1">{src.snippet}</p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
           {loading && (
             <div className="flex items-start gap-3">

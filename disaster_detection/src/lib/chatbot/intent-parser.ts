@@ -12,6 +12,7 @@ const SUPPORTED_TYPES: QuestionType[] = [
   "confidence_filter",
   "nearby_lookup",
   "general_knowledge",
+  "external_knowledge",
 ];
 
 /**
@@ -135,6 +136,15 @@ export function parseIntent(userInput: string): Intent {
   );
   if (nearbyMatch && nearbyMatch[1].trim()) {
     return { type: "nearby_lookup", params: { address: nearbyMatch[1].trim() } };
+  }
+
+  // External knowledge: real-world facts that should be fetched from external sources
+  // (FEMA, Wikipedia). Distinct from general_knowledge (which covers THIS project/dataset).
+  const EXTERNAL_TRIGGERS =
+    /\bfema\b|federal\s+emergency|national\s+flood|nfip|disaster\s+declaration|relief\s+fund|disaster\s+aid|aid\s+distribution|red\s+cross|world\s+food|humanitarian|evacuat|shelter.in.place|preparedness|emergency\s+kit|go.?bag|disaster\s+plan|response\s+protocol|early\s+warning|death\s+toll|casualt|fatali|injuries|people\s+died|how\s+many\s+(died|killed|dead|missing|displaced|homeless|affected\s+people)|damage\s+cost|\$[\d.]+\s*(billion|million)|economic\s+(loss|damage|impact)|insurance\s+claim|category\s+[1-5]|category\s+(one|two|three|four|five)|wind\s+speed|storm\s+surge|rainfall|flooding\s+history|historical\s+disaster|which\s+year|when\s+did|how\s+bad|how\s+severe|major\s+hurricane|worst\s+hurricane|deadliest|costliest|according\s+to|reports\s+say|statistics\s+show|officially|government\s+(report|data|statistic)|united\s+nations|world\s+bank/i;
+
+  if (EXTERNAL_TRIGGERS.test(lower)) {
+    return { type: "external_knowledge", params: { query: userInput } };
   }
 
   // General knowledge: any question that's disaster/damage/dataset related
