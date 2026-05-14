@@ -9,29 +9,29 @@ const USE_MOCK =
 const MOCK_RESULTS = [
   {
     damage_label: "major",
-    confidence: 0.87,
     explanation:
       "The post-disaster image shows large sections of the roof missing and significant wall damage compared to the pre-disaster baseline. Structural integrity appears severely compromised with visible debris accumulation around the building perimeter.",
   },
   {
     damage_label: "destroyed",
-    confidence: 0.93,
     explanation:
       "Comparing pre- and post-disaster imagery reveals complete structural collapse of the building. The roof and walls are no longer visible as intact structures; the site shows only rubble and foundation remnants consistent with total destruction.",
   },
   {
-    damage_label: "minor",
-    confidence: 0.79,
+    damage_label: "major",
     explanation:
-      "The post-disaster image shows minor roof damage including a few missing shingles and light debris on the surrounding ground. The main structure remains intact with no signs of wall compromise or partial collapse.",
+      "Significant roof collapse and exterior wall failure are visible in the post-disaster image. Multiple structural elements have shifted or detached, and the building perimeter shows heavy debris consistent with major wind or flood damage.",
   },
   {
-    damage_label: "no damage",
-    confidence: 0.91,
+    damage_label: "destroyed",
     explanation:
-      "No visible structural changes detected between the pre- and post-disaster images. The building roof, walls, and surrounding area appear unchanged, indicating the structure was not significantly affected by the disaster event.",
+      "The post-disaster image shows the building has been reduced to foundation level. No intact walls or roof structure remain; scattered debris and exposed ground indicate total destruction of the structure.",
   },
 ];
+
+function randomConfidence(min: number, max: number): number {
+  return Math.round((Math.random() * (max - min) + min) * 100) / 100;
+}
 
 const SYSTEM_PROMPT = `You are a disaster damage assessment AI specialized in analyzing satellite and aerial imagery. You will be shown two images of the same location: one taken BEFORE a disaster and one AFTER. Your task is to compare the two images and classify the structural damage to buildings.
 
@@ -73,7 +73,7 @@ export async function POST(req: Request) {
 
   if (USE_MOCK) {
     const mock = MOCK_RESULTS[Math.floor(Math.random() * MOCK_RESULTS.length)];
-    return NextResponse.json(mock);
+    return NextResponse.json({ ...mock, confidence: randomConfidence(0.75, 0.95) });
   }
 
   const [preB64, postB64] = await Promise.all([toBase64(preFile), toBase64(postFile)]);

@@ -134,8 +134,12 @@ async function searchWikipedia(
       },
     ];
 
-    // Include brief snippets from additional hits as secondary sources
+    // Only include secondary hits whose title is clearly related to the search term
+    const searchWords = searchTerm.toLowerCase().split(/\s+/).filter(w => w.length > 3);
     for (const hit of hits.slice(1)) {
+      const hitLower = hit.title.toLowerCase();
+      const isRelevant = searchWords.some(w => hitLower.includes(w));
+      if (!isRelevant) continue;
       sources.push({
         title: hit.title,
         url: `https://en.wikipedia.org/wiki/${encodeURIComponent(

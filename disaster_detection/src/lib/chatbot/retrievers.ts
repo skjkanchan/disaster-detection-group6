@@ -271,17 +271,12 @@ async function externalKnowledge(
     byLabel[L] = (byLabel[L] ?? 0) + 1;
   });
 
-  const datasetNote =
-    records.length > 0
-      ? `\n\n## Dataset Context\nThis dashboard has ${records.length} assessed buildings from Hurricane Matthew imagery.\nDamage breakdown: ${Object.entries(byLabel).map(([k, v]) => `${k}: ${v}`).join(", ")}.`
-      : "";
-
   return {
     intent: "external_knowledge",
     params,
     records: [],
     sources: webResult.sources,
-    knowledge: webResult.combinedText + datasetNote,
+    knowledge: webResult.combinedText,
     summary: { total: records.length, byLabel },
   };
 }
