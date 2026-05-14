@@ -165,7 +165,7 @@ export default function MetricsDashboard() {
     // Calculate Confusion Matrix for VLM Evaluation against Ground Truth
     const confusionMatrix = useMemo(() => {
         let tp = 0, fp = 0, tn = 0, fn = 0;
-        
+
         // Convert to map for fast lookup
         const vlmMap = new globalThis.Map();
         vlmPredictions.forEach((p: any) => {
@@ -177,17 +177,17 @@ export default function MetricsDashboard() {
         activeBuildings.forEach((gt: any) => {
             const uid = gt.properties?.uid;
             if (!uid) return;
-            
+
             const gtSub = gt.properties?.subtype;
             const predSub = vlmMap.get(uid);
-            
+
             // Assume "Positive" = Major/Destroyed (Critical Damage)
             // "Negative" = No/Minor Damage
             const gtIsCritical = gtSub === 'destroyed' || gtSub === 'major-damage';
-            
+
             if (predSub) {
                 const predIsCritical = predSub === 'destroyed' || predSub === 'major-damage';
-                
+
                 if (gtIsCritical && predIsCritical) tp++;
                 else if (!gtIsCritical && predIsCritical) fp++;
                 else if (!gtIsCritical && !predIsCritical) tn++;
@@ -201,7 +201,7 @@ export default function MetricsDashboard() {
 
         const total = tp + fp + tn + fn;
         const accuracy = total > 0 ? ((tp + tn) / total) * 100 : 0;
-        
+
         return { tp, fp, tn, fn, accuracy, total };
     }, [activeBuildings, vlmPredictions]);
 
@@ -218,7 +218,7 @@ export default function MetricsDashboard() {
         <div className="space-y-6">
             <div className="border-b border-zinc-200 pb-4">
                 <h2 className="text-xl font-bold text-zinc-900">Damage Assessment Data</h2>
-                <p className="text-sm text-zinc-500">Live ground-truth FEMA records synced from AWS</p>
+                <p className="text-sm text-zinc-500">FEMA records synced from AWS</p>
             </div>
 
             {/* Interactive Region Explorer Dashboard */}
@@ -371,7 +371,7 @@ export default function MetricsDashboard() {
                         <p className="text-xs text-zinc-500 mt-1">Comparing VLM Predictions vs FEMA Ground Truth (Critical Damage)</p>
                     </div>
                 </div>
-                
+
                 <div className="flex flex-col md:flex-row gap-8 items-center">
                     {/* Confusion Matrix Grid */}
                     <div className="grid grid-cols-2 gap-3 text-center w-full md:w-80">
@@ -392,7 +392,7 @@ export default function MetricsDashboard() {
                             <div className="text-3xl font-black text-emerald-600">{confusionMatrix.tn}</div>
                         </div>
                     </div>
-                    
+
                     {/* Accuracy Score */}
                     <div className="flex-1 flex flex-col justify-center items-center p-6 bg-zinc-50 rounded-xl border border-zinc-200 w-full h-full min-h-[160px]">
                         <div className="text-5xl font-black text-indigo-600 mb-2">{confusionMatrix.accuracy.toFixed(1)}%</div>
