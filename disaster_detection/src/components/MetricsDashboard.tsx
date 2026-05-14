@@ -43,12 +43,12 @@ export default function MetricsDashboard() {
                 const [metadataRes, buildingsRes, vlmRes] = await Promise.all([
                     fetch('/api/matthew-metadata'),
                     fetch('/api/matthew-buildings'),
-                    fetch('/api/vlm-predictions')
+                    fetch('/data/all_predictions.json')
                 ]);
 
                 const metadata = await metadataRes.json();
                 const buildingsData = await buildingsRes.json();
-                const vlmData = await vlmRes.json();
+                const vlmJson = await vlmRes.json();
 
                 if (Array.isArray(metadata)) {
                     setTiles(metadata);
@@ -58,8 +58,21 @@ export default function MetricsDashboard() {
                     setAllBuildings(buildingsData.features);
                 }
 
-                if (vlmData.features) {
-                    setVlmPredictions(vlmData.features);
+                if (Array.isArray(vlmJson)) {
+                    const SUBTYPE_MAP: Record<string, string> = {
+                        "no damage": "no-damage",
+                        no_damage: "no-damage",
+                        minor: "minor-damage",
+                        major: "major-damage",
+                        destroyed: "destroyed",
+                    };
+                    const features = vlmJson.map((pred: any) => ({
+                        properties: {
+                            uid: pred.building_uid,
+                            subtype: pred.damage_label ? (SUBTYPE_MAP[pred.damage_label.toLowerCase()] ?? "un-classified") : "un-classified"
+                        }
+                    }));
+                    setVlmPredictions(features);
                 }
             } catch (err) {
                 console.error("Error loading metrics data", err);
