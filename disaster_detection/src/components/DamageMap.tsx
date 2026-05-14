@@ -67,12 +67,12 @@ export default function DamageMap({
 
           map.addSource(`matthew-pre-${id}`, {
             type: "image",
-            url: `/api/local-image?id=${id}&type=pre`,
+            url: `/api/aws-image?id=${id}&type=pre`,
             coordinates,
           });
           map.addSource(`matthew-post-${id}`, {
             type: "image",
-            url: `/api/local-image?id=${id}&type=post`,
+            url: `/api/aws-image?id=${id}&type=post`,
             coordinates,
           });
           map.addLayer({
@@ -119,14 +119,47 @@ export default function DamageMap({
         (map as any)._matthewLayerIds = metadataList.map((m: any) => m.id);
         map.fire("idle");
 
-        // Load building overlays separately so they don't block imagery
-        fetch("/api/matthew-buildings")
-          .then((r) => (r.ok ? r.json() : null))
-          .then((buildingsGeojson) => {
+        // Load building polygons and VLM predictions, then join them
+        Promise.all([
+          fetch("/api/matthew-buildings").then((r) => (r.ok ? r.json() : null)),
+          fetch("/api/vlm-predictions").then((r) => (r.ok ? r.json() : null))
+        ])
+          .then(([buildingsGeojson, vlmGeojson]) => {
             if (!buildingsGeojson?.features || !map.getStyle()) return;
+            
+            // Map VLM predictions by UID
+            const vlmMap = new Map();
+            if (vlmGeojson?.features) {
+                vlmGeojson.features.forEach((f: any) => {
+                    if (f.properties?.uid) {
+                        vlmMap.set(f.properties.uid, f.properties.subtype);
+                    }
+                });
+            }
+
+            // Override Ground Truth subtype with VLM predicted subtype if available
+            const joinedFeatures = buildingsGeojson.features.map((feature: any) => {
+                const uid = feature.properties?.uid;
+                if (uid && vlmMap.has(uid)) {
+                    return {
+                        ...feature,
+                        properties: {
+                            ...feature.properties,
+                            subtype: vlmMap.get(uid)
+                        }
+                    };
+                }
+                return feature;
+            });
+
+            const finalGeojson = {
+                type: "FeatureCollection",
+                features: joinedFeatures
+            };
+
             map.addSource("matthew-buildings-source", {
               type: "geojson",
-              data: buildingsGeojson,
+              data: finalGeojson,
             });
             map.addLayer({
               id: "matthew-buildings-fill",

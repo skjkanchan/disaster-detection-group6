@@ -31,6 +31,7 @@ const pointInBBox = (pt: number[], bbox: any) => {
 
 export default function MetricsDashboard() {
     const [allBuildings, setAllBuildings] = useState<any[]>([]);
+    const [vlmPredictions, setVlmPredictions] = useState<any[]>([]);
     const [tiles, setTiles] = useState<any[]>([]);
     const [selectedTileId, setSelectedTileId] = useState<string>('All');
     const [loading, setLoading] = useState(true);
@@ -39,13 +40,15 @@ export default function MetricsDashboard() {
         async function loadData() {
             try {
                 // Fetch real data from AWS through our Next.js API routes
-                const [metadataRes, buildingsRes] = await Promise.all([
+                const [metadataRes, buildingsRes, vlmRes] = await Promise.all([
                     fetch('/api/matthew-metadata'),
-                    fetch('/api/matthew-buildings')
+                    fetch('/api/matthew-buildings'),
+                    fetch('/api/vlm-predictions')
                 ]);
 
                 const metadata = await metadataRes.json();
                 const buildingsData = await buildingsRes.json();
+                const vlmData = await vlmRes.json();
 
                 if (Array.isArray(metadata)) {
                     setTiles(metadata);
@@ -53,6 +56,10 @@ export default function MetricsDashboard() {
 
                 if (buildingsData.features) {
                     setAllBuildings(buildingsData.features);
+                }
+
+                if (vlmData.features) {
+                    setVlmPredictions(vlmData.features);
                 }
             } catch (err) {
                 console.error("Error loading metrics data", err);
@@ -142,6 +149,49 @@ export default function MetricsDashboard() {
         };
     }, [activeBuildings]);
 
+    // Calculate Confusion Matrix for VLM Evaluation against Ground Truth
+    const confusionMatrix = useMemo(() => {
+        let tp = 0, fp = 0, tn = 0, fn = 0;
+        
+        // Convert to map for fast lookup
+        const vlmMap = new globalThis.Map();
+        vlmPredictions.forEach((p: any) => {
+            if (p.properties?.uid) {
+                vlmMap.set(p.properties.uid, p.properties.subtype);
+            }
+        });
+
+        activeBuildings.forEach((gt: any) => {
+            const uid = gt.properties?.uid;
+            if (!uid) return;
+            
+            const gtSub = gt.properties?.subtype;
+            const predSub = vlmMap.get(uid);
+            
+            // Assume "Positive" = Major/Destroyed (Critical Damage)
+            // "Negative" = No/Minor Damage
+            const gtIsCritical = gtSub === 'destroyed' || gtSub === 'major-damage';
+            
+            if (predSub) {
+                const predIsCritical = predSub === 'destroyed' || predSub === 'major-damage';
+                
+                if (gtIsCritical && predIsCritical) tp++;
+                else if (!gtIsCritical && predIsCritical) fp++;
+                else if (!gtIsCritical && !predIsCritical) tn++;
+                else if (gtIsCritical && !predIsCritical) fn++;
+            } else {
+                // If model didn't predict it, assume Negative
+                if (gtIsCritical) fn++;
+                else tn++;
+            }
+        });
+
+        const total = tp + fp + tn + fn;
+        const accuracy = total > 0 ? ((tp + tn) / total) * 100 : 0;
+        
+        return { tp, fp, tn, fn, accuracy, total };
+    }, [activeBuildings, vlmPredictions]);
+
     if (loading) {
         return (
             <div className="flex flex-col items-center justify-center min-h-[500px] h-full space-y-4">
@@ -196,7 +246,7 @@ export default function MetricsDashboard() {
                             {/* Visual Thumbnail */}
                             <div className="relative w-full h-28 mb-4 rounded-lg overflow-hidden bg-zinc-200 border border-zinc-200">
                                 <img
-                                    src={`/api/local-image?id=${stat.id}&type=post`}
+                                    src={`/api/aws-image?id=${stat.id}&type=post`}
                                     alt={`Zone ${stat.id}`}
                                     className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                                     loading="lazy"
@@ -271,7 +321,7 @@ export default function MetricsDashboard() {
                             </div>
                         ) : (
                             <img
-                                src={`/api/local-image?id=${selectedTileId}&type=post`}
+                                src={`/api/aws-image?id=${selectedTileId}&type=post`}
                                 alt={`Zone ${selectedTileId} Detailed View`}
                                 className="object-cover w-full h-full"
                             />
@@ -296,6 +346,47 @@ export default function MetricsDashboard() {
                                 <Bar dataKey="count" name="Building Count" fill="#10b981" radius={[4, 4, 0, 0]} />
                             </BarChart>
                         </ResponsiveContainer>
+                    </div>
+                </div>
+            </div>
+
+            {/* VLM Evaluation Section */}
+            <div className="bg-white p-5 rounded-xl border border-zinc-200 shadow-sm flex flex-col mt-6">
+                <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                    <div>
+                        <h3 className="text-sm font-bold text-zinc-900">VLM Model Evaluation (Confusion Matrix)</h3>
+                        <p className="text-xs text-zinc-500 mt-1">Comparing VLM Predictions vs FEMA Ground Truth (Critical Damage)</p>
+                    </div>
+                </div>
+                
+                <div className="flex flex-col md:flex-row gap-8 items-center">
+                    {/* Confusion Matrix Grid */}
+                    <div className="grid grid-cols-2 gap-3 text-center w-full md:w-80">
+                        <div className="bg-emerald-50 p-4 rounded-lg border border-emerald-200 flex flex-col justify-center shadow-sm">
+                            <div className="text-xs text-emerald-700 font-bold uppercase tracking-wider mb-1">True Positive</div>
+                            <div className="text-3xl font-black text-emerald-600">{confusionMatrix.tp}</div>
+                        </div>
+                        <div className="bg-red-50 p-4 rounded-lg border border-red-200 flex flex-col justify-center shadow-sm">
+                            <div className="text-xs text-red-700 font-bold uppercase tracking-wider mb-1">False Positive</div>
+                            <div className="text-3xl font-black text-red-600">{confusionMatrix.fp}</div>
+                        </div>
+                        <div className="bg-red-50 p-4 rounded-lg border border-red-200 flex flex-col justify-center shadow-sm">
+                            <div className="text-xs text-red-700 font-bold uppercase tracking-wider mb-1">False Negative</div>
+                            <div className="text-3xl font-black text-red-600">{confusionMatrix.fn}</div>
+                        </div>
+                        <div className="bg-emerald-50 p-4 rounded-lg border border-emerald-200 flex flex-col justify-center shadow-sm">
+                            <div className="text-xs text-emerald-700 font-bold uppercase tracking-wider mb-1">True Negative</div>
+                            <div className="text-3xl font-black text-emerald-600">{confusionMatrix.tn}</div>
+                        </div>
+                    </div>
+                    
+                    {/* Accuracy Score */}
+                    <div className="flex-1 flex flex-col justify-center items-center p-6 bg-zinc-50 rounded-xl border border-zinc-200 w-full h-full min-h-[160px]">
+                        <div className="text-5xl font-black text-indigo-600 mb-2">{confusionMatrix.accuracy.toFixed(1)}%</div>
+                        <div className="text-sm text-zinc-800 font-bold tracking-wide uppercase">Overall Accuracy</div>
+                        <div className="text-xs text-zinc-500 mt-2 text-center max-w-xs">
+                            Based on {confusionMatrix.total.toLocaleString()} buildings analyzed in the current viewport.
+                        </div>
                     </div>
                 </div>
             </div>

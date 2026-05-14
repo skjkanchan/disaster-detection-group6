@@ -45,52 +45,25 @@ export async function GET() {
       metaById[m.id] = m.coordinates;
     }
 
-    const resultsDir = path.join(process.cwd(), "public", "data", "results");
-    const files = (await fs.readdir(resultsDir)).filter(
-      (f) => f.endsWith(".json") && !f.includes("(")
-    );
+    const allPredsRaw = await fs.readFile(path.join(process.cwd(), "public", "data", "all_predictions.json"), "utf8");
+    const preds = JSON.parse(allPredsRaw);
 
     type GeoFeature = {
       type: "Feature";
-      geometry:
-        | { type: "Polygon"; coordinates: [number, number][][] }
-        | { type: "Point"; coordinates: [number, number] };
-      properties: { subtype: string };
+      geometry: { type: "Polygon"; coordinates: [number, number][][] };
+      properties: { subtype: string; uid: string };
     };
     const features: GeoFeature[] = [];
 
-    for (const file of files) {
-      const imageId = file.replace(/\.json$/, "").trim();
-      const raw = await fs.readFile(path.join(resultsDir, file), "utf8");
-      const preds = JSON.parse(raw);
-      if (!Array.isArray(preds)) continue;
-
-      const corners = metaById[imageId];
-
-      for (const pred of preds) {
-        if (!pred.damage_label) continue;
-        const subtype =
-          SUBTYPE_MAP[pred.damage_label?.toLowerCase()] ?? "un-classified";
-
-        if (
-          corners &&
-          Array.isArray(pred.gt_full_image_pixel_polygon) &&
-          pred.gt_full_image_pixel_polygon.length >= 3
-        ) {
-          const ring: [number, number][] = pred.gt_full_image_pixel_polygon.map(
-            ([px, py]: [number, number]) => pixelToGeo(px, py, corners)
-          );
-          const first = ring[0];
-          const last = ring[ring.length - 1];
-          if (first[0] !== last[0] || first[1] !== last[1]) ring.push(first);
-
-          features.push({
-            type: "Feature",
-            geometry: { type: "Polygon", coordinates: [ring] },
-            properties: { subtype },
-          });
-        }
-      }
+    for (const pred of preds) {
+      if (!pred.damage_label) continue;
+      const subtype = SUBTYPE_MAP[pred.damage_label?.toLowerCase()] ?? "un-classified";
+      
+      features.push({
+        type: "Feature",
+        geometry: { type: "Polygon", coordinates: [] }, // empty geometry, will be joined with matthew-buildings
+        properties: { subtype, uid: pred.building_uid },
+      });
     }
 
     return NextResponse.json({ type: "FeatureCollection", features });
