@@ -42,7 +42,7 @@ export async function retrieve(
 function addressLookup(params: Record<string, string>, records: DamageRecord[]): RetrievalResult {
   const address = normalizeForMatch(params.address || "");
   const matched = records.filter(
-    (r) => r.address && normalizeForMatch(r.address) === address
+    (r) => r.address && normalizeForMatch(r.address).includes(address)
   );
   return {
     intent: "address_lookup",
@@ -54,7 +54,7 @@ function addressLookup(params: Record<string, string>, records: DamageRecord[]):
 function streetLookup(params: Record<string, string>, records: DamageRecord[]): RetrievalResult {
   const street = normalizeForMatch(params.street || "");
   const matched = records.filter(
-    (r) => r.street && normalizeForMatch(r.street) === street
+    (r) => r.street && normalizeForMatch(r.street).includes(street)
   );
   const byLabel: Record<string, number> = {};
   matched.forEach((r) => {
@@ -75,7 +75,7 @@ function streetLookup(params: Record<string, string>, records: DamageRecord[]): 
 function regionSummary(params: Record<string, string>, records: DamageRecord[]): RetrievalResult {
   const region = normalizeForMatch(params.region || "");
   const matched = records.filter(
-    (r) => r.region && normalizeForMatch(r.region) === region
+    (r) => r.region && normalizeForMatch(r.region).includes(region)
   );
   const byLabel: Record<string, number> = {};
   matched.forEach((r) => {
@@ -152,10 +152,21 @@ function topAffectedAreas(records: DamageRecord[]): RetrievalResult {
     .map(([name, v]) => ({ name, count: v.count, label: v.worst }))
     .sort((a, b) => b.count - a.count)
     .slice(0, 5);
+  const topStreetNames = new Set(topAreas.map((a) => a.name));
+  const samplePerArea = 20;
+  const buckets: Record<string, DamageRecord[]> = {};
+  for (const a of topAreas) buckets[a.name] = [];
+  for (const r of records) {
+    const street = (r.street || r.region || r.id).trim();
+    if (topStreetNames.has(street) && buckets[street].length < samplePerArea) {
+      buckets[street].push(r);
+    }
+  }
+  const sampledRecords = ([] as DamageRecord[]).concat(...Object.values(buckets));
   return {
     intent: "top_affected_areas",
     params: {},
-    records,
+    records: sampledRecords,
     summary: { total: records.length, topAreas },
   };
 }

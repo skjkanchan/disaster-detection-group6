@@ -338,10 +338,14 @@ export default function DamageMap({
         map.getCanvas().style.cursor = "";
       });
 
-      // Fly to centroid of results
-      const avgLat = command.records.reduce((s, r) => s + r.lat, 0) / command.records.length;
-      const avgLon = command.records.reduce((s, r) => s + r.lon, 0) / command.records.length;
-      map.flyTo({ center: [avgLon, avgLat], zoom: 17, duration: 1400, essential: true });
+      // Zoom to fit all returned records
+      if (command.records.length === 1) {
+        map.flyTo({ center: [command.records[0].lon, command.records[0].lat], zoom: 17, duration: 1400, essential: true });
+      } else {
+        const bounds = new mapboxgl.LngLatBounds();
+        command.records.forEach((r) => bounds.extend([r.lon, r.lat]));
+        map.fitBounds(bounds, { padding: 60, duration: 1400, maxZoom: 16 });
+      }
     };
 
     if (map.isStyleLoaded() && (map as any)._matthewLayerIds) {

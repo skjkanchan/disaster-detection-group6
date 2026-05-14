@@ -80,6 +80,7 @@ export async function POST(req: Request) {
   const PROPERTY_INTENTS = new Set([
     "address_lookup", "id_lookup", "street_lookup",
     "damage_filter", "confidence_filter", "nearby_lookup",
+    "top_affected_areas", "region_summary",
   ]);
 
   const noResults = result.records.length === 0;
@@ -89,7 +90,7 @@ export async function POST(req: Request) {
     (!isGeneralKnowledge && noResults && PROPERTY_INTENTS.has(result.intent));
 
   const includeRecords = PROPERTY_INTENTS.has(result.intent);
-  const cappedRecords = includeRecords ? result.records.slice(0, 20) : undefined;
+  const cappedRecords = includeRecords ? result.records.slice(0, 100) : undefined;
 
   if (useFallback) {
     const message = buildFallbackResponse(result.intent, result.params, result.records.length);

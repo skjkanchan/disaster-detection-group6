@@ -39,25 +39,32 @@ export function parseIntent(userInput: string): Intent {
     return { type: "address_lookup", params: { address: addressPhrase } };
   }
 
-  // Street lookup: "damage on Main St", "River Rd", "street Oak Ave", "Harbor Dr"
+  // Street lookup: "damage on Main St", "River Rd", "street Oak Ave", "Harbor Dr",
+  //                "damage on Route Nationale # 2", "buildings on Rue Émile Roumer"
   const streetMatch = lower.match(
     /(?:street|on|along)\s+(.+?)(?:\?|$)|(river\s+rd|main\s+st|oak\s+ave|harbor\s+dr|beach\s+st|coastal\s+hwy)/
-  );
+  ) || lower.match(/(?:rue|route|avenue|boulevard|blvd)\s+[^\?]+/i);
   const streetPhrase = streetMatch ? (streetMatch[1] || streetMatch[2] || streetMatch[0] || "").trim() : null;
   if (
     streetPhrase &&
-    (lower.includes("street") || lower.includes("road") || lower.includes(" ave") || lower.includes(" dr") || lower.includes(" st") || lower.includes(" hwy") || lower.includes("damage on") || lower.includes("along ") || /(river rd|main st|oak ave|harbor dr|beach st|coastal hwy)/.test(lower))
+    (lower.includes("street") || lower.includes("road") || lower.includes(" ave") || lower.includes(" dr") || lower.includes(" st") || lower.includes(" hwy") || lower.includes("damage on") || lower.includes("along ") || /(river rd|main st|oak ave|harbor dr|beach st|coastal hwy)/.test(lower) || /\b(rue|route|avenue|boulevard)\b/i.test(lower))
   ) {
     const canonical = streetPhrase.replace(/\s+/g, " ");
     return { type: "street_lookup", params: { street: canonical } };
   }
 
-  // Region summary: "region North", "South region", "summary for North", "damage in South"
-  const regionMatch = lower.match(/(?:region|in|for)\s+(north|south|east|west)/) || lower.match(/(north|south|east|west)(?:\s+region|\s+summary)?/);
-  const regionName = regionMatch ? (regionMatch[1] || "").trim() : null;
+  // Region summary: "region North", "South region", "summary for North", "damage in South",
+  //                 "summary for Département du Sud", "buildings in Grande-Anse"
+  const regionMatch =
+    lower.match(/(?:summary\s+for|damage\s+in|buildings\s+in)\s+([^\?]+)/i) ||
+    lower.match(/(?:region|in|for)\s+(north|south|east|west)/) ||
+    lower.match(/(north|south|east|west)(?:\s+region|\s+summary)?/);
+  const regionName = regionMatch ? (regionMatch[1] || regionMatch[0] || "").trim() : null;
   if (
     regionName &&
-    (lower.includes("region") || lower.includes("summary for") || lower.includes("damage in") || lower.includes("north") || lower.includes("south"))
+    (lower.includes("region") || lower.includes("summary for") || lower.includes("damage in") ||
+     lower.includes("buildings in") || lower.includes("north") || lower.includes("south") ||
+     /d[eé]partement/i.test(lower) || lower.includes("grande-anse") || lower.includes("grande anse"))
   ) {
     return { type: "region_summary", params: { region: regionName } };
   }
