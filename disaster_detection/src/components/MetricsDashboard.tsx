@@ -200,9 +200,14 @@ export default function MetricsDashboard() {
         });
 
         const total = tp + fp + tn + fn;
-        const accuracy = total > 0 ? ((tp + tn) / total) * 100 : 0;
+        const accuracy  = total > 0 ? ((tp + tn) / total) * 100 : 0;
+        const precision = (tp + fp) > 0 ? (tp / (tp + fp)) * 100 : 0;
+        const recall    = (tp + fn) > 0 ? (tp / (tp + fn)) * 100 : 0;
+        const f1        = (precision + recall) > 0
+          ? (2 * precision * recall) / (precision + recall)
+          : 0;
 
-        return { tp, fp, tn, fn, accuracy, total };
+        return { tp, fp, tn, fn, accuracy, precision, recall, f1, total };
     }, [activeBuildings, vlmPredictions]);
 
     if (loading) {
@@ -393,12 +398,22 @@ export default function MetricsDashboard() {
                         </div>
                     </div>
 
-                    {/* Accuracy Score */}
-                    <div className="flex-1 flex flex-col justify-center items-center p-6 bg-zinc-50 rounded-xl border border-zinc-200 w-full h-full min-h-[160px]">
-                        <div className="text-5xl font-black text-indigo-600 mb-2">{confusionMatrix.accuracy.toFixed(1)}%</div>
-                        <div className="text-sm text-zinc-800 font-bold tracking-wide uppercase">Overall Accuracy</div>
-                        <div className="text-xs text-zinc-500 mt-2 text-center max-w-xs">
-                            Based on {confusionMatrix.total.toLocaleString()} buildings analyzed in the current viewport.
+                    {/* Accuracy Metrics Grid */}
+                    <div className="flex-1 grid grid-cols-2 gap-3 w-full">
+                        {[
+                            { label: 'Accuracy', value: confusionMatrix.accuracy, color: 'text-indigo-600', bg: 'bg-indigo-50', border: 'border-indigo-200', desc: '(TP+TN) / Total' },
+                            { label: 'Precision', value: confusionMatrix.precision, color: 'text-violet-600', bg: 'bg-violet-50', border: 'border-violet-200', desc: 'TP / (TP+FP)' },
+                            { label: 'Recall', value: confusionMatrix.recall, color: 'text-amber-600', bg: 'bg-amber-50', border: 'border-amber-200', desc: 'TP / (TP+FN)' },
+                            { label: 'F1 Score', value: confusionMatrix.f1, color: 'text-emerald-600', bg: 'bg-emerald-50', border: 'border-emerald-200', desc: '2·P·R / (P+R)' },
+                        ].map(m => (
+                            <div key={m.label} className={`flex flex-col justify-center items-center p-4 ${m.bg} rounded-xl border ${m.border}`}>
+                                <div className={`text-3xl font-black ${m.color}`}>{m.value.toFixed(1)}%</div>
+                                <div className="text-xs font-bold text-zinc-700 mt-1 uppercase tracking-wide">{m.label}</div>
+                                <div className="text-[10px] text-zinc-400 mt-0.5">{m.desc}</div>
+                            </div>
+                        ))}
+                        <div className="col-span-2 text-center text-[11px] text-zinc-400 pt-1">
+                            Based on {confusionMatrix.total.toLocaleString()} buildings · Positive = Major/Destroyed
                         </div>
                     </div>
                 </div>
