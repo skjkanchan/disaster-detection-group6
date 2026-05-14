@@ -47,13 +47,18 @@ export default function DamageMap({
 
     map.on("load", async () => {
       try {
-        const res = await fetch("/api/matthew-metadata").catch(() => null);
+        // Kick off all three fetches in parallel so cold-start latency is not compounded
+        const [metaRes, buildingsRes, vlmRes] = await Promise.all([
+          fetch("/api/matthew-metadata").catch(() => null),
+          fetch("/api/matthew-buildings").catch(() => null),
+          fetch("/data/all_predictions.json").catch(() => null),
+        ]);
 
-        if (!res || !res.ok) {
+        if (!metaRes || !metaRes.ok) {
           console.error("Failed to load map boundaries metadata.");
           return;
         }
-        const metadataList = await res.json();
+        const metadataList = await metaRes.json();
 
         if (!Array.isArray(metadataList)) return;
 
@@ -119,94 +124,94 @@ export default function DamageMap({
         (map as any)._matthewLayerIds = metadataList.map((m: any) => m.id);
         map.fire("idle");
 
-        // Load building polygons and VLM predictions, then join them
-        Promise.all([
-          fetch("/api/matthew-buildings").then((r) => (r.ok ? r.json() : null)),
-          fetch("/data/all_predictions.json").then((r) => (r.ok ? r.json() : null))
-        ])
-          .then(([buildingsGeojson, vlmJson]) => {
-            if (!buildingsGeojson?.features || !map.getStyle()) return;
-            
-            const SUBTYPE_MAP: Record<string, string> = {
-              "no damage": "no-damage",
-              no_damage: "no-damage",
-              minor: "minor-damage",
-              major: "major-damage",
-              destroyed: "destroyed",
-            };
+        // Buildings and predictions were already fetched in parallel above
+        try {
+          const buildingsGeojson = buildingsRes?.ok ? await buildingsRes.json() : null;
+          const vlmJson = vlmRes?.ok ? await vlmRes.json() : null;
 
-            // Map VLM predictions by UID
-            const vlmMap = new Map();
-            if (Array.isArray(vlmJson)) {
-                vlmJson.forEach((pred: any) => {
-                    if (pred.building_uid && pred.damage_label) {
-                        const subtype = SUBTYPE_MAP[pred.damage_label.toLowerCase()] ?? "un-classified";
-                        vlmMap.set(pred.building_uid, subtype);
-                    }
-                });
+          if (!buildingsGeojson?.features || !map.getStyle()) return;
+
+          const SUBTYPE_MAP: Record<string, string> = {
+            "no damage": "no-damage",
+            no_damage: "no-damage",
+            minor: "minor-damage",
+            major: "major-damage",
+            destroyed: "destroyed",
+          };
+
+          // Map VLM predictions by UID
+          const vlmMap = new Map();
+          if (Array.isArray(vlmJson)) {
+            vlmJson.forEach((pred: any) => {
+              if (pred.building_uid && pred.damage_label) {
+                const subtype = SUBTYPE_MAP[pred.damage_label.toLowerCase()] ?? "un-classified";
+                vlmMap.set(pred.building_uid, subtype);
+              }
+            });
+          }
+
+          // Override Ground Truth subtype with VLM predicted subtype if available
+          const joinedFeatures = buildingsGeojson.features.map((feature: any) => {
+            const uid = feature.properties?.uid;
+            if (uid && vlmMap.has(uid)) {
+              return {
+                ...feature,
+                properties: {
+                  ...feature.properties,
+                  subtype: vlmMap.get(uid),
+                },
+              };
             }
+            return feature;
+          });
 
-            // Override Ground Truth subtype with VLM predicted subtype if available
-            const joinedFeatures = buildingsGeojson.features.map((feature: any) => {
-                const uid = feature.properties?.uid;
-                if (uid && vlmMap.has(uid)) {
-                    return {
-                        ...feature,
-                        properties: {
-                            ...feature.properties,
-                            subtype: vlmMap.get(uid)
-                        }
-                    };
-                }
-                return feature;
-            });
+          const finalGeojson = {
+            type: "FeatureCollection" as const,
+            features: joinedFeatures,
+          };
 
-            const finalGeojson = {
-                type: "FeatureCollection" as const,
-                features: joinedFeatures
-            };
-
-            map.addSource("matthew-buildings-source", {
-              type: "geojson",
-              data: finalGeojson as any,
-            });
-            map.addLayer({
-              id: "matthew-buildings-fill",
-              type: "fill",
-              source: "matthew-buildings-source",
-              paint: {
-                "fill-color": [
-                  "match", ["get", "subtype"],
-                  "no-damage", "#22c55e",
-                  "minor-damage", "#eab308",
-                  "major-damage", "#f97316",
-                  "destroyed", "#ef4444",
-                  "#a1a1aa",
-                ],
-                "fill-opacity": 0.5,
-              },
-              layout: { visibility: (map as any)._heatmapVisible ? "visible" : "none" },
-            });
-            map.addLayer({
-              id: "matthew-buildings-outline",
-              type: "line",
-              source: "matthew-buildings-source",
-              paint: {
-                "line-color": [
-                  "match", ["get", "subtype"],
-                  "no-damage", "#15803d",
-                  "minor-damage", "#a16207",
-                  "major-damage", "#c2410c",
-                  "destroyed", "#b91c1c",
-                  "#52525b",
-                ],
-                "line-width": 1.5,
-                "line-opacity": 0.9,
-              },
-              layout: { visibility: (map as any)._heatmapVisible ? "visible" : "none" },
-            });
-          })
-          .catch((err) => console.error("Failed to load building footprints", err));
+          map.addSource("matthew-buildings-source", {
+            type: "geojson",
+            data: finalGeojson as any,
+          });
+          map.addLayer({
+            id: "matthew-buildings-fill",
+            type: "fill",
+            source: "matthew-buildings-source",
+            paint: {
+              "fill-color": [
+                "match", ["get", "subtype"],
+                "no-damage", "#22c55e",
+                "minor-damage", "#eab308",
+                "major-damage", "#f97316",
+                "destroyed", "#ef4444",
+                "#a1a1aa",
+              ],
+              "fill-opacity": 0.5,
+            },
+            layout: { visibility: (map as any)._heatmapVisible !== false ? "visible" : "none" },
+          });
+          map.addLayer({
+            id: "matthew-buildings-outline",
+            type: "line",
+            source: "matthew-buildings-source",
+            paint: {
+              "line-color": [
+                "match", ["get", "subtype"],
+                "no-damage", "#15803d",
+                "minor-damage", "#a16207",
+                "major-damage", "#c2410c",
+                "destroyed", "#b91c1c",
+                "#52525b",
+              ],
+              "line-width": 1.5,
+              "line-opacity": 0.9,
+            },
+            layout: { visibility: (map as any)._heatmapVisible !== false ? "visible" : "none" },
+          });
+        } catch (err) {
+          console.error("Failed to load building footprints", err);
+        }
       } catch (err) {
         console.error("Failed to load metadata list", err);
       }
